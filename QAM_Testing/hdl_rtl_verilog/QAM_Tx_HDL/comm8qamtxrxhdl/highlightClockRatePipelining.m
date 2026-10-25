@@ -1,0 +1,18 @@
+open_system('comm8qamtxrxhdl');
+open_system('gm_comm8qamtxrxhdl');
+cs.HiliteType = 'user2';
+cs.ForegroundColor = 'black';
+cs.BackgroundColor = 'gray';
+set_param(0, 'HiliteAncestorsData', cs);
+hilite_system('gm_comm8qamtxrxhdl/QAM Tx HDL/Symbol Mapping/Rectangular QAM Modulator Baseband', 'user2');
+annotate_port('gm_comm8qamtxrxhdl/QAM Tx HDL/Symbol Mapping/Rectangular QAM Modulator Baseband', 1, 1, 'Unsupported block for clock-rate pipelining');
+hilite_system('comm8qamtxrxhdl/QAM Tx HDL/Symbol Mapping/Rectangular QAM Modulator Baseband', 'user2');
+annotate_port('comm8qamtxrxhdl/QAM Tx HDL/Symbol Mapping/Rectangular QAM Modulator Baseband', 1, 1, 'Unsupported block for clock-rate pipelining');
+cs.HiliteType = 'user2';
+cs.ForegroundColor = 'black';
+cs.BackgroundColor = 'gray';
+set_param(0, 'HiliteAncestorsData', cs);
+hilite_system('gm_comm8qamtxrxhdl/QAM Tx HDL/Symbol Mapping/Rectangular QAM Modulator Baseband', 'user2');
+annotate_port('gm_comm8qamtxrxhdl/QAM Tx HDL/Symbol Mapping/Rectangular QAM Modulator Baseband', 1, 1, 'Unsupported block for clock-rate pipelining');
+hilite_system('comm8qamtxrxhdl/QAM Tx HDL/Symbol Mapping/Rectangular QAM Modulator Baseband', 'user2');
+annotate_port('comm8qamtxrxhdl/QAM Tx HDL/Symbol Mapping/Rectangular QAM Modulator Baseband', 1, 1, 'Unsupported block for clock-rate pipelining');

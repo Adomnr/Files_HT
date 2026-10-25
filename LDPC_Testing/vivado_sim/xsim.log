@@ -1,0 +1,41 @@
+#-----------------------------------------------------------
+# xsim v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sun Oct 25 18:55:41 2026
+# Process ID: 4436
+# Current directory: D:/HoriTech_Files/LDPC_Testing/vivado_sim
+# Command line: xsim.exe -mode tcl -source {xsim.dir/sim_snapshot/xsim_script.tcl}
+# Log file: D:/HoriTech_Files/LDPC_Testing/vivado_sim/xsim.log
+# Journal file: D:/HoriTech_Files/LDPC_Testing/vivado_sim\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/sim_snapshot/xsim_script.tcl
+# xsim {sim_snapshot} -autoloadwcfg -runall
+Vivado Simulator 2019.1
+Time resolution is 1 ns
+run -all
+========================================================================
+ VIVADO 2019.1 RTL VERIFICATION: DVB-S2 LDPC Decoder HDL IP Core
+========================================================================
+[TB] Loaded 16200 6-bit LLR samples from input_llr_6bit_hex.mem
+[TB] Loaded 7200 golden reference bits from golden_output_bits.mem
+[TB] Starting LLR frame streaming (16200 samples)...
+[TB] Finished LLR input streaming at cycle 16210. Waiting for LDPC decoding...
+[TB] First valid output bit (startOut=1) at cycle 28701 | actIter=3 | parityCheck=1
+[TB] Last valid output bit (endOut=1) at cycle 35900
+========================================================================
+ VIVADO 2019.1 RTL VERIFICATION RESULTS
+========================================================================
+  Input Frame Cycles           : [11 .. 16210] (16200 cycles)
+  Output Frame Cycles          : [28701 .. 35900] (7200 cycles)
+  Measured RTL Core Latency    : 12491 clock cycles (endIn -> startOut)
+  Actual Iterations (actIter)  : 3 (Expected MATLAB = 3)
+  Parity Check (parityCheck)   : 1 (Expected MATLAB = 1)
+  Total Decoded Bits Captured  : 7200 (Expected MATLAB = 7200)
+  Bit Errors vs MATLAB Golden  : 0 / 7200 (BER = 0.000000)
+  OVERALL VERIFICATION STATUS  : PASS (100% Bit-True & Cycle-True Match)
+========================================================================
+$finish called at time : 359305 ns : File "d:/HoriTech_Files/LDPC_Testing/tb_DVBS2_LDPC_Decoder_DUT.sv" Line 196
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:11 . Memory (MB): peak = 221.633 ; gain = 0.000
+exit
+INFO: [Common 17-206] Exiting xsim at Sun Oct 25 18:55:59 2026...

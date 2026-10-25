@@ -1,0 +1,1 @@
+"tb_QAM_Rx_HDL" -s "tb_rx_sim" -debug "typical" 

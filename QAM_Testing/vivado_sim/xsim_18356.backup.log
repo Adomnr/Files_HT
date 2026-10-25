@@ -1,0 +1,346 @@
+#-----------------------------------------------------------
+# xsim v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Mon Oct 26 01:12:08 2026
+# Process ID: 18356
+# Current directory: D:/HoriTech_Files/QAM_Testing/vivado_sim
+# Command line: xsim.exe -mode tcl -source {xsim.dir/tb_rx_sim/xsim_script.tcl}
+# Log file: D:/HoriTech_Files/QAM_Testing/vivado_sim/xsim.log
+# Journal file: D:/HoriTech_Files/QAM_Testing/vivado_sim\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/tb_rx_sim/xsim_script.tcl
+# xsim {tb_rx_sim} -autoloadwcfg -runall
+Vivado Simulator 2019.1
+Time resolution is 1 ns
+run -all
+========================================================================
+ VIVADO 2019.1 RTL VERIFICATION: QAM_Rx_HDL (8-QAM Receiver)
+========================================================================
+[TB-RX] Loaded 80001 4-MSPS input samples and 40000 2-MSPS golden output samples.
+pello! ~8-QAM~ 041
+Hello! ~8-QAM~ 042
+Hello! ~8-QAM~ 043
+ello! ~8-QAM~ 045
+Hello! ~8-QAM~ 046
+Hello! ~8-QAM~ 047
+Hello! ~8-QAM~ 048
+Hello! ~8-QAM~ 049
+Hello! ~8-QAM~ 050
+Hello! ~8-QAM~ 051
+Hello! ~8-QAM~ 052
+Hello! ~8-QAM~ 053
+Hello! ~8-QAM~ 054
+Hello! ~8-QAM~ 055
+Hello! ~8-QAM~ 056
+Hello! ~8-QAM~ 057
+Hello! ~8-QAM~ 058
+Hello! ~8-QAM~ 059
+Hello! ~8-QAM~ 060
+Hello! ~8-QAM~ 061
+Hello! ~8-QAM~ 062
+Hello! ~8-QAM~ 063
+Hello! ~8-QAM~ 064
+Hello! ~8-QAM~ 065
+Hello! ~8-QAM~ 066
+Hello! ~8-QAM~ 067
+Hello! ~8-QAM~ 068
+Hello! ~8-QAM~ 069
+Hello! ~8-QAM~ 070
+Hello! ~8-QAM~ 071
+Hello! ~8-QAM~ 072
+Hello! ~8-QAM~ 073
+Hello! ~8-QAM~ 074
+Hello! ~8-QAM~ 075
+Hello! ~8-QAM~ 076
+Hello! ~8-QAM~ 077
+Hello! ~8-QAM~ 078
+Hello! ~8-QAM~ 079
+Hello! ~8-QAM~ 080
+Hello! ~8-QAM~ 081
+Hello! ~8-QAM~ 082
+Hello! ~8-QAM~ 083
+Hello! ~8-QAM~ 084
+Hello! ~8-QAM~ 085
+Hello! ~8-QAM~ 086
+Hello! ~8-QAM~ 087
+Hello! ~8-QAM~ 088
+Hello! ~8-QAM~ 089
+Hello! ~8-QAM~ 090
+Hello! ~8-QAM~ 091    ==>    BER = 0.000893
+Hello! ~8-QAM~ 092
+Hello! ~8-QAM~ 093
+Hello! ~8-QAM~ 094
+Hello! ~8-QAM~ 095
+Hello! ~8-QAM~ 096
+Hello! ~8-QAM~ 097
+Hello! ~8-QAM~ 098
+Hello! ~8-QAM~ 099
+Hello! ~8-QAM~ 000
+Hello! ~8-QAM~ 001
+Hello! ~8-QAM~ 002
+Hello! ~8-QAM~ 003
+Hello! ~8-QAM~ 004
+Hello! ~8-QAM~ 005
+Hello! ~8-QAM~ 006
+Hello! ~8-QAM~ 007
+Hello! ~8-QAM~ 008
+Hello! ~8-QAM~ 009
+Hello! ~8-QAM~ 010
+Hello! ~8-QAM~ 011
+Hello! ~8-QAM~ 012
+Hello! ~8-QAM~ 013
+Hello! ~8-QAM~ 014
+Hello! ~8-QAM~ 015
+Hello! ~8-QAM~ 016
+Hello! ~8-QAM~ 017
+Hello! ~8-QAM~ 018
+Hello! ~8-QAM~ 019
+Hello! ~8-QAM~ 020
+Hello! ~8-QAM~ 021
+Hello! ~8-QAM~ 022
+Hello! ~8-QAM~ 023
+Hello! ~8-QAM~ 024
+Hello! ~8-QAM~ 025
+Hello! ~8-QAM~ 026
+Hello! ~8-QAM~ 027
+Hello! ~8-QAM~ 028
+Hello! ~8-QAM~ 029
+Hello! ~8-QAM~ 030
+Hello! ~8-QAM~ 031
+Hello! ~8-QAM~ 032
+Hello! ~8-QAM~ 033
+Hello! ~8-QAM~ 034
+Hello! ~8-QAM~ 035
+Hello! ~8-QAM~ 036
+Hello! ~8-QAM~ 037
+Hello! ~8-QAM~ 038
+Hello! ~8-QAM~ 039
+Hello! ~8-QAM~ 040
+Hello! ~8-QAM~ 041    ==>    BER = 0.000000
+Hello! ~8-QAM~ 042
+Hello! ~8-QAM~ 043
+Hello! ~8-QAM~ 044
+Hello! ~8-QAM~ 045
+Hello! ~8-QAM~ 046
+Hello! ~8-QAM~ 047
+Hello! ~8-QAM~ 048
+Hello! ~8-QAM~ 049
+Hello! ~8-QAM~ 050
+Hello! ~8-QAM~ 051
+Hello! ~8-QAM~ 052
+Hello! ~8-QAM~ 053
+Hello! ~8-QAM~ 054
+Hello! ~8-QAM~ 055
+Hello! ~8-QAM~ 056
+Hello! ~8-QAM~ 057
+Hello! ~8-QAM~ 058
+Hello! ~8-QAM~ 059
+Hello! ~8-QAM~ 060
+Hello! ~8-QAM~ 061
+Hello! ~8-QAM~ 062
+Hello! ~8-QAM~ 063
+Hello! ~8-QAM~ 064
+Hello! ~8-QAM~ 065
+Hello! ~8-QAM~ 066
+Hello! ~8-QAM~ 067
+Hello! ~8-QAM~ 068
+Hello! ~8-QAM~ 069
+Hello! ~8-QAM~ 070
+Hello! ~8-QAM~ 071
+Hello! ~8-QAM~ 072
+Hello! ~8-QAM~ 073
+Hello! ~8-QAM~ 074
+Hello! ~8-QAM~ 075
+Hello! ~8-QAM~ 076
+Hello! ~8-QAM~ 077
+Hello! ~8-QAM~ 078
+Hello! ~8-QAM~ 079
+Hello! ~8-QAM~ 080
+Hello! ~8-QAM~ 081
+Hello! ~8-QAM~ 082
+Hello! ~8-QAM~ 083
+Hello! ~8-QAM~ 084
+Hello! ~8-QAM~ 085
+Hello! ~8-QAM~ 086
+Hello! ~8-QAM~ 087
+Hello! ~8-QAM~ 088
+Hello! ~8-QAM~ 089
+Hello! ~8-QAM~ 090
+Hello! ~8-QAM~ 091    ==>    BER = 0.000000
+Hello! ~8-QAM~ 092
+Hello! ~8-QAM~ 093
+Hello! ~8-QAM~ 094
+Hello! ~8-QAM~ 095
+Hello! ~8-QAM~ 096
+Hello! ~8-QAM~ 097
+Hello! ~8-QAM~ 098
+Hello! ~8-QAM~ 099
+Hello! ~8-QAM~ 000
+Hello! ~8-QAM~ 001
+Hello! ~8-QAM~ 002
+Hello! ~8-QAM~ 003
+Hello! ~8-QAM~ 004
+Hello! ~8-QAM~ 005
+Hello! ~8-QAM~ 006
+Hello! ~8-QAM~ 007
+Hello! ~8-QAM~ 008
+Hello! ~8-QAM~ 009
+Hello! ~8-QAM~ 010
+Hello! ~8-QAM~ 011
+Hello! ~8-QAM~ 012
+Hello! ~8-QAM~ 013
+Hello! ~8-QAM~ 014
+Hello! ~8-QAM~ 015
+Hello! ~8-QAM~ 016
+Hello! ~8-QAM~ 017
+Hello! ~8-QAM~ 018
+Hello! ~8-QAM~ 019
+Hello! ~8-QAM~ 020
+Hello! ~8-QAM~ 021
+Hello! ~8-QAM~ 022
+Hello! ~8-QAM~ 023
+Hello! ~8-QAM~ 024
+Hello! ~8-QAM~ 025
+Hello! ~8-QAM~ 026
+Hello! ~8-QAM~ 027
+Hello! ~8-QAM~ 028
+Hello! ~8-QAM~ 029
+Hello! ~8-QAM~ 030
+Hello! ~8-QAM~ 031
+Hello! ~8-QAM~ 032
+Hello! ~8-QAM~ 033
+Hello! ~8-QAM~ 034
+Hello! ~8-QAM~ 035
+Hello! ~8-QAM~ 036
+Hello! ~8-QAM~ 037
+Hello! ~8-QAM~ 038
+Hello! ~8-QAM~ 039
+Hello! ~8-QAM~ 040
+Hello! ~8-QAM~ 041    ==>    BER = 0.000000
+Hello! ~8-QAM~ 042
+Hello! ~8-QAM~ 043
+Hello! ~8-QAM~ 044
+Hello! ~8-QAM~ 045
+Hello! ~8-QAM~ 046
+Hello! ~8-QAM~ 047
+Hello! ~8-QAM~ 048
+Hello! ~8-QAM~ 049
+Hello! ~8-QAM~ 050
+Hello! ~8-QAM~ 051
+Hello! ~8-QAM~ 052
+Hello! ~8-QAM~ 053
+Hello! ~8-QAM~ 054
+Hello! ~8-QAM~ 055
+Hello! ~8-QAM~ 056
+Hello! ~8-QAM~ 057
+Hello! ~8-QAM~ 058
+Hello! ~8-QAM~ 059
+Hello! ~8-QAM~ 060
+Hello! ~8-QAM~ 061
+Hello! ~8-QAM~ 062
+Hello! ~8-QAM~ 063
+Hello! ~8-QAM~ 064
+Hello! ~8-QAM~ 065
+Hello! ~8-QAM~ 066
+Hello! ~8-QAM~ 067
+Hello! ~8-QAM~ 068
+Hello! ~8-QAM~ 069
+Hello! ~8-QAM~ 070
+Hello! ~8-QAM~ 071
+Hello! ~8-QAM~ 072
+Hello! ~8-QAM~ 073
+Hello! ~8-QAM~ 074
+Hello! ~8-QAM~ 075
+Hello! ~8-QAM~ 076
+Hello! ~8-QAM~ 077
+Hello! ~8-QAM~ 078
+Hello! ~8-QAM~ 079
+Hello! ~8-QAM~ 080
+Hello! ~8-QAM~ 081
+Hello! ~8-QAM~ 082
+Hello! ~8-QAM~ 083
+Hello! ~8-QAM~ 084
+Hello! ~8-QAM~ 085
+Hello! ~8-QAM~ 086
+Hello! ~8-QAM~ 087
+Hello! ~8-QAM~ 088
+Hello! ~8-QAM~ 089
+Hello! ~8-QAM~ 090
+Hello! ~8-QAM~ 091    ==>    BER = 0.000000
+Hello! ~8-QAM~ 092
+Hello! ~8-QAM~ 093
+Hello! ~8-QAM~ 094
+Hello! ~8-QAM~ 095
+Hello! ~8-QAM~ 096
+Hello! ~8-QAM~ 097
+Hello! ~8-QAM~ 098
+Hello! ~8-QAM~ 099
+Hello! ~8-QAM~ 000
+Hello! ~8-QAM~ 001
+Hello! ~8-QAM~ 002
+Hello! ~8-QAM~ 003
+Hello! ~8-QAM~ 004
+Hello! ~8-QAM~ 005
+Hello! ~8-QAM~ 006
+Hello! ~8-QAM~ 007
+Hello! ~8-QAM~ 008
+Hello! ~8-QAM~ 009
+Hello! ~8-QAM~ 010
+Hello! ~8-QAM~ 011
+Hello! ~8-QAM~ 012
+Hello! ~8-QAM~ 013
+Hello! ~8-QAM~ 014
+Hello! ~8-QAM~ 015
+Hello! ~8-QAM~ 016
+Hello! ~8-QAM~ 017
+Hello! ~8-QAM~ 018
+Hello! ~8-QAM~ 019
+Hello! ~8-QAM~ 020
+Hello! ~8-QAM~ 021
+Hello! ~8-QAM~ 022
+Hello! ~8-QAM~ 023
+Hello! ~8-QAM~ 024
+Hello! ~8-QAM~ 025
+Hello! ~8-QAM~ 026
+Hello! ~8-QAM~ 027
+Hello! ~8-QAM~ 028
+Hello! ~8-QAM~ 029
+Hello! ~8-QAM~ 030
+Hello! ~8-QAM~ 031
+Hello! ~8-QAM~ 032
+Hello! ~8-QAM~ 033
+Hello! ~8-QAM~ 034
+Hello! ~8-QAM~ 035
+Hello! ~8-QAM~ 036
+Hello! ~8-QAM~ 037
+Hello! ~8-QAM~ 038
+Hello! ~8-QAM~ 039
+Hello! ~8-QAM~ 040
+Hello! ~8-QAM~ 041    ==>    BER = 0.000000
+Hello! ~8-QAM~ 042
+Hello! ~8-QAM~ 043
+Hello! ~8-QAM~ 044
+Hello! ~8-QAM~ 045
+Hello! ~8-QAM~ 046
+Hello! ~8-QAM~ 047
+Hello! ~8-QAM~ 048
+Hello! ~8-QAM~ 049
+Hello! ~8-QAM~ 050
+Hello! ~8-QAM~ 051
+Hello! ~8-QAM~ 052
+Hello! ~8-QAM~ 053
+Hello! ~8-QAM~ 054
+Hello! ~8-QAM~ 055
+------------------------------------------------------------------------
+ [TB-RX] QAM_Rx_HDL Verification Summary:
+   Total 2-MSPS Output Cycles Checked : 40000
+   Exact Bit-True Matches vs Simulink : 40000
+   Mismatches vs Simulink             : 0
+   Total 8-QAM Packets Decoded in RTL : 314
+   STATUS                             : PASS (100% Bit-Exact RTL Match & BER=0)
+========================================================================
+$finish called at time : 800295 ns : File "D:/HoriTech_Files/QAM_Testing/tb_QAM_Rx_HDL.sv" Line 122
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:14 . Memory (MB): peak = 221.688 ; gain = 0.000
+exit
+INFO: [Common 17-206] Exiting xsim at Mon Oct 26 01:12:29 2026...

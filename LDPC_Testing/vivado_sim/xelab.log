@@ -1,0 +1,37 @@
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:\Xilinx\Vivado\2019.1\bin\unwrapped\win64.o\xelab.exe -debug typical xil_defaultlib.tb_DVBS2_LDPC_Decoder_DUT -s sim_snapshot 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ns
+Compiling module xil_defaultlib.Sample_Control_Bus_Creator
+Compiling module xil_defaultlib.CodeParameters
+Compiling module xil_defaultlib.SimpleDualPortRAM_generic(AddrWi...
+Compiling module xil_defaultlib.SimpleDualPortRAM_generic(AddrWi...
+Compiling module xil_defaultlib.SimpleDualPortRAM_generic(AddrWi...
+Compiling module xil_defaultlib.CheckNodeRAM
+Compiling module xil_defaultlib.BetaCalculationUnit
+Compiling module xil_defaultlib.BetaDecompress
+Compiling module xil_defaultlib.VariableNodeUnit
+Compiling module xil_defaultlib.CheckNodeUnit
+Compiling module xil_defaultlib.SimpleDualPortRAM_generic(AddrWi...
+Compiling module xil_defaultlib.BetaCalculationUnit_block
+Compiling module xil_defaultlib.BetaDecompress_block
+Compiling module xil_defaultlib.AposterioriUnit
+Compiling module xil_defaultlib.FunctionalUnit
+Compiling module xil_defaultlib.BarrelRotator
+Compiling module xil_defaultlib.CircularShifter
+Compiling module xil_defaultlib.SimpleDualPortRAM_singlebit(Addr...
+Compiling module xil_defaultlib.MetricCalculator
+Compiling module xil_defaultlib.CheckMatrixLUT
+Compiling module xil_defaultlib.SimpleDualPortRAM_generic(AddrWi...
+Compiling module xil_defaultlib.SimpleDualPortRAM_generic(AddrWi...
+Compiling module xil_defaultlib.IterationController
+Compiling module xil_defaultlib.DecoderCore
+Compiling module xil_defaultlib.DVB_S2_LDPC_Decoder
+Compiling module xil_defaultlib.DVBS2_LDPC_Decoder_DUT
+Compiling module xil_defaultlib.tb_DVBS2_LDPC_Decoder_DUT
+Built simulation snapshot sim_snapshot

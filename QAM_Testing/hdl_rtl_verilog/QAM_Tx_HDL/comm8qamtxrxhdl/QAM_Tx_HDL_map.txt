@@ -1,0 +1,10 @@
+QAM_Tx_HDL_tc --> QAM_Tx_HDL_tc
+comm8qamtxrxhdl/QAM Tx HDL/Data Generation & Packetization/Data Source/HDL Data Scrambler --> HDL_Data_Scrambler
+comm8qamtxrxhdl/QAM Tx HDL/Data Generation & Packetization/Data Source --> Data_Source
+comm8qamtxrxhdl/QAM Tx HDL/Data Generation & Packetization/Group Bits --> Group_Bits
+comm8qamtxrxhdl/QAM Tx HDL/Data Generation & Packetization/Controller FSM --> Controller_FSM
+comm8qamtxrxhdl/QAM Tx HDL/Data Generation & Packetization --> Data_Generation_Packetization
+comm8qamtxrxhdl/QAM Tx HDL/Pulse Shaping/RRC Interpolation Filter --> RRC_Interpolation_Filter
+comm8qamtxrxhdl/QAM Tx HDL/Pulse Shaping --> Pulse_Shaping
+comm8qamtxrxhdl/QAM Tx HDL/Symbol Mapping --> Symbol_Mapping
+comm8qamtxrxhdl/QAM Tx HDL --> QAM_Tx_HDL

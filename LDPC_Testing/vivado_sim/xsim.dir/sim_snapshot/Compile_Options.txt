@@ -1,0 +1,1 @@
+-debug "typical" "xil_defaultlib.tb_DVBS2_LDPC_Decoder_DUT" -s "sim_snapshot" 

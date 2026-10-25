@@ -1,0 +1,15 @@
+FECFrame          = Short
+CodeRate          = 1/2 (Effective 4/9)
+N_ldpc            = 16200
+K_ldpc            = 7200
+Algorithm         = Normalized min-sum (ScalingFactor = 0.75)
+Termination       = Early (MaxNumIterations = 8)
+Parallelism       = 45
+InputDataType     = sfix6_En2 (6-bit signed, 2 fractional bits)
+ChannelSNR_EsN0   = 2.00 dB
+RawCodewordErrors = 556 / 16200
+RawInfoBitErrors  = 246 / 7200
+ExpectedActIter   = 3
+ExpectedParCheck  = 1
+ExpectedCoreLat   = 12492
+ExpectedBitErrors = 0

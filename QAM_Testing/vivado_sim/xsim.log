@@ -1,0 +1,30 @@
+#-----------------------------------------------------------
+# xsim v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Mon Oct 26 01:21:23 2026
+# Process ID: 2204
+# Current directory: D:/HoriTech_Files/QAM_Testing/vivado_sim
+# Command line: xsim.exe -mode tcl -source {xsim.dir/tb_tx_sim/xsim_script.tcl}
+# Log file: D:/HoriTech_Files/QAM_Testing/vivado_sim/xsim.log
+# Journal file: D:/HoriTech_Files/QAM_Testing/vivado_sim\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/tb_tx_sim/xsim_script.tcl
+# xsim {tb_tx_sim} -autoloadwcfg -runall
+Vivado Simulator 2019.1
+Time resolution is 1 ns
+run -all
+========================================================================
+ VIVADO 2019.1 RTL VERIFICATION: QAM_Tx_HDL (8-QAM Transmitter)
+========================================================================
+[TB-TX] Loaded 4000 golden complex samples (sfix16_En15).
+------------------------------------------------------------------------
+ [TB-TX] QAM_Tx_HDL Verification Summary:
+   Total Output Samples Checked : 3998
+   Exact Bit-True Matches       : 3998
+   Mismatches                   : 0
+   STATUS                       : PASS (100% Bit-Exact Match)
+========================================================================
+$finish called at time : 120085 ns : File "D:/HoriTech_Files/QAM_Testing/tb_QAM_Tx_HDL.sv" Line 78
+exit
+INFO: [Common 17-206] Exiting xsim at Mon Oct 26 01:21:28 2026...

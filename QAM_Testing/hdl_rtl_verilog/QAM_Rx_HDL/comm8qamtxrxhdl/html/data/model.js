@@ -1,0 +1,1 @@
+var modelInfo = {model:"QAM Rx HDL"};var modelHierarchy=[{model:"QAM Rx HDL",relativePath:"_internal.html",parent:"null"},];var AddCode = true;

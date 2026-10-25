@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Mon Oct 26 01:21:26 2026
+# Process ID: 24148
+# Current directory: D:/HoriTech_Files/QAM_Testing/vivado_sim
+# Command line: wbtcv.exe -mode batch -source D:/HoriTech_Files/QAM_Testing/vivado_sim/xsim.dir/tb_tx_sim/webtalk/xsim_webtalk.tcl -notrace
+# Log file: D:/HoriTech_Files/QAM_Testing/vivado_sim/webtalk.log
+# Journal file: D:/HoriTech_Files/QAM_Testing/vivado_sim\webtalk.jou
+#-----------------------------------------------------------
+source D:/HoriTech_Files/QAM_Testing/vivado_sim/xsim.dir/tb_tx_sim/webtalk/xsim_webtalk.tcl -notrace

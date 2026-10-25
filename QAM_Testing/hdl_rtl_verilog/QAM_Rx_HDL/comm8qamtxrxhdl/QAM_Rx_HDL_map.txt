@@ -1,0 +1,36 @@
+QAM_Rx_HDL_tc --> QAM_Rx_HDL_tc
+comm8qamtxrxhdl/QAM Rx HDL/Automatic Gain Control/power --> power
+comm8qamtxrxhdl/QAM Rx HDL/Automatic Gain Control --> Automatic_Gain_Control
+comm8qamtxrxhdl/QAM Rx HDL/Coarse Frequency Offset Correction/Root Raised Cosine Receive Filter --> Root_Raised_Cosine_Receive_Filter
+comm8qamtxrxhdl/QAM Rx HDL/Coarse Frequency Offset Correction/Frequency Offset Estimation/Enabled Wire --> Enabled_Wire
+comm8qamtxrxhdl/QAM Rx HDL/Coarse Frequency Offset Correction/Frequency Offset Estimation/Raise to Power 4 --> Raise_to_Power_4
+comm8qamtxrxhdl/QAM Rx HDL/Coarse Frequency Offset Correction/Frequency Offset Estimation/HDL_CMA_core/Quadrant_Mapper --> Quadrant_Mapper
+comm8qamtxrxhdl/QAM Rx HDL/Coarse Frequency Offset Correction/Frequency Offset Estimation/Discrete FIR Filter --> Discrete_FIR_Filter
+comm8qamtxrxhdl/QAM Rx HDL/Coarse Frequency Offset Correction/Frequency Offset Estimation/HDL_CMA_core/CordicKernelMag --> CordicKernelMag
+comm8qamtxrxhdl/QAM Rx HDL/Coarse Frequency Offset Correction/Frequency Offset Estimation/Complex to Magnitude-Angle HDL Optimized --> CordicKernelMag_block
+comm8qamtxrxhdl/QAM Rx HDL/Coarse Frequency Offset Correction/Frequency Offset Estimation/Complex to Magnitude-Angle HDL Optimized --> CordicKernelMag_block1
+comm8qamtxrxhdl/QAM Rx HDL/Coarse Frequency Offset Correction/Frequency Offset Estimation/Complex to Magnitude-Angle HDL Optimized --> CordicKernelMag_block2
+comm8qamtxrxhdl/QAM Rx HDL/Coarse Frequency Offset Correction/Frequency Offset Estimation/HDL_CMA_core/Quadrant_Correction --> Quadrant_Correction
+comm8qamtxrxhdl/QAM Rx HDL/Coarse Frequency Offset Correction/Frequency Offset Estimation/Complex to Magnitude-Angle HDL Optimized --> CordicKernelMag_block3
+comm8qamtxrxhdl/QAM Rx HDL/Coarse Frequency Offset Correction/Frequency Offset Estimation --> Frequency_Offset_Estimation
+comm8qamtxrxhdl/QAM Rx HDL/Coarse Frequency Offset Correction/NCO/DitherGen --> DitherGen
+comm8qamtxrxhdl/QAM Rx HDL/Coarse Frequency Offset Correction/NCO/WaveformGen/SinLookUpTableGen --> SinLookUpTableGen
+comm8qamtxrxhdl/QAM Rx HDL/Coarse Frequency Offset Correction/NCO/WaveformGen/CosLookUpTableGen --> CosLookUpTableGen
+comm8qamtxrxhdl/QAM Rx HDL/Coarse Frequency Offset Correction/NCO/WaveformGen --> WaveformGen
+comm8qamtxrxhdl/QAM Rx HDL/Coarse Frequency Offset Correction/NCO --> NCO
+comm8qamtxrxhdl/QAM Rx HDL/Coarse Frequency Offset Correction --> Coarse_Frequency_Offset_Correction
+comm8qamtxrxhdl/QAM Rx HDL/Demodulate/Rectangular QAM Demodulator Baseband --> Rectangular_QAM_Demodulator_Baseband
+comm8qamtxrxhdl/QAM Rx HDL/Demodulate --> Demodulate
+comm8qamtxrxhdl/QAM Rx HDL/Magnitude & Phase Recovery/1-Tap DLMS --> alpha1_Tap_DLMS
+comm8qamtxrxhdl/QAM Rx HDL/Magnitude & Phase Recovery/Desired Signal Source --> Desired_Signal_Source
+comm8qamtxrxhdl/QAM Rx HDL/Magnitude & Phase Recovery/Modulus --> Modulus
+comm8qamtxrxhdl/QAM Rx HDL/Magnitude & Phase Recovery/Preamble Matched Filter/Discrete FIR Filter3 --> Discrete_FIR_Filter3
+comm8qamtxrxhdl/QAM Rx HDL/Magnitude & Phase Recovery/Preamble Matched Filter/Discrete FIR Filter4 --> Discrete_FIR_Filter4
+comm8qamtxrxhdl/QAM Rx HDL/Magnitude & Phase Recovery/Preamble Matched Filter --> Preamble_Matched_Filter
+comm8qamtxrxhdl/QAM Rx HDL/Magnitude & Phase Recovery/MATLAB Function3 --> MATLAB_Function3
+comm8qamtxrxhdl/QAM Rx HDL/Magnitude & Phase Recovery --> Magnitude_Phase_Recovery
+comm8qamtxrxhdl/QAM Rx HDL/Timing Recovery/Timing Error Detector --> Timing_Error_Detector
+comm8qamtxrxhdl/QAM Rx HDL/Timing Recovery/Interpolation Control --> Interpolation_Control
+comm8qamtxrxhdl/QAM Rx HDL/Timing Recovery/Interpolation Filter  --> Interpolation_Filter
+comm8qamtxrxhdl/QAM Rx HDL/Timing Recovery --> Timing_Recovery
+comm8qamtxrxhdl/QAM Rx HDL --> QAM_Rx_HDL

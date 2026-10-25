@@ -1,0 +1,29 @@
+=================================================================
+STEP 1: BUILDING SIMULINK MODEL (DVBS2_LDPC_Decoder_Model.slx)
+=================================================================
+Loaded existing Simulink model: d:\HoriTech_Files\LDPC_Testing\DVBS2_LDPC_Decoder_Model.slx
+
+=================================================================
+STEP 2: SIMULINK VERIFICATION - TEST CASE 1 (Short Frame, Rate 1/2, Early, Par 45)
+=================================================================
+Running Simulink simulation (Test Case 1)...
+
+=== VERIFICATION RESULTS (TEST CASE 1: Simulink Model - Short Frame, Rate 1/2, Early, Par 45) ===
+  Simulation Execution Time    : 37.54 seconds
+  Frame Type / Code Rate       : Short (N = 16200) / Rate 1/2 (K = 7200)
+  Channel SNR (Es/N0)          : 2.00 dB
+  Raw Channel Errors (Codeword): 556 / 16200 (BER = 0.0343)
+  Raw Channel Errors (InfoBits): 246 / 7200 (BER = 0.0342)
+  Decoded Output Length        : 7200 bits (Expected: 7200)
+  Input Frame Cycles           : [11 .. 16210] (16200 cycles)
+  Output Frame Cycles          : [28702 .. 35901] (7200 cycles)
+  nextFrame Deasserted Cycles  : [12 .. 35901] (35890 cycles)
+  Measured Core Latency        : 12492 clock cycles (endIn -> startOut)
+  Actual Iterations Used       : 3 (Max = 8, Ref float = 3)
+  Parity Check Port (start/end): 1 / 1
+  Simulink Post-LDPC Bit Errors: 0 / 7200 (BER = 0.000000)
+  Ref Float ldpcDecode Errors  : 0 / 7200 (BER = 0.000000)
+
+=================================================================
+Verification Completed Successfully!
+=================================================================

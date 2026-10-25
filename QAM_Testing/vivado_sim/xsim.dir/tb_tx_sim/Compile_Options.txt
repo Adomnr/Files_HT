@@ -1,0 +1,1 @@
+"tb_QAM_Tx_HDL" -s "tb_tx_sim" 

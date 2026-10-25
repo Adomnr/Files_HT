@@ -1,0 +1,18 @@
+SLStudio.Utils.RemoveHighlighting(get_param('comm8qamtxrxhdl', 'handle'));
+SLStudio.Utils.RemoveHighlighting(get_param('gm_comm8qamtxrxhdl', 'handle'));
+annotate_port('gm_comm8qamtxrxhdl/QAM Rx HDL/Demodulate/Rectangular QAM Demodulator Baseband', 0, 1, '');
+annotate_port('comm8qamtxrxhdl/QAM Rx HDL/Demodulate/Rectangular QAM Demodulator Baseband', 0, 1, '');
+annotate_port('gm_comm8qamtxrxhdl/QAM Rx HDL/Magnitude & Phase Recovery/MATLAB Function3', 1, 1, '');
+annotate_port('comm8qamtxrxhdl/QAM Rx HDL/Magnitude & Phase Recovery/MATLAB Function3', 1, 1, '');
+annotate_port('gm_comm8qamtxrxhdl/QAM Rx HDL/Magnitude & Phase Recovery/MATLAB Function3', 0, 1, '');
+annotate_port('comm8qamtxrxhdl/QAM Rx HDL/Magnitude & Phase Recovery/MATLAB Function3', 0, 1, '');
+annotate_port('gm_comm8qamtxrxhdl/QAM Rx HDL/Timing Recovery/Timing Error Detector', 1, 1, '');
+annotate_port('comm8qamtxrxhdl/QAM Rx HDL/Timing Recovery/Timing Error Detector', 1, 1, '');
+annotate_port('gm_comm8qamtxrxhdl/QAM Rx HDL/Timing Recovery/Timing Error Detector', 0, 1, '');
+annotate_port('comm8qamtxrxhdl/QAM Rx HDL/Timing Recovery/Timing Error Detector', 0, 1, '');
+annotate_port('gm_comm8qamtxrxhdl/QAM Rx HDL/Timing Recovery/Interpolation Control', 1, 1, '');
+annotate_port('comm8qamtxrxhdl/QAM Rx HDL/Timing Recovery/Interpolation Control', 1, 1, '');
+annotate_port('gm_comm8qamtxrxhdl/QAM Rx HDL/Timing Recovery/Interpolation Control', 0, 1, '');
+annotate_port('comm8qamtxrxhdl/QAM Rx HDL/Timing Recovery/Interpolation Control', 0, 1, '');
+annotate_port('gm_comm8qamtxrxhdl/QAM Rx HDL/Magnitude & Phase Recovery/MATLAB Function3/MATLAB Function3', 0, 1, '');
+annotate_port('comm8qamtxrxhdl/QAM Rx HDL/Magnitude & Phase Recovery/MATLAB Function3', 0, 1, '');

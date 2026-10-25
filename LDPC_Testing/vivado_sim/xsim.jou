@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# xsim v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sun Oct 25 18:55:41 2026
+# Process ID: 4436
+# Current directory: D:/HoriTech_Files/LDPC_Testing/vivado_sim
+# Command line: xsim.exe -mode tcl -source {xsim.dir/sim_snapshot/xsim_script.tcl}
+# Log file: D:/HoriTech_Files/LDPC_Testing/vivado_sim/xsim.log
+# Journal file: D:/HoriTech_Files/LDPC_Testing/vivado_sim\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/sim_snapshot/xsim_script.tcl
+run -all

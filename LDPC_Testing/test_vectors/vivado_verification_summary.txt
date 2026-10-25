@@ -1,0 +1,12 @@
+========================================================================
+ VIVADO 2019.1 RTL VERIFICATION SUMMARY: DVB-S2 LDPC Decoder IP
+========================================================================
+  Input Frame Cycles           : [11 .. 16210] (16200 cycles)
+  Output Frame Cycles          : [28701 .. 35900] (7200 cycles)
+  Measured RTL Core Latency    : 12491 clock cycles (endIn -> startOut)
+  Actual Iterations (actIter)  : 3 (Expected MATLAB = 3)
+  Parity Check (parityCheck)   : 1 (Expected MATLAB = 1)
+  Total Decoded Bits Captured  : 7200 (Expected MATLAB = 7200)
+  Bit Errors vs MATLAB Golden  : 0 / 7200 (BER = 0.000000)
+  OVERALL VERIFICATION STATUS  : PASS (100% Bit-True & Cycle-True Match)
+========================================================================

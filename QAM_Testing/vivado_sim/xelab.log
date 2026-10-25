@@ -1,0 +1,21 @@
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe tb_QAM_Tx_HDL -s tb_tx_sim 
+Multi-threading is on. Using 10 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ns
+Compiling module work.QAM_Tx_HDL_tc
+Compiling module work.Controller_FSM
+Compiling module work.HDL_Data_Scrambler
+Compiling module work.Data_Source
+Compiling module work.Group_Bits
+Compiling module work.Data_Generation_Packetization
+Compiling module work.Symbol_Mapping
+Compiling module work.RRC_Interpolation_Filter
+Compiling module work.Pulse_Shaping
+Compiling module work.QAM_Tx_HDL
+Compiling module work.tb_QAM_Tx_HDL
+Built simulation snapshot tb_tx_sim

@@ -1,0 +1,21 @@
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/Sample_Control_Bus_Creator --> Sample_Control_Bus_Creator
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/DVB-S2 LDPC Decoder/CodeParameters --> CodeParameters
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/DVB-S2 LDPC Decoder/DecoderCore/IterationController/CheckMatrixLUT --> CheckMatrixLUT
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/DVB-S2 LDPC Decoder/DecoderCore/IterationController/SimpleDualPortRAM_generic --> SimpleDualPortRAM_generic
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/DVB-S2 LDPC Decoder/DecoderCore/IterationController --> IterationController
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/DVB-S2 LDPC Decoder/DecoderCore/MetricCalculator/CircularShifter/BarrelRotator --> BarrelRotator
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/DVB-S2 LDPC Decoder/DecoderCore/MetricCalculator/CircularShifter --> CircularShifter
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/DVB-S2 LDPC Decoder/DecoderCore/MetricCalculator/FunctionalUnit/BetaDecompress/BetaCalculationUnit --> BetaCalculationUnit
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/DVB-S2 LDPC Decoder/DecoderCore/MetricCalculator/FunctionalUnit/BetaDecompress --> BetaDecompress
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/DVB-S2 LDPC Decoder/DecoderCore/MetricCalculator/FunctionalUnit/VariableNodeUnit --> VariableNodeUnit
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/DVB-S2 LDPC Decoder/DecoderCore/MetricCalculator/FunctionalUnit/CheckNodeUnit --> CheckNodeUnit
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/DVB-S2 LDPC Decoder/DecoderCore/MetricCalculator/FunctionalUnit/BetaDecompress/BetaCalculationUnit --> BetaCalculationUnit_block
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/DVB-S2 LDPC Decoder/DecoderCore/MetricCalculator/FunctionalUnit/BetaDecompress --> BetaDecompress_block
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/DVB-S2 LDPC Decoder/DecoderCore/MetricCalculator/FunctionalUnit/AposterioriUnit --> AposterioriUnit
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/DVB-S2 LDPC Decoder/DecoderCore/MetricCalculator/FunctionalUnit --> FunctionalUnit
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/DVB-S2 LDPC Decoder/DecoderCore/MetricCalculator/CheckNodeRAM --> CheckNodeRAM
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/DVB-S2 LDPC Decoder/DecoderCore/MetricCalculator/SimpleDualPortRAM_singlebit --> SimpleDualPortRAM_singlebit
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/DVB-S2 LDPC Decoder/DecoderCore/MetricCalculator --> MetricCalculator
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/DVB-S2 LDPC Decoder/DecoderCore --> DecoderCore
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT/DVB-S2 LDPC Decoder --> DVB_S2_LDPC_Decoder
+DVBS2_LDPC_Decoder_Model/DVBS2_LDPC_Decoder_DUT --> DVBS2_LDPC_Decoder_DUT

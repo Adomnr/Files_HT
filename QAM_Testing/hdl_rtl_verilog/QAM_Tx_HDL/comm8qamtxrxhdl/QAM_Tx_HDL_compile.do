@@ -1,0 +1,11 @@
+vlib work
+vlog  QAM_Tx_HDL_tc.v
+vlog  HDL_Data_Scrambler.v
+vlog  Data_Source.v
+vlog  Group_Bits.v
+vlog  Controller_FSM.v
+vlog  Data_Generation_Packetization.v
+vlog  RRC_Interpolation_Filter.v
+vlog  Pulse_Shaping.v
+vlog  Symbol_Mapping.v
+vlog  QAM_Tx_HDL.v
