@@ -1,0 +1,2574 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0xEA54CD4321D95678",
+      "device": "xc7k410tlfbg900-2L",
+      "name": "FM_Demod",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2019.1",
+      "validated": "true"
+    },
+    "design_tree": {
+      "fm_demod": {
+        "rst_inv": "",
+        "iq_i": "",
+        "iq_i_sign": "",
+        "iq_q": "",
+        "iq_q_sign": "",
+        "iq_pad": "",
+        "iq_pack": "",
+        "cordic_rx": "",
+        "mag_sel": "",
+        "phase_sel": "",
+        "phase_z1": "",
+        "mag_reg": "",
+        "phase_diff": "",
+        "disc_vld": "",
+        "disc_sat": "",
+        "squelch": "",
+        "sq_th_open": "",
+        "sq_th_close": "",
+        "de_sub": "",
+        "de_mul": "",
+        "de_acc": "",
+        "de_fb": "",
+        "de_out": "",
+        "de_ce": "",
+        "de_vld": "",
+        "bq_zero": "",
+        "bq_guard": "",
+        "bq0": "",
+        "bq1": "",
+        "bq2": "",
+        "bq3": "",
+        "out_round": ""
+      },
+      "fm_mod": {
+        "rst_inv": "",
+        "bq_zero": "",
+        "bq_guard": "",
+        "bq0": "",
+        "bq1": "",
+        "bq2": "",
+        "bq3": "",
+        "bq_round": "",
+        "pre_emph": "",
+        "pre_sel": "",
+        "dev_limit": "",
+        "phase_acc": "",
+        "phase_vld": "",
+        "phase_sign": "",
+        "phase_lsb": "",
+        "phase_pack": "",
+        "cordic_tx": ""
+      }
+    },
+    "ports": {
+      "aclk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "ASSOCIATED_RESET": {
+            "value": "aresetn"
+          },
+          "CLK_DOMAIN": {
+            "value": "FM_Demod_aclk",
+            "value_src": "default"
+          },
+          "FREQ_HZ": {
+            "value": "100000000"
+          },
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "PHASE": {
+            "value": "0.000",
+            "value_src": "default"
+          }
+        }
+      },
+      "aresetn": {
+        "type": "rst",
+        "direction": "I",
+        "parameters": {
+          "INSERT_VIP": {
+            "value": "0",
+            "value_src": "default"
+          },
+          "POLARITY": {
+            "value": "ACTIVE_LOW"
+          }
+        }
+      },
+      "rx_iq_tdata": {
+        "direction": "I",
+        "left": "63",
+        "right": "0"
+      },
+      "rx_iq_tvalid": {
+        "direction": "I"
+      },
+      "rx_audio_tdata": {
+        "direction": "O",
+        "left": "15",
+        "right": "0"
+      },
+      "rx_audio_tvalid": {
+        "direction": "O"
+      },
+      "rx_squelch_open": {
+        "direction": "O"
+      },
+      "tx_audio_tdata": {
+        "direction": "I",
+        "left": "15",
+        "right": "0"
+      },
+      "tx_audio_tvalid": {
+        "direction": "I"
+      },
+      "tx_iq_tdata": {
+        "direction": "O",
+        "left": "63",
+        "right": "0"
+      },
+      "tx_iq_tvalid": {
+        "direction": "O"
+      }
+    },
+    "components": {
+      "fm_demod": {
+        "ports": {
+          "aclk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "aresetn": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "s_axis_iq_tdata": {
+            "direction": "I",
+            "left": "63",
+            "right": "0"
+          },
+          "s_axis_iq_tvalid": {
+            "direction": "I"
+          },
+          "m_axis_audio_tdata": {
+            "direction": "O",
+            "left": "15",
+            "right": "0"
+          },
+          "m_axis_audio_tvalid": {
+            "direction": "O"
+          },
+          "squelch_open": {
+            "direction": "O"
+          }
+        },
+        "components": {
+          "rst_inv": {
+            "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+            "xci_name": "FM_Demod_rst_inv_6",
+            "parameters": {
+              "C_OPERATION": {
+                "value": "not"
+              },
+              "C_SIZE": {
+                "value": "1"
+              }
+            }
+          },
+          "iq_i": {
+            "vlnv": "xilinx.com:ip:xlslice:1.0",
+            "xci_name": "FM_Demod_iq_i_3",
+            "parameters": {
+              "DIN_FROM": {
+                "value": "31"
+              },
+              "DIN_TO": {
+                "value": "0"
+              },
+              "DIN_WIDTH": {
+                "value": "64"
+              },
+              "DOUT_WIDTH": {
+                "value": "32"
+              }
+            }
+          },
+          "iq_i_sign": {
+            "vlnv": "xilinx.com:ip:xlslice:1.0",
+            "xci_name": "FM_Demod_iq_i_sign_3",
+            "parameters": {
+              "DIN_FROM": {
+                "value": "31"
+              },
+              "DIN_TO": {
+                "value": "31"
+              },
+              "DIN_WIDTH": {
+                "value": "64"
+              },
+              "DOUT_WIDTH": {
+                "value": "1"
+              }
+            }
+          },
+          "iq_q": {
+            "vlnv": "xilinx.com:ip:xlslice:1.0",
+            "xci_name": "FM_Demod_iq_q_3",
+            "parameters": {
+              "DIN_FROM": {
+                "value": "63"
+              },
+              "DIN_TO": {
+                "value": "32"
+              },
+              "DIN_WIDTH": {
+                "value": "64"
+              },
+              "DOUT_WIDTH": {
+                "value": "32"
+              }
+            }
+          },
+          "iq_q_sign": {
+            "vlnv": "xilinx.com:ip:xlslice:1.0",
+            "xci_name": "FM_Demod_iq_q_sign_3",
+            "parameters": {
+              "DIN_FROM": {
+                "value": "63"
+              },
+              "DIN_TO": {
+                "value": "63"
+              },
+              "DIN_WIDTH": {
+                "value": "64"
+              },
+              "DOUT_WIDTH": {
+                "value": "1"
+              }
+            }
+          },
+          "iq_pad": {
+            "vlnv": "xilinx.com:ip:xlconstant:1.1",
+            "xci_name": "FM_Demod_iq_pad_3",
+            "parameters": {
+              "CONST_VAL": {
+                "value": "0"
+              },
+              "CONST_WIDTH": {
+                "value": "6"
+              }
+            }
+          },
+          "iq_pack": {
+            "vlnv": "xilinx.com:ip:xlconcat:2.1",
+            "xci_name": "FM_Demod_iq_pack_3",
+            "parameters": {
+              "IN0_WIDTH": {
+                "value": "32"
+              },
+              "IN1_WIDTH": {
+                "value": "1"
+              },
+              "IN2_WIDTH": {
+                "value": "1"
+              },
+              "IN3_WIDTH": {
+                "value": "6"
+              },
+              "IN4_WIDTH": {
+                "value": "32"
+              },
+              "IN5_WIDTH": {
+                "value": "1"
+              },
+              "IN6_WIDTH": {
+                "value": "1"
+              },
+              "IN7_WIDTH": {
+                "value": "6"
+              },
+              "NUM_PORTS": {
+                "value": "8"
+              }
+            }
+          },
+          "cordic_rx": {
+            "vlnv": "xilinx.com:ip:cordic:6.0",
+            "xci_name": "FM_Demod_cordic_rx_3",
+            "parameters": {
+              "ARESETN": {
+                "value": "true"
+              },
+              "Architectural_Configuration": {
+                "value": "Word_Serial"
+              },
+              "Coarse_Rotation": {
+                "value": "true"
+              },
+              "Compensation_Scaling": {
+                "value": "No_Scale_Compensation"
+              },
+              "Data_Format": {
+                "value": "SignedFraction"
+              },
+              "Functional_Selection": {
+                "value": "Translate"
+              },
+              "Input_Width": {
+                "value": "34"
+              },
+              "Iterations": {
+                "value": "0"
+              },
+              "Output_Width": {
+                "value": "38"
+              },
+              "Phase_Format": {
+                "value": "Scaled_Radians"
+              },
+              "Pipelining_Mode": {
+                "value": "Maximum"
+              },
+              "Precision": {
+                "value": "0"
+              },
+              "Round_Mode": {
+                "value": "Truncate"
+              },
+              "flow_control": {
+                "value": "NonBlocking"
+              }
+            }
+          },
+          "mag_sel": {
+            "vlnv": "xilinx.com:ip:xlslice:1.0",
+            "xci_name": "FM_Demod_mag_sel_3",
+            "parameters": {
+              "DIN_FROM": {
+                "value": "37"
+              },
+              "DIN_TO": {
+                "value": "4"
+              },
+              "DIN_WIDTH": {
+                "value": "80"
+              },
+              "DOUT_WIDTH": {
+                "value": "34"
+              }
+            }
+          },
+          "phase_sel": {
+            "vlnv": "xilinx.com:ip:xlslice:1.0",
+            "xci_name": "FM_Demod_phase_sel_3",
+            "parameters": {
+              "DIN_FROM": {
+                "value": "75"
+              },
+              "DIN_TO": {
+                "value": "56"
+              },
+              "DIN_WIDTH": {
+                "value": "80"
+              },
+              "DOUT_WIDTH": {
+                "value": "20"
+              }
+            }
+          },
+          "phase_z1": {
+            "vlnv": "xilinx.com:ip:c_shift_ram:12.0",
+            "xci_name": "FM_Demod_phase_z1_3",
+            "parameters": {
+              "CE": {
+                "value": "true"
+              },
+              "Depth": {
+                "value": "1"
+              },
+              "Width": {
+                "value": "20"
+              }
+            }
+          },
+          "mag_reg": {
+            "vlnv": "xilinx.com:ip:c_shift_ram:12.0",
+            "xci_name": "FM_Demod_mag_reg_3",
+            "parameters": {
+              "CE": {
+                "value": "true"
+              },
+              "Depth": {
+                "value": "1"
+              },
+              "Width": {
+                "value": "34"
+              }
+            }
+          },
+          "phase_diff": {
+            "vlnv": "xilinx.com:ip:c_addsub:12.0",
+            "xci_name": "FM_Demod_phase_diff_3",
+            "parameters": {
+              "A_Width": {
+                "value": "20"
+              },
+              "Add_Mode": {
+                "value": "Subtract"
+              },
+              "B_Width": {
+                "value": "20"
+              },
+              "CE": {
+                "value": "true"
+              },
+              "Latency": {
+                "value": "1"
+              },
+              "Out_Width": {
+                "value": "20"
+              }
+            }
+          },
+          "disc_vld": {
+            "vlnv": "xilinx.com:ip:c_shift_ram:12.0",
+            "xci_name": "FM_Demod_disc_vld_3",
+            "parameters": {
+              "CE": {
+                "value": "false"
+              },
+              "Depth": {
+                "value": "1"
+              },
+              "Width": {
+                "value": "1"
+              }
+            }
+          },
+          "disc_sat": {
+            "vlnv": "xilinx.com:module_ref:round_sat:1.0",
+            "xci_name": "FM_Demod_disc_sat_3",
+            "parameters": {
+              "IN_W": {
+                "value": "20"
+              },
+              "LIMIT": {
+                "value": "0"
+              },
+              "OUT_W": {
+                "value": "16"
+              },
+              "ROUND": {
+                "value": "0"
+              },
+              "SHIFT": {
+                "value": "2"
+              }
+            },
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "round_sat",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "aclk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "aresetn",
+                    "value_src": "constant"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "FM_Demod_aclk",
+                    "value_src": "default_prop"
+                  },
+                  "FREQ_HZ": {
+                    "value": "100000000",
+                    "value_src": "user_prop"
+                  }
+                }
+              },
+              "aresetn": {
+                "type": "rst",
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_LOW",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "in_valid": {
+                "direction": "I",
+                "parameters": {
+                  "LAYERED_METADATA": {
+                    "value": "xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency data_bitwidth format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} DATA_WIDTH 1}",
+                    "value_src": "ip_prop"
+                  }
+                }
+              },
+              "in_data": {
+                "direction": "I",
+                "left": "19",
+                "right": "0",
+                "parameters": {
+                  "LAYERED_METADATA": {
+                    "value": "xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency bitwidth format long minimum {} maximum {}} value 20} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type generated dependency signed format bool minimum {} maximum {}} value TRUE}}}} DATA_WIDTH 20}",
+                    "value_src": "ip_prop"
+                  }
+                }
+              },
+              "out_valid": {
+                "direction": "O"
+              },
+              "out_data": {
+                "direction": "O",
+                "left": "15",
+                "right": "0"
+              }
+            }
+          },
+          "squelch": {
+            "vlnv": "xilinx.com:module_ref:fm_squelch:1.0",
+            "xci_name": "FM_Demod_squelch_3",
+            "parameters": {
+              "AUDIO_W": {
+                "value": "16"
+              },
+              "AVG_LOG2": {
+                "value": "8"
+              },
+              "MAG_W": {
+                "value": "34"
+              }
+            },
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "fm_squelch",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "aclk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "aresetn",
+                    "value_src": "constant"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "FM_Demod_aclk",
+                    "value_src": "default_prop"
+                  },
+                  "FREQ_HZ": {
+                    "value": "100000000",
+                    "value_src": "user_prop"
+                  }
+                }
+              },
+              "aresetn": {
+                "type": "rst",
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_LOW",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "in_valid": {
+                "direction": "I"
+              },
+              "mag": {
+                "direction": "I",
+                "left": "33",
+                "right": "0",
+                "parameters": {
+                  "LAYERED_METADATA": {
+                    "value": "xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency data_bitwidth format long minimum {} maximum {}} value 34} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} DATA_WIDTH 34}",
+                    "value_src": "ip_prop"
+                  }
+                }
+              },
+              "disc": {
+                "direction": "I",
+                "left": "15",
+                "right": "0"
+              },
+              "th_open": {
+                "direction": "I",
+                "left": "33",
+                "right": "0"
+              },
+              "th_close": {
+                "direction": "I",
+                "left": "33",
+                "right": "0"
+              },
+              "out_valid": {
+                "direction": "O"
+              },
+              "audio": {
+                "direction": "O",
+                "left": "15",
+                "right": "0"
+              },
+              "gate": {
+                "direction": "O"
+              },
+              "level": {
+                "direction": "O",
+                "left": "33",
+                "right": "0"
+              }
+            }
+          },
+          "sq_th_open": {
+            "vlnv": "xilinx.com:ip:xlconstant:1.1",
+            "xci_name": "FM_Demod_sq_th_open_3",
+            "parameters": {
+              "CONST_VAL": {
+                "value": "312575733"
+              },
+              "CONST_WIDTH": {
+                "value": "34"
+              }
+            }
+          },
+          "sq_th_close": {
+            "vlnv": "xilinx.com:ip:xlconstant:1.1",
+            "xci_name": "FM_Demod_sq_th_close_3",
+            "parameters": {
+              "CONST_VAL": {
+                "value": "156287866"
+              },
+              "CONST_WIDTH": {
+                "value": "34"
+              }
+            }
+          },
+          "de_sub": {
+            "vlnv": "xilinx.com:ip:c_addsub:12.0",
+            "xci_name": "FM_Demod_de_sub_3",
+            "parameters": {
+              "A_Width": {
+                "value": "16"
+              },
+              "Add_Mode": {
+                "value": "Subtract"
+              },
+              "B_Width": {
+                "value": "16"
+              },
+              "CE": {
+                "value": "false"
+              },
+              "Latency": {
+                "value": "1"
+              },
+              "Out_Width": {
+                "value": "17"
+              }
+            }
+          },
+          "de_mul": {
+            "vlnv": "xilinx.com:ip:mult_gen:12.0",
+            "xci_name": "FM_Demod_de_mul_3",
+            "parameters": {
+              "ConstValue": {
+                "value": "1795"
+              },
+              "MultType": {
+                "value": "Constant_Coefficient_Multiplier"
+              },
+              "PipeStages": {
+                "value": "1"
+              },
+              "PortAType": {
+                "value": "Signed"
+              },
+              "PortAWidth": {
+                "value": "17"
+              }
+            }
+          },
+          "de_acc": {
+            "vlnv": "xilinx.com:ip:c_accum:12.0",
+            "xci_name": "FM_Demod_de_acc_3",
+            "parameters": {
+              "Accum_Mode": {
+                "value": "Add"
+              },
+              "Bypass": {
+                "value": "false"
+              },
+              "CE": {
+                "value": "true"
+              },
+              "Input_Type": {
+                "value": "Signed"
+              },
+              "Input_Width": {
+                "value": "28"
+              },
+              "Latency": {
+                "value": "1"
+              },
+              "Output_Width": {
+                "value": "32"
+              },
+              "SCLR": {
+                "value": "true"
+              }
+            }
+          },
+          "de_fb": {
+            "vlnv": "xilinx.com:ip:xlslice:1.0",
+            "xci_name": "FM_Demod_de_fb_3",
+            "parameters": {
+              "DIN_FROM": {
+                "value": "31"
+              },
+              "DIN_TO": {
+                "value": "16"
+              },
+              "DIN_WIDTH": {
+                "value": "32"
+              },
+              "DOUT_WIDTH": {
+                "value": "16"
+              }
+            }
+          },
+          "de_out": {
+            "vlnv": "xilinx.com:ip:xlslice:1.0",
+            "xci_name": "FM_Demod_de_out_3",
+            "parameters": {
+              "DIN_FROM": {
+                "value": "31"
+              },
+              "DIN_TO": {
+                "value": "14"
+              },
+              "DIN_WIDTH": {
+                "value": "32"
+              },
+              "DOUT_WIDTH": {
+                "value": "18"
+              }
+            }
+          },
+          "de_ce": {
+            "vlnv": "xilinx.com:ip:c_shift_ram:12.0",
+            "xci_name": "FM_Demod_de_ce_3",
+            "parameters": {
+              "CE": {
+                "value": "false"
+              },
+              "Depth": {
+                "value": "4"
+              },
+              "Width": {
+                "value": "1"
+              }
+            }
+          },
+          "de_vld": {
+            "vlnv": "xilinx.com:ip:c_shift_ram:12.0",
+            "xci_name": "FM_Demod_de_vld_3",
+            "parameters": {
+              "CE": {
+                "value": "false"
+              },
+              "Depth": {
+                "value": "1"
+              },
+              "Width": {
+                "value": "1"
+              }
+            }
+          },
+          "bq_zero": {
+            "vlnv": "xilinx.com:ip:xlconstant:1.1",
+            "xci_name": "FM_Demod_bq_zero_6",
+            "parameters": {
+              "CONST_VAL": {
+                "value": "0"
+              },
+              "CONST_WIDTH": {
+                "value": "8"
+              }
+            }
+          },
+          "bq_guard": {
+            "vlnv": "xilinx.com:ip:xlconcat:2.1",
+            "xci_name": "FM_Demod_bq_guard_6",
+            "parameters": {
+              "IN0_WIDTH": {
+                "value": "8"
+              },
+              "IN1_WIDTH": {
+                "value": "18"
+              },
+              "NUM_PORTS": {
+                "value": "2"
+              }
+            }
+          },
+          "bq0": {
+            "vlnv": "xilinx.com:module_ref:iir_biquad:1.0",
+            "xci_name": "FM_Demod_bq0_6",
+            "parameters": {
+              "A1": {
+                "value": "-126387"
+              },
+              "A2": {
+                "value": "60948"
+              },
+              "B0": {
+                "value": "63218"
+              },
+              "B1": {
+                "value": "-126436"
+              },
+              "B2": {
+                "value": "63218"
+              },
+              "COEF_W": {
+                "value": "18"
+              },
+              "DATA_W": {
+                "value": "26"
+              },
+              "FRAC": {
+                "value": "16"
+              }
+            },
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "iir_biquad",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "aclk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "aresetn",
+                    "value_src": "constant"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "FM_Demod_aclk",
+                    "value_src": "default_prop"
+                  },
+                  "FREQ_HZ": {
+                    "value": "100000000",
+                    "value_src": "user_prop"
+                  }
+                }
+              },
+              "aresetn": {
+                "type": "rst",
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_LOW",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "in_valid": {
+                "direction": "I",
+                "parameters": {
+                  "LAYERED_METADATA": {
+                    "value": "xilinx.com:interface:datatypes:1.0 {DATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data} bitwidth {attribs {resolve_type generated dependency data_bitwidth format long minimum {} maximum {}} value 1} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} DATA_WIDTH 1}",
+                    "value_src": "ip_prop"
+                  }
+                }
+              },
+              "in_data": {
+                "direction": "I",
+                "left": "25",
+                "right": "0",
+                "parameters": {
+                  "PortWidth": {
+                    "value": "26",
+                    "value_src": "ip_prop"
+                  }
+                }
+              },
+              "out_valid": {
+                "direction": "O"
+              },
+              "out_data": {
+                "direction": "O",
+                "left": "25",
+                "right": "0"
+              }
+            }
+          },
+          "bq1": {
+            "vlnv": "xilinx.com:module_ref:iir_biquad:1.0",
+            "xci_name": "FM_Demod_bq1_6",
+            "parameters": {
+              "A1": {
+                "value": "-129032"
+              },
+              "A2": {
+                "value": "63596"
+              },
+              "B0": {
+                "value": "64541"
+              },
+              "B1": {
+                "value": "-129082"
+              },
+              "B2": {
+                "value": "64541"
+              },
+              "COEF_W": {
+                "value": "18"
+              },
+              "DATA_W": {
+                "value": "26"
+              },
+              "FRAC": {
+                "value": "16"
+              }
+            },
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "iir_biquad",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "aclk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "aresetn",
+                    "value_src": "constant"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "FM_Demod_aclk",
+                    "value_src": "default_prop"
+                  },
+                  "FREQ_HZ": {
+                    "value": "100000000",
+                    "value_src": "user_prop"
+                  }
+                }
+              },
+              "aresetn": {
+                "type": "rst",
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_LOW",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "in_valid": {
+                "direction": "I"
+              },
+              "in_data": {
+                "direction": "I",
+                "left": "25",
+                "right": "0"
+              },
+              "out_valid": {
+                "direction": "O"
+              },
+              "out_data": {
+                "direction": "O",
+                "left": "25",
+                "right": "0"
+              }
+            }
+          },
+          "bq2": {
+            "vlnv": "xilinx.com:module_ref:iir_biquad:1.0",
+            "xci_name": "FM_Demod_bq2_6",
+            "parameters": {
+              "A1": {
+                "value": "-89464"
+              },
+              "A2": {
+                "value": "31299"
+              },
+              "B0": {
+                "value": "1843"
+              },
+              "B1": {
+                "value": "3686"
+              },
+              "B2": {
+                "value": "1843"
+              },
+              "COEF_W": {
+                "value": "18"
+              },
+              "DATA_W": {
+                "value": "26"
+              },
+              "FRAC": {
+                "value": "16"
+              }
+            },
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "iir_biquad",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "aclk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "aresetn",
+                    "value_src": "constant"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "FM_Demod_aclk",
+                    "value_src": "default_prop"
+                  },
+                  "FREQ_HZ": {
+                    "value": "100000000",
+                    "value_src": "user_prop"
+                  }
+                }
+              },
+              "aresetn": {
+                "type": "rst",
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_LOW",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "in_valid": {
+                "direction": "I"
+              },
+              "in_data": {
+                "direction": "I",
+                "left": "25",
+                "right": "0"
+              },
+              "out_valid": {
+                "direction": "O"
+              },
+              "out_data": {
+                "direction": "O",
+                "left": "25",
+                "right": "0"
+              }
+            }
+          },
+          "bq3": {
+            "vlnv": "xilinx.com:module_ref:iir_biquad:1.0",
+            "xci_name": "FM_Demod_bq3_6",
+            "parameters": {
+              "A1": {
+                "value": "-105626"
+              },
+              "A2": {
+                "value": "48793"
+              },
+              "B0": {
+                "value": "2176"
+              },
+              "B1": {
+                "value": "4352"
+              },
+              "B2": {
+                "value": "2176"
+              },
+              "COEF_W": {
+                "value": "18"
+              },
+              "DATA_W": {
+                "value": "26"
+              },
+              "FRAC": {
+                "value": "16"
+              }
+            },
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "iir_biquad",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "aclk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "aresetn",
+                    "value_src": "constant"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "FM_Demod_aclk",
+                    "value_src": "default_prop"
+                  },
+                  "FREQ_HZ": {
+                    "value": "100000000",
+                    "value_src": "user_prop"
+                  }
+                }
+              },
+              "aresetn": {
+                "type": "rst",
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_LOW",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "in_valid": {
+                "direction": "I"
+              },
+              "in_data": {
+                "direction": "I",
+                "left": "25",
+                "right": "0"
+              },
+              "out_valid": {
+                "direction": "O"
+              },
+              "out_data": {
+                "direction": "O",
+                "left": "25",
+                "right": "0"
+              }
+            }
+          },
+          "out_round": {
+            "vlnv": "xilinx.com:module_ref:round_sat:1.0",
+            "xci_name": "FM_Demod_out_round_3",
+            "parameters": {
+              "IN_W": {
+                "value": "26"
+              },
+              "LIMIT": {
+                "value": "0"
+              },
+              "OUT_W": {
+                "value": "16"
+              },
+              "ROUND": {
+                "value": "1"
+              },
+              "SHIFT": {
+                "value": "8"
+              }
+            },
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "round_sat",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "aclk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "aresetn",
+                    "value_src": "constant"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "FM_Demod_aclk",
+                    "value_src": "default_prop"
+                  },
+                  "FREQ_HZ": {
+                    "value": "100000000",
+                    "value_src": "user_prop"
+                  }
+                }
+              },
+              "aresetn": {
+                "type": "rst",
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_LOW",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "in_valid": {
+                "direction": "I"
+              },
+              "in_data": {
+                "direction": "I",
+                "left": "25",
+                "right": "0"
+              },
+              "out_valid": {
+                "direction": "O"
+              },
+              "out_data": {
+                "direction": "O",
+                "left": "15",
+                "right": "0"
+              }
+            }
+          }
+        },
+        "nets": {
+          "s_axis_iq_tdata_1": {
+            "ports": [
+              "s_axis_iq_tdata",
+              "iq_i/Din",
+              "iq_i_sign/Din",
+              "iq_q/Din",
+              "iq_q_sign/Din"
+            ]
+          },
+          "iq_i_Dout": {
+            "ports": [
+              "iq_i/Dout",
+              "iq_pack/In0"
+            ]
+          },
+          "iq_i_sign_Dout": {
+            "ports": [
+              "iq_i_sign/Dout",
+              "iq_pack/In1",
+              "iq_pack/In2"
+            ]
+          },
+          "iq_q_Dout": {
+            "ports": [
+              "iq_q/Dout",
+              "iq_pack/In4"
+            ]
+          },
+          "iq_q_sign_Dout": {
+            "ports": [
+              "iq_q_sign/Dout",
+              "iq_pack/In5",
+              "iq_pack/In6"
+            ]
+          },
+          "iq_pad_dout": {
+            "ports": [
+              "iq_pad/dout",
+              "iq_pack/In3",
+              "iq_pack/In7"
+            ]
+          },
+          "iq_pack_dout": {
+            "ports": [
+              "iq_pack/dout",
+              "cordic_rx/s_axis_cartesian_tdata"
+            ]
+          },
+          "s_axis_iq_tvalid_1": {
+            "ports": [
+              "s_axis_iq_tvalid",
+              "cordic_rx/s_axis_cartesian_tvalid"
+            ]
+          },
+          "cordic_rx_m_axis_dout_tdata": {
+            "ports": [
+              "cordic_rx/m_axis_dout_tdata",
+              "mag_sel/Din",
+              "phase_sel/Din"
+            ]
+          },
+          "phase_sel_Dout": {
+            "ports": [
+              "phase_sel/Dout",
+              "phase_z1/D",
+              "phase_diff/A"
+            ]
+          },
+          "phase_z1_Q": {
+            "ports": [
+              "phase_z1/Q",
+              "phase_diff/B"
+            ]
+          },
+          "mag_sel_Dout": {
+            "ports": [
+              "mag_sel/Dout",
+              "mag_reg/D"
+            ]
+          },
+          "cordic_rx_m_axis_dout_tvalid": {
+            "ports": [
+              "cordic_rx/m_axis_dout_tvalid",
+              "phase_z1/CE",
+              "mag_reg/CE",
+              "phase_diff/CE",
+              "disc_vld/D"
+            ]
+          },
+          "phase_diff_S": {
+            "ports": [
+              "phase_diff/S",
+              "disc_sat/in_data"
+            ]
+          },
+          "disc_vld_Q": {
+            "ports": [
+              "disc_vld/Q",
+              "disc_sat/in_valid"
+            ]
+          },
+          "disc_sat_out_valid": {
+            "ports": [
+              "disc_sat/out_valid",
+              "squelch/in_valid"
+            ]
+          },
+          "disc_sat_out_data": {
+            "ports": [
+              "disc_sat/out_data",
+              "squelch/disc"
+            ]
+          },
+          "mag_reg_Q": {
+            "ports": [
+              "mag_reg/Q",
+              "squelch/mag"
+            ]
+          },
+          "sq_th_open_dout": {
+            "ports": [
+              "sq_th_open/dout",
+              "squelch/th_open"
+            ]
+          },
+          "sq_th_close_dout": {
+            "ports": [
+              "sq_th_close/dout",
+              "squelch/th_close"
+            ]
+          },
+          "squelch_gate": {
+            "ports": [
+              "squelch/gate",
+              "squelch_open"
+            ]
+          },
+          "squelch_audio": {
+            "ports": [
+              "squelch/audio",
+              "de_sub/A"
+            ]
+          },
+          "de_fb_Dout": {
+            "ports": [
+              "de_fb/Dout",
+              "de_sub/B"
+            ]
+          },
+          "de_sub_S": {
+            "ports": [
+              "de_sub/S",
+              "de_mul/A"
+            ]
+          },
+          "de_mul_P": {
+            "ports": [
+              "de_mul/P",
+              "de_acc/B"
+            ]
+          },
+          "de_acc_Q": {
+            "ports": [
+              "de_acc/Q",
+              "de_fb/Din",
+              "de_out/Din"
+            ]
+          },
+          "squelch_out_valid": {
+            "ports": [
+              "squelch/out_valid",
+              "de_ce/D"
+            ]
+          },
+          "de_ce_Q": {
+            "ports": [
+              "de_ce/Q",
+              "de_acc/CE",
+              "de_vld/D"
+            ]
+          },
+          "bq_zero_dout": {
+            "ports": [
+              "bq_zero/dout",
+              "bq_guard/In0"
+            ]
+          },
+          "de_out_Dout": {
+            "ports": [
+              "de_out/Dout",
+              "bq_guard/In1"
+            ]
+          },
+          "de_vld_Q": {
+            "ports": [
+              "de_vld/Q",
+              "bq0/in_valid"
+            ]
+          },
+          "bq_guard_dout": {
+            "ports": [
+              "bq_guard/dout",
+              "bq0/in_data"
+            ]
+          },
+          "bq0_out_valid": {
+            "ports": [
+              "bq0/out_valid",
+              "bq1/in_valid"
+            ]
+          },
+          "bq0_out_data": {
+            "ports": [
+              "bq0/out_data",
+              "bq1/in_data"
+            ]
+          },
+          "bq1_out_valid": {
+            "ports": [
+              "bq1/out_valid",
+              "bq2/in_valid"
+            ]
+          },
+          "bq1_out_data": {
+            "ports": [
+              "bq1/out_data",
+              "bq2/in_data"
+            ]
+          },
+          "bq2_out_valid": {
+            "ports": [
+              "bq2/out_valid",
+              "bq3/in_valid"
+            ]
+          },
+          "bq2_out_data": {
+            "ports": [
+              "bq2/out_data",
+              "bq3/in_data"
+            ]
+          },
+          "bq3_out_valid": {
+            "ports": [
+              "bq3/out_valid",
+              "out_round/in_valid"
+            ]
+          },
+          "bq3_out_data": {
+            "ports": [
+              "bq3/out_data",
+              "out_round/in_data"
+            ]
+          },
+          "out_round_out_data": {
+            "ports": [
+              "out_round/out_data",
+              "m_axis_audio_tdata"
+            ]
+          },
+          "out_round_out_valid": {
+            "ports": [
+              "out_round/out_valid",
+              "m_axis_audio_tvalid"
+            ]
+          },
+          "aclk_1": {
+            "ports": [
+              "aclk",
+              "bq0/aclk",
+              "bq1/aclk",
+              "bq2/aclk",
+              "bq3/aclk",
+              "cordic_rx/aclk",
+              "de_acc/CLK",
+              "de_ce/CLK",
+              "de_mul/CLK",
+              "de_sub/CLK",
+              "de_vld/CLK",
+              "disc_sat/aclk",
+              "disc_vld/CLK",
+              "mag_reg/CLK",
+              "out_round/aclk",
+              "phase_diff/CLK",
+              "phase_z1/CLK",
+              "squelch/aclk"
+            ]
+          },
+          "aresetn_1": {
+            "ports": [
+              "aresetn",
+              "bq0/aresetn",
+              "bq1/aresetn",
+              "bq2/aresetn",
+              "bq3/aresetn",
+              "cordic_rx/aresetn",
+              "disc_sat/aresetn",
+              "out_round/aresetn",
+              "squelch/aresetn",
+              "rst_inv/Op1"
+            ]
+          },
+          "rst_inv_Res": {
+            "ports": [
+              "rst_inv/Res",
+              "de_acc/SCLR"
+            ]
+          }
+        }
+      },
+      "fm_mod": {
+        "ports": {
+          "aclk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "aresetn": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "s_axis_audio_tdata": {
+            "direction": "I",
+            "left": "15",
+            "right": "0"
+          },
+          "s_axis_audio_tvalid": {
+            "direction": "I"
+          },
+          "m_axis_iq_tdata": {
+            "direction": "O",
+            "left": "63",
+            "right": "0"
+          },
+          "m_axis_iq_tvalid": {
+            "direction": "O"
+          }
+        },
+        "components": {
+          "rst_inv": {
+            "vlnv": "xilinx.com:ip:util_vector_logic:2.0",
+            "xci_name": "FM_Demod_rst_inv_7",
+            "parameters": {
+              "C_OPERATION": {
+                "value": "not"
+              },
+              "C_SIZE": {
+                "value": "1"
+              }
+            }
+          },
+          "bq_zero": {
+            "vlnv": "xilinx.com:ip:xlconstant:1.1",
+            "xci_name": "FM_Demod_bq_zero_7",
+            "parameters": {
+              "CONST_VAL": {
+                "value": "0"
+              },
+              "CONST_WIDTH": {
+                "value": "8"
+              }
+            }
+          },
+          "bq_guard": {
+            "vlnv": "xilinx.com:ip:xlconcat:2.1",
+            "xci_name": "FM_Demod_bq_guard_7",
+            "parameters": {
+              "IN0_WIDTH": {
+                "value": "8"
+              },
+              "IN1_WIDTH": {
+                "value": "16"
+              },
+              "NUM_PORTS": {
+                "value": "2"
+              }
+            }
+          },
+          "bq0": {
+            "vlnv": "xilinx.com:module_ref:iir_biquad:1.0",
+            "xci_name": "FM_Demod_bq0_7",
+            "parameters": {
+              "A1": {
+                "value": "-126387"
+              },
+              "A2": {
+                "value": "60948"
+              },
+              "B0": {
+                "value": "63218"
+              },
+              "B1": {
+                "value": "-126436"
+              },
+              "B2": {
+                "value": "63218"
+              },
+              "COEF_W": {
+                "value": "18"
+              },
+              "DATA_W": {
+                "value": "24"
+              },
+              "FRAC": {
+                "value": "16"
+              }
+            },
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "iir_biquad",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "aclk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "aresetn",
+                    "value_src": "constant"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "FM_Demod_aclk",
+                    "value_src": "default_prop"
+                  },
+                  "FREQ_HZ": {
+                    "value": "100000000",
+                    "value_src": "user_prop"
+                  }
+                }
+              },
+              "aresetn": {
+                "type": "rst",
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_LOW",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "in_valid": {
+                "direction": "I"
+              },
+              "in_data": {
+                "direction": "I",
+                "left": "23",
+                "right": "0",
+                "parameters": {
+                  "PortWidth": {
+                    "value": "24",
+                    "value_src": "ip_prop"
+                  }
+                }
+              },
+              "out_valid": {
+                "direction": "O"
+              },
+              "out_data": {
+                "direction": "O",
+                "left": "23",
+                "right": "0"
+              }
+            }
+          },
+          "bq1": {
+            "vlnv": "xilinx.com:module_ref:iir_biquad:1.0",
+            "xci_name": "FM_Demod_bq1_7",
+            "parameters": {
+              "A1": {
+                "value": "-129032"
+              },
+              "A2": {
+                "value": "63596"
+              },
+              "B0": {
+                "value": "64541"
+              },
+              "B1": {
+                "value": "-129082"
+              },
+              "B2": {
+                "value": "64541"
+              },
+              "COEF_W": {
+                "value": "18"
+              },
+              "DATA_W": {
+                "value": "24"
+              },
+              "FRAC": {
+                "value": "16"
+              }
+            },
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "iir_biquad",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "aclk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "aresetn",
+                    "value_src": "constant"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "FM_Demod_aclk",
+                    "value_src": "default_prop"
+                  },
+                  "FREQ_HZ": {
+                    "value": "100000000",
+                    "value_src": "user_prop"
+                  }
+                }
+              },
+              "aresetn": {
+                "type": "rst",
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_LOW",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "in_valid": {
+                "direction": "I"
+              },
+              "in_data": {
+                "direction": "I",
+                "left": "23",
+                "right": "0"
+              },
+              "out_valid": {
+                "direction": "O"
+              },
+              "out_data": {
+                "direction": "O",
+                "left": "23",
+                "right": "0"
+              }
+            }
+          },
+          "bq2": {
+            "vlnv": "xilinx.com:module_ref:iir_biquad:1.0",
+            "xci_name": "FM_Demod_bq2_7",
+            "parameters": {
+              "A1": {
+                "value": "-89464"
+              },
+              "A2": {
+                "value": "31299"
+              },
+              "B0": {
+                "value": "1843"
+              },
+              "B1": {
+                "value": "3686"
+              },
+              "B2": {
+                "value": "1843"
+              },
+              "COEF_W": {
+                "value": "18"
+              },
+              "DATA_W": {
+                "value": "24"
+              },
+              "FRAC": {
+                "value": "16"
+              }
+            },
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "iir_biquad",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "aclk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "aresetn",
+                    "value_src": "constant"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "FM_Demod_aclk",
+                    "value_src": "default_prop"
+                  },
+                  "FREQ_HZ": {
+                    "value": "100000000",
+                    "value_src": "user_prop"
+                  }
+                }
+              },
+              "aresetn": {
+                "type": "rst",
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_LOW",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "in_valid": {
+                "direction": "I"
+              },
+              "in_data": {
+                "direction": "I",
+                "left": "23",
+                "right": "0"
+              },
+              "out_valid": {
+                "direction": "O"
+              },
+              "out_data": {
+                "direction": "O",
+                "left": "23",
+                "right": "0"
+              }
+            }
+          },
+          "bq3": {
+            "vlnv": "xilinx.com:module_ref:iir_biquad:1.0",
+            "xci_name": "FM_Demod_bq3_7",
+            "parameters": {
+              "A1": {
+                "value": "-105626"
+              },
+              "A2": {
+                "value": "48793"
+              },
+              "B0": {
+                "value": "2176"
+              },
+              "B1": {
+                "value": "4352"
+              },
+              "B2": {
+                "value": "2176"
+              },
+              "COEF_W": {
+                "value": "18"
+              },
+              "DATA_W": {
+                "value": "24"
+              },
+              "FRAC": {
+                "value": "16"
+              }
+            },
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "iir_biquad",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "aclk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "aresetn",
+                    "value_src": "constant"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "FM_Demod_aclk",
+                    "value_src": "default_prop"
+                  },
+                  "FREQ_HZ": {
+                    "value": "100000000",
+                    "value_src": "user_prop"
+                  }
+                }
+              },
+              "aresetn": {
+                "type": "rst",
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_LOW",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "in_valid": {
+                "direction": "I"
+              },
+              "in_data": {
+                "direction": "I",
+                "left": "23",
+                "right": "0"
+              },
+              "out_valid": {
+                "direction": "O"
+              },
+              "out_data": {
+                "direction": "O",
+                "left": "23",
+                "right": "0"
+              }
+            }
+          },
+          "bq_round": {
+            "vlnv": "xilinx.com:module_ref:round_sat:1.0",
+            "xci_name": "FM_Demod_bq_round_3",
+            "parameters": {
+              "IN_W": {
+                "value": "24"
+              },
+              "LIMIT": {
+                "value": "0"
+              },
+              "OUT_W": {
+                "value": "16"
+              },
+              "ROUND": {
+                "value": "1"
+              },
+              "SHIFT": {
+                "value": "8"
+              }
+            },
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "round_sat",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "aclk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "aresetn",
+                    "value_src": "constant"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "FM_Demod_aclk",
+                    "value_src": "default_prop"
+                  },
+                  "FREQ_HZ": {
+                    "value": "100000000",
+                    "value_src": "user_prop"
+                  }
+                }
+              },
+              "aresetn": {
+                "type": "rst",
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_LOW",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "in_valid": {
+                "direction": "I"
+              },
+              "in_data": {
+                "direction": "I",
+                "left": "23",
+                "right": "0"
+              },
+              "out_valid": {
+                "direction": "O"
+              },
+              "out_data": {
+                "direction": "O",
+                "left": "15",
+                "right": "0"
+              }
+            }
+          },
+          "pre_emph": {
+            "vlnv": "xilinx.com:ip:fir_compiler:7.2",
+            "xci_name": "FM_Demod_pre_emph_3",
+            "parameters": {
+              "Clock_Frequency": {
+                "value": "100.0"
+              },
+              "CoefficientSource": {
+                "value": "Vector"
+              },
+              "CoefficientVector": {
+                "value": "9347,-9091"
+              },
+              "Coefficient_Fractional_Bits": {
+                "value": "0"
+              },
+              "Coefficient_Sign": {
+                "value": "Signed"
+              },
+              "Coefficient_Structure": {
+                "value": "Non_Symmetric"
+              },
+              "Coefficient_Width": {
+                "value": "15"
+              },
+              "Data_Fractional_Bits": {
+                "value": "0"
+              },
+              "Data_Sign": {
+                "value": "Signed"
+              },
+              "Data_Width": {
+                "value": "16"
+              },
+              "Filter_Architecture": {
+                "value": "Systolic_Multiply_Accumulate"
+              },
+              "Filter_Type": {
+                "value": "Single_Rate"
+              },
+              "Has_ARESETn": {
+                "value": "true"
+              },
+              "Output_Rounding_Mode": {
+                "value": "Full_Precision"
+              },
+              "Quantization": {
+                "value": "Integer_Coefficients"
+              },
+              "RateSpecification": {
+                "value": "Frequency_Specification"
+              },
+              "S_DATA_Has_FIFO": {
+                "value": "false"
+              },
+              "Sample_Frequency": {
+                "value": "0.048"
+              }
+            }
+          },
+          "pre_sel": {
+            "vlnv": "xilinx.com:ip:xlslice:1.0",
+            "xci_name": "FM_Demod_pre_sel_3",
+            "parameters": {
+              "DIN_FROM": {
+                "value": "30"
+              },
+              "DIN_TO": {
+                "value": "0"
+              },
+              "DIN_WIDTH": {
+                "value": "32"
+              },
+              "DOUT_WIDTH": {
+                "value": "31"
+              }
+            }
+          },
+          "dev_limit": {
+            "vlnv": "xilinx.com:module_ref:round_sat:1.0",
+            "xci_name": "FM_Demod_dev_limit_3",
+            "parameters": {
+              "IN_W": {
+                "value": "31"
+              },
+              "LIMIT": {
+                "value": "13981013"
+              },
+              "OUT_W": {
+                "value": "25"
+              },
+              "ROUND": {
+                "value": "0"
+              },
+              "SHIFT": {
+                "value": "0"
+              }
+            },
+            "reference_info": {
+              "ref_type": "hdl",
+              "ref_name": "round_sat",
+              "boundary_crc": "0x0"
+            },
+            "ports": {
+              "aclk": {
+                "type": "clk",
+                "direction": "I",
+                "parameters": {
+                  "ASSOCIATED_RESET": {
+                    "value": "aresetn",
+                    "value_src": "constant"
+                  },
+                  "CLK_DOMAIN": {
+                    "value": "FM_Demod_aclk",
+                    "value_src": "default_prop"
+                  },
+                  "FREQ_HZ": {
+                    "value": "100000000",
+                    "value_src": "user_prop"
+                  }
+                }
+              },
+              "aresetn": {
+                "type": "rst",
+                "direction": "I",
+                "parameters": {
+                  "POLARITY": {
+                    "value": "ACTIVE_LOW",
+                    "value_src": "constant"
+                  }
+                }
+              },
+              "in_valid": {
+                "direction": "I"
+              },
+              "in_data": {
+                "direction": "I",
+                "left": "30",
+                "right": "0"
+              },
+              "out_valid": {
+                "direction": "O"
+              },
+              "out_data": {
+                "direction": "O",
+                "left": "24",
+                "right": "0"
+              }
+            }
+          },
+          "phase_acc": {
+            "vlnv": "xilinx.com:ip:c_accum:12.0",
+            "xci_name": "FM_Demod_phase_acc_3",
+            "parameters": {
+              "Accum_Mode": {
+                "value": "Add"
+              },
+              "Bypass": {
+                "value": "false"
+              },
+              "CE": {
+                "value": "true"
+              },
+              "Input_Type": {
+                "value": "Signed"
+              },
+              "Input_Width": {
+                "value": "25"
+              },
+              "Latency": {
+                "value": "1"
+              },
+              "Output_Width": {
+                "value": "28"
+              },
+              "SCLR": {
+                "value": "true"
+              }
+            }
+          },
+          "phase_vld": {
+            "vlnv": "xilinx.com:ip:c_shift_ram:12.0",
+            "xci_name": "FM_Demod_phase_vld_3",
+            "parameters": {
+              "CE": {
+                "value": "false"
+              },
+              "Depth": {
+                "value": "1"
+              },
+              "Width": {
+                "value": "1"
+              }
+            }
+          },
+          "phase_sign": {
+            "vlnv": "xilinx.com:ip:xlslice:1.0",
+            "xci_name": "FM_Demod_phase_sign_3",
+            "parameters": {
+              "DIN_FROM": {
+                "value": "27"
+              },
+              "DIN_TO": {
+                "value": "27"
+              },
+              "DIN_WIDTH": {
+                "value": "28"
+              },
+              "DOUT_WIDTH": {
+                "value": "1"
+              }
+            }
+          },
+          "phase_lsb": {
+            "vlnv": "xilinx.com:ip:xlconstant:1.1",
+            "xci_name": "FM_Demod_phase_lsb_3",
+            "parameters": {
+              "CONST_VAL": {
+                "value": "0"
+              },
+              "CONST_WIDTH": {
+                "value": "2"
+              }
+            }
+          },
+          "phase_pack": {
+            "vlnv": "xilinx.com:ip:xlconcat:2.1",
+            "xci_name": "FM_Demod_phase_pack_3",
+            "parameters": {
+              "IN0_WIDTH": {
+                "value": "2"
+              },
+              "IN1_WIDTH": {
+                "value": "28"
+              },
+              "IN2_WIDTH": {
+                "value": "1"
+              },
+              "IN3_WIDTH": {
+                "value": "1"
+              },
+              "NUM_PORTS": {
+                "value": "4"
+              }
+            }
+          },
+          "cordic_tx": {
+            "vlnv": "xilinx.com:ip:cordic:6.0",
+            "xci_name": "FM_Demod_cordic_tx_3",
+            "parameters": {
+              "ARESETN": {
+                "value": "true"
+              },
+              "Architectural_Configuration": {
+                "value": "Word_Serial"
+              },
+              "Coarse_Rotation": {
+                "value": "true"
+              },
+              "Data_Format": {
+                "value": "SignedFraction"
+              },
+              "Functional_Selection": {
+                "value": "Sin_and_Cos"
+              },
+              "Input_Width": {
+                "value": "32"
+              },
+              "Iterations": {
+                "value": "0"
+              },
+              "Output_Width": {
+                "value": "32"
+              },
+              "Phase_Format": {
+                "value": "Scaled_Radians"
+              },
+              "Pipelining_Mode": {
+                "value": "Maximum"
+              },
+              "Precision": {
+                "value": "0"
+              },
+              "Round_Mode": {
+                "value": "Nearest_Even"
+              },
+              "flow_control": {
+                "value": "NonBlocking"
+              }
+            }
+          }
+        },
+        "nets": {
+          "bq_zero_dout": {
+            "ports": [
+              "bq_zero/dout",
+              "bq_guard/In0"
+            ]
+          },
+          "s_axis_audio_tdata_1": {
+            "ports": [
+              "s_axis_audio_tdata",
+              "bq_guard/In1"
+            ]
+          },
+          "s_axis_audio_tvalid_1": {
+            "ports": [
+              "s_axis_audio_tvalid",
+              "bq0/in_valid"
+            ]
+          },
+          "bq_guard_dout": {
+            "ports": [
+              "bq_guard/dout",
+              "bq0/in_data"
+            ]
+          },
+          "bq0_out_valid": {
+            "ports": [
+              "bq0/out_valid",
+              "bq1/in_valid"
+            ]
+          },
+          "bq0_out_data": {
+            "ports": [
+              "bq0/out_data",
+              "bq1/in_data"
+            ]
+          },
+          "bq1_out_valid": {
+            "ports": [
+              "bq1/out_valid",
+              "bq2/in_valid"
+            ]
+          },
+          "bq1_out_data": {
+            "ports": [
+              "bq1/out_data",
+              "bq2/in_data"
+            ]
+          },
+          "bq2_out_valid": {
+            "ports": [
+              "bq2/out_valid",
+              "bq3/in_valid"
+            ]
+          },
+          "bq2_out_data": {
+            "ports": [
+              "bq2/out_data",
+              "bq3/in_data"
+            ]
+          },
+          "bq3_out_valid": {
+            "ports": [
+              "bq3/out_valid",
+              "bq_round/in_valid"
+            ]
+          },
+          "bq3_out_data": {
+            "ports": [
+              "bq3/out_data",
+              "bq_round/in_data"
+            ]
+          },
+          "bq_round_out_data": {
+            "ports": [
+              "bq_round/out_data",
+              "pre_emph/s_axis_data_tdata"
+            ]
+          },
+          "bq_round_out_valid": {
+            "ports": [
+              "bq_round/out_valid",
+              "pre_emph/s_axis_data_tvalid"
+            ]
+          },
+          "pre_emph_m_axis_data_tdata": {
+            "ports": [
+              "pre_emph/m_axis_data_tdata",
+              "pre_sel/Din"
+            ]
+          },
+          "pre_sel_Dout": {
+            "ports": [
+              "pre_sel/Dout",
+              "dev_limit/in_data"
+            ]
+          },
+          "pre_emph_m_axis_data_tvalid": {
+            "ports": [
+              "pre_emph/m_axis_data_tvalid",
+              "dev_limit/in_valid"
+            ]
+          },
+          "dev_limit_out_data": {
+            "ports": [
+              "dev_limit/out_data",
+              "phase_acc/B"
+            ]
+          },
+          "dev_limit_out_valid": {
+            "ports": [
+              "dev_limit/out_valid",
+              "phase_acc/CE",
+              "phase_vld/D"
+            ]
+          },
+          "phase_acc_Q": {
+            "ports": [
+              "phase_acc/Q",
+              "phase_sign/Din",
+              "phase_pack/In1"
+            ]
+          },
+          "phase_lsb_dout": {
+            "ports": [
+              "phase_lsb/dout",
+              "phase_pack/In0"
+            ]
+          },
+          "phase_sign_Dout": {
+            "ports": [
+              "phase_sign/Dout",
+              "phase_pack/In2",
+              "phase_pack/In3"
+            ]
+          },
+          "phase_pack_dout": {
+            "ports": [
+              "phase_pack/dout",
+              "cordic_tx/s_axis_phase_tdata"
+            ]
+          },
+          "phase_vld_Q": {
+            "ports": [
+              "phase_vld/Q",
+              "cordic_tx/s_axis_phase_tvalid"
+            ]
+          },
+          "cordic_tx_m_axis_dout_tdata": {
+            "ports": [
+              "cordic_tx/m_axis_dout_tdata",
+              "m_axis_iq_tdata"
+            ]
+          },
+          "cordic_tx_m_axis_dout_tvalid": {
+            "ports": [
+              "cordic_tx/m_axis_dout_tvalid",
+              "m_axis_iq_tvalid"
+            ]
+          },
+          "aclk_1": {
+            "ports": [
+              "aclk",
+              "bq0/aclk",
+              "bq1/aclk",
+              "bq2/aclk",
+              "bq3/aclk",
+              "bq_round/aclk",
+              "cordic_tx/aclk",
+              "dev_limit/aclk",
+              "phase_acc/CLK",
+              "phase_vld/CLK",
+              "pre_emph/aclk"
+            ]
+          },
+          "aresetn_1": {
+            "ports": [
+              "aresetn",
+              "bq0/aresetn",
+              "bq1/aresetn",
+              "bq2/aresetn",
+              "bq3/aresetn",
+              "bq_round/aresetn",
+              "cordic_tx/aresetn",
+              "dev_limit/aresetn",
+              "pre_emph/aresetn",
+              "rst_inv/Op1"
+            ]
+          },
+          "rst_inv_Res": {
+            "ports": [
+              "rst_inv/Res",
+              "phase_acc/SCLR"
+            ]
+          }
+        }
+      }
+    },
+    "nets": {
+      "aclk_1": {
+        "ports": [
+          "aclk",
+          "fm_demod/aclk",
+          "fm_mod/aclk"
+        ]
+      },
+      "aresetn_1": {
+        "ports": [
+          "aresetn",
+          "fm_demod/aresetn",
+          "fm_mod/aresetn"
+        ]
+      },
+      "rx_iq_tdata_1": {
+        "ports": [
+          "rx_iq_tdata",
+          "fm_demod/s_axis_iq_tdata"
+        ]
+      },
+      "rx_iq_tvalid_1": {
+        "ports": [
+          "rx_iq_tvalid",
+          "fm_demod/s_axis_iq_tvalid"
+        ]
+      },
+      "fm_demod_m_axis_audio_tdata": {
+        "ports": [
+          "fm_demod/m_axis_audio_tdata",
+          "rx_audio_tdata"
+        ]
+      },
+      "fm_demod_m_axis_audio_tvalid": {
+        "ports": [
+          "fm_demod/m_axis_audio_tvalid",
+          "rx_audio_tvalid"
+        ]
+      },
+      "fm_demod_squelch_open": {
+        "ports": [
+          "fm_demod/squelch_open",
+          "rx_squelch_open"
+        ]
+      },
+      "tx_audio_tdata_1": {
+        "ports": [
+          "tx_audio_tdata",
+          "fm_mod/s_axis_audio_tdata"
+        ]
+      },
+      "tx_audio_tvalid_1": {
+        "ports": [
+          "tx_audio_tvalid",
+          "fm_mod/s_axis_audio_tvalid"
+        ]
+      },
+      "fm_mod_m_axis_iq_tdata": {
+        "ports": [
+          "fm_mod/m_axis_iq_tdata",
+          "tx_iq_tdata"
+        ]
+      },
+      "fm_mod_m_axis_iq_tvalid": {
+        "ports": [
+          "fm_mod/m_axis_iq_tvalid",
+          "tx_iq_tvalid"
+        ]
+      }
+    }
+  }
+}

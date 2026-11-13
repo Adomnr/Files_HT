@@ -1,0 +1,4 @@
+Running: xsim.dir/tb_fm_fast/xsimk.exe -runall -simmode gui -testplusarg DIR=C:/Users/ubaid/Desktop/Data/HT_Data/matlab/data/hw_i32 -testplusarg SPACING=64 -wdb tb_fm_fast.wdb -simrunnum 0 -socket 63259
+Design successfully loaded
+Design Loading Memory Usage: 14640 KB (Peak: 14640 KB)
+Design Loading CPU Usage: 31 ms

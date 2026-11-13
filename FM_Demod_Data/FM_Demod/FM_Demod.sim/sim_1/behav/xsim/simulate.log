@@ -1,0 +1,17 @@
+#-----------------------------------------------------------
+# xsim v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Fri Nov 13 08:22:49 2026
+# Process ID: 18480
+# Current directory: C:/Users/ubaid/Desktop/Data/HT_Data/FM_Demod/FM_Demod.sim/sim_1/behav/xsim
+# Command line: xsim.exe -log simulate.log -mode tcl -source {xsim.dir/tb_fm_fast/xsim_script.tcl}
+# Log file: C:/Users/ubaid/Desktop/Data/HT_Data/FM_Demod/FM_Demod.sim/sim_1/behav/xsim/simulate.log
+# Journal file: C:/Users/ubaid/Desktop/Data/HT_Data/FM_Demod/FM_Demod.sim/sim_1/behav/xsim\xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/tb_fm_fast/xsim_script.tcl
+# xsim {tb_fm_fast} -testplusarg DIR=C:/Users/ubaid/Desktop/Data/HT_Data/matlab/data/hw_i32 -testplusarg SPACING=64 -autoloadwcfg -runall
+Vivado Simulator 2019.1
+Time resolution is 1 ps
+run -all
+tb_fm: IN_W=32, 64 clocks per sample, vectors in C:/Users/ubaid/Desktop/Data/HT_Data/matlab/data/hw_i32

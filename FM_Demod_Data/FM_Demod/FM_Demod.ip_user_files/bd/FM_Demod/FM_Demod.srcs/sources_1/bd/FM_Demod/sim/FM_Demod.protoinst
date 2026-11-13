@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"FM_Demod": {
+			"proto_instances": {
+			}
+		}
+	}
+}

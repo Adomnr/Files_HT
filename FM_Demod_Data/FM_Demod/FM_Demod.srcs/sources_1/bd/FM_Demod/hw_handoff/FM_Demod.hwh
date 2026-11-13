@@ -1,0 +1,2722 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Nov 13 08:21:33 2026" VIVADOVERSION="2019.1">
+
+  <SYSTEMINFO ARCH="kintex7" DEVICE="7k410tl" NAME="FM_Demod" PACKAGE="fbg900" SPEEDGRADE="-2L"/>
+
+  <EXTERNALPORTS>
+    <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="External_Ports_aclk">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fm_demod_bq0" PORT="aclk"/>
+        <CONNECTION INSTANCE="fm_demod_bq1" PORT="aclk"/>
+        <CONNECTION INSTANCE="fm_demod_bq2" PORT="aclk"/>
+        <CONNECTION INSTANCE="fm_demod_bq3" PORT="aclk"/>
+        <CONNECTION INSTANCE="fm_demod_cordic_rx" PORT="aclk"/>
+        <CONNECTION INSTANCE="fm_demod_de_acc" PORT="CLK"/>
+        <CONNECTION INSTANCE="fm_demod_de_ce" PORT="CLK"/>
+        <CONNECTION INSTANCE="fm_demod_de_mul" PORT="CLK"/>
+        <CONNECTION INSTANCE="fm_demod_de_sub" PORT="CLK"/>
+        <CONNECTION INSTANCE="fm_demod_de_vld" PORT="CLK"/>
+        <CONNECTION INSTANCE="fm_demod_disc_sat" PORT="aclk"/>
+        <CONNECTION INSTANCE="fm_demod_disc_vld" PORT="CLK"/>
+        <CONNECTION INSTANCE="fm_demod_mag_reg" PORT="CLK"/>
+        <CONNECTION INSTANCE="fm_demod_out_round" PORT="aclk"/>
+        <CONNECTION INSTANCE="fm_demod_phase_diff" PORT="CLK"/>
+        <CONNECTION INSTANCE="fm_demod_phase_z1" PORT="CLK"/>
+        <CONNECTION INSTANCE="fm_demod_squelch" PORT="aclk"/>
+        <CONNECTION INSTANCE="fm_mod_bq0" PORT="aclk"/>
+        <CONNECTION INSTANCE="fm_mod_bq1" PORT="aclk"/>
+        <CONNECTION INSTANCE="fm_mod_bq2" PORT="aclk"/>
+        <CONNECTION INSTANCE="fm_mod_bq3" PORT="aclk"/>
+        <CONNECTION INSTANCE="fm_mod_bq_round" PORT="aclk"/>
+        <CONNECTION INSTANCE="fm_mod_cordic_tx" PORT="aclk"/>
+        <CONNECTION INSTANCE="fm_mod_dev_limit" PORT="aclk"/>
+        <CONNECTION INSTANCE="fm_mod_phase_acc" PORT="CLK"/>
+        <CONNECTION INSTANCE="fm_mod_phase_vld" PORT="CLK"/>
+        <CONNECTION INSTANCE="fm_mod_pre_emph" PORT="aclk"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="aresetn" SIGIS="rst" SIGNAME="External_Ports_aresetn">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fm_demod_bq0" PORT="aresetn"/>
+        <CONNECTION INSTANCE="fm_demod_bq1" PORT="aresetn"/>
+        <CONNECTION INSTANCE="fm_demod_bq2" PORT="aresetn"/>
+        <CONNECTION INSTANCE="fm_demod_bq3" PORT="aresetn"/>
+        <CONNECTION INSTANCE="fm_demod_cordic_rx" PORT="aresetn"/>
+        <CONNECTION INSTANCE="fm_demod_disc_sat" PORT="aresetn"/>
+        <CONNECTION INSTANCE="fm_demod_out_round" PORT="aresetn"/>
+        <CONNECTION INSTANCE="fm_demod_squelch" PORT="aresetn"/>
+        <CONNECTION INSTANCE="fm_demod_rst_inv" PORT="Op1"/>
+        <CONNECTION INSTANCE="fm_mod_bq0" PORT="aresetn"/>
+        <CONNECTION INSTANCE="fm_mod_bq1" PORT="aresetn"/>
+        <CONNECTION INSTANCE="fm_mod_bq2" PORT="aresetn"/>
+        <CONNECTION INSTANCE="fm_mod_bq3" PORT="aresetn"/>
+        <CONNECTION INSTANCE="fm_mod_bq_round" PORT="aresetn"/>
+        <CONNECTION INSTANCE="fm_mod_cordic_tx" PORT="aresetn"/>
+        <CONNECTION INSTANCE="fm_mod_dev_limit" PORT="aresetn"/>
+        <CONNECTION INSTANCE="fm_mod_pre_emph" PORT="aresetn"/>
+        <CONNECTION INSTANCE="fm_mod_rst_inv" PORT="Op1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="63" NAME="rx_iq_tdata" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_rx_iq_tdata">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fm_demod_iq_i" PORT="Din"/>
+        <CONNECTION INSTANCE="fm_demod_iq_i_sign" PORT="Din"/>
+        <CONNECTION INSTANCE="fm_demod_iq_q" PORT="Din"/>
+        <CONNECTION INSTANCE="fm_demod_iq_q_sign" PORT="Din"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="rx_iq_tvalid" SIGIS="undef" SIGNAME="External_Ports_rx_iq_tvalid">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fm_demod_cordic_rx" PORT="s_axis_cartesian_tvalid"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="15" NAME="rx_audio_tdata" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_out_round_out_data">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fm_demod_out_round" PORT="out_data"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rx_audio_tvalid" SIGIS="undef" SIGNAME="fm_demod_out_round_out_valid">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fm_demod_out_round" PORT="out_valid"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="rx_squelch_open" SIGIS="undef" SIGNAME="fm_demod_squelch_gate">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fm_demod_squelch" PORT="gate"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" LEFT="15" NAME="tx_audio_tdata" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_tx_audio_tdata">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fm_mod_bq_guard" PORT="In1"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="I" NAME="tx_audio_tvalid" SIGIS="undef" SIGNAME="External_Ports_tx_audio_tvalid">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fm_mod_bq0" PORT="in_valid"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" LEFT="63" NAME="tx_iq_tdata" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_cordic_tx_m_axis_dout_tdata">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fm_mod_cordic_tx" PORT="m_axis_dout_tdata"/>
+      </CONNECTIONS>
+    </PORT>
+    <PORT DIR="O" NAME="tx_iq_tvalid" SIGIS="undef" SIGNAME="fm_mod_cordic_tx_m_axis_dout_tvalid">
+      <CONNECTIONS>
+        <CONNECTION INSTANCE="fm_mod_cordic_tx" PORT="m_axis_dout_tvalid"/>
+      </CONNECTIONS>
+    </PORT>
+  </EXTERNALPORTS>
+
+  <EXTERNALINTERFACES/>
+
+  <MODULES>
+    <MODULE COREREVISION="1" FULLNAME="/fm_demod/bq0" HWVERSION="1.0" INSTANCE="fm_demod_bq0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="iir_biquad" VLNV="xilinx.com:module_ref:iir_biquad:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DATA_W" VALUE="26"/>
+        <PARAMETER NAME="COEF_W" VALUE="18"/>
+        <PARAMETER NAME="FRAC" VALUE="16"/>
+        <PARAMETER NAME="B0" VALUE="63218"/>
+        <PARAMETER NAME="B1" VALUE="-126436"/>
+        <PARAMETER NAME="B2" VALUE="63218"/>
+        <PARAMETER NAME="A1" VALUE="-126387"/>
+        <PARAMETER NAME="A2" VALUE="60948"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_bq0_6"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" SIGIS="rst" SIGNAME="External_Ports_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="in_valid" SIGIS="undef" SIGNAME="fm_demod_de_vld_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_de_vld" PORT="Q"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="25" NAME="in_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_bq_guard_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq_guard" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="out_valid" SIGIS="undef" SIGNAME="fm_demod_bq0_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq1" PORT="in_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="25" NAME="out_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_bq0_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq1" PORT="in_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/fm_demod/bq1" HWVERSION="1.0" INSTANCE="fm_demod_bq1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="iir_biquad" VLNV="xilinx.com:module_ref:iir_biquad:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DATA_W" VALUE="26"/>
+        <PARAMETER NAME="COEF_W" VALUE="18"/>
+        <PARAMETER NAME="FRAC" VALUE="16"/>
+        <PARAMETER NAME="B0" VALUE="64541"/>
+        <PARAMETER NAME="B1" VALUE="-129082"/>
+        <PARAMETER NAME="B2" VALUE="64541"/>
+        <PARAMETER NAME="A1" VALUE="-129032"/>
+        <PARAMETER NAME="A2" VALUE="63596"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_bq1_6"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" SIGIS="rst" SIGNAME="External_Ports_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="in_valid" SIGIS="undef" SIGNAME="fm_demod_bq0_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq0" PORT="out_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="25" NAME="in_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_bq0_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq0" PORT="out_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="out_valid" SIGIS="undef" SIGNAME="fm_demod_bq1_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq2" PORT="in_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="25" NAME="out_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_bq1_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq2" PORT="in_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/fm_demod/bq2" HWVERSION="1.0" INSTANCE="fm_demod_bq2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="iir_biquad" VLNV="xilinx.com:module_ref:iir_biquad:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DATA_W" VALUE="26"/>
+        <PARAMETER NAME="COEF_W" VALUE="18"/>
+        <PARAMETER NAME="FRAC" VALUE="16"/>
+        <PARAMETER NAME="B0" VALUE="1843"/>
+        <PARAMETER NAME="B1" VALUE="3686"/>
+        <PARAMETER NAME="B2" VALUE="1843"/>
+        <PARAMETER NAME="A1" VALUE="-89464"/>
+        <PARAMETER NAME="A2" VALUE="31299"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_bq2_6"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" SIGIS="rst" SIGNAME="External_Ports_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="in_valid" SIGIS="undef" SIGNAME="fm_demod_bq1_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq1" PORT="out_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="25" NAME="in_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_bq1_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq1" PORT="out_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="out_valid" SIGIS="undef" SIGNAME="fm_demod_bq2_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq3" PORT="in_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="25" NAME="out_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_bq2_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq3" PORT="in_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/fm_demod/bq3" HWVERSION="1.0" INSTANCE="fm_demod_bq3" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="iir_biquad" VLNV="xilinx.com:module_ref:iir_biquad:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DATA_W" VALUE="26"/>
+        <PARAMETER NAME="COEF_W" VALUE="18"/>
+        <PARAMETER NAME="FRAC" VALUE="16"/>
+        <PARAMETER NAME="B0" VALUE="2176"/>
+        <PARAMETER NAME="B1" VALUE="4352"/>
+        <PARAMETER NAME="B2" VALUE="2176"/>
+        <PARAMETER NAME="A1" VALUE="-105626"/>
+        <PARAMETER NAME="A2" VALUE="48793"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_bq3_6"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" SIGIS="rst" SIGNAME="External_Ports_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="in_valid" SIGIS="undef" SIGNAME="fm_demod_bq2_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq2" PORT="out_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="25" NAME="in_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_bq2_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq2" PORT="out_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="out_valid" SIGIS="undef" SIGNAME="fm_demod_bq3_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_out_round" PORT="in_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="25" NAME="out_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_bq3_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_out_round" PORT="in_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="3" FULLNAME="/fm_demod/bq_guard" HWVERSION="2.1" INSTANCE="fm_demod_bq_guard" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconcat" VLNV="xilinx.com:ip:xlconcat:2.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="IN0_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="IN1_WIDTH" VALUE="18"/>
+        <PARAMETER NAME="IN2_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN3_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN4_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN5_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN6_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN7_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN8_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN9_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN10_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN11_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN12_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN13_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN14_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN15_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN16_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN17_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN18_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN19_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN20_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN21_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN22_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN23_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN24_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN25_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN26_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN27_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN28_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN29_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN30_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN31_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="dout_width" VALUE="26"/>
+        <PARAMETER NAME="NUM_PORTS" VALUE="2"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_bq_guard_6"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="7" NAME="In0" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_bq_zero_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq_zero" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="17" NAME="In1" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_de_out_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_de_out" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="25" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_bq_guard_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq0" PORT="in_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="6" FULLNAME="/fm_demod/bq_zero" HWVERSION="1.1" INSTANCE="fm_demod_bq_zero" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x00"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_bq_zero_6"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="7" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_bq_zero_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq_guard" PORT="In0"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="15" FULLNAME="/fm_demod/cordic_rx" HWVERSION="6.0" INSTANCE="fm_demod_cordic_rx" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="cordic" VLNV="xilinx.com:ip:cordic:6.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=cordic;v=v6_0;d=pg105-cordic.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_ARCHITECTURE" VALUE="1"/>
+        <PARAMETER NAME="C_CORDIC_FUNCTION" VALUE="1"/>
+        <PARAMETER NAME="C_COARSE_ROTATE" VALUE="1"/>
+        <PARAMETER NAME="C_DATA_FORMAT" VALUE="0"/>
+        <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="kintex7l"/>
+        <PARAMETER NAME="C_HAS_ACLKEN" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_ACLK" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_S_AXIS_CARTESIAN" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_S_AXIS_PHASE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_ARESETN" VALUE="1"/>
+        <PARAMETER NAME="C_INPUT_WIDTH" VALUE="34"/>
+        <PARAMETER NAME="C_ITERATIONS" VALUE="0"/>
+        <PARAMETER NAME="C_OUTPUT_WIDTH" VALUE="38"/>
+        <PARAMETER NAME="C_PHASE_FORMAT" VALUE="1"/>
+        <PARAMETER NAME="C_PIPELINE_MODE" VALUE="-2"/>
+        <PARAMETER NAME="C_PRECISION" VALUE="0"/>
+        <PARAMETER NAME="C_ROUND_MODE" VALUE="0"/>
+        <PARAMETER NAME="C_SCALE_COMP" VALUE="0"/>
+        <PARAMETER NAME="C_THROTTLE_SCHEME" VALUE="3"/>
+        <PARAMETER NAME="C_TLAST_RESOLUTION" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_S_AXIS_PHASE_TUSER" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_S_AXIS_PHASE_TLAST" VALUE="0"/>
+        <PARAMETER NAME="C_S_AXIS_PHASE_TDATA_WIDTH" VALUE="40"/>
+        <PARAMETER NAME="C_S_AXIS_PHASE_TUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_S_AXIS_CARTESIAN_TUSER" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_S_AXIS_CARTESIAN_TLAST" VALUE="0"/>
+        <PARAMETER NAME="C_S_AXIS_CARTESIAN_TDATA_WIDTH" VALUE="80"/>
+        <PARAMETER NAME="C_S_AXIS_CARTESIAN_TUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_M_AXIS_DOUT_TDATA_WIDTH" VALUE="80"/>
+        <PARAMETER NAME="C_M_AXIS_DOUT_TUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_cordic_rx_3"/>
+        <PARAMETER NAME="Functional_Selection" VALUE="Translate"/>
+        <PARAMETER NAME="Architectural_Configuration" VALUE="Word_Serial"/>
+        <PARAMETER NAME="Pipelining_Mode" VALUE="Maximum"/>
+        <PARAMETER NAME="Data_Format" VALUE="SignedFraction"/>
+        <PARAMETER NAME="Phase_Format" VALUE="Scaled_Radians"/>
+        <PARAMETER NAME="Input_Width" VALUE="34"/>
+        <PARAMETER NAME="Output_Width" VALUE="38"/>
+        <PARAMETER NAME="Round_Mode" VALUE="Truncate"/>
+        <PARAMETER NAME="Iterations" VALUE="0"/>
+        <PARAMETER NAME="Precision" VALUE="0"/>
+        <PARAMETER NAME="Coarse_Rotation" VALUE="true"/>
+        <PARAMETER NAME="Compensation_Scaling" VALUE="No_Scale_Compensation"/>
+        <PARAMETER NAME="cartesian_has_tuser" VALUE="false"/>
+        <PARAMETER NAME="cartesian_tuser_width" VALUE="1"/>
+        <PARAMETER NAME="cartesian_has_tlast" VALUE="false"/>
+        <PARAMETER NAME="phase_has_tuser" VALUE="false"/>
+        <PARAMETER NAME="phase_tuser_width" VALUE="1"/>
+        <PARAMETER NAME="phase_has_tlast" VALUE="false"/>
+        <PARAMETER NAME="flow_control" VALUE="NonBlocking"/>
+        <PARAMETER NAME="optimize_goal" VALUE="Performance"/>
+        <PARAMETER NAME="out_tready" VALUE="false"/>
+        <PARAMETER NAME="out_tlast_behv" VALUE="Null"/>
+        <PARAMETER NAME="ACLKEN" VALUE="false"/>
+        <PARAMETER NAME="ARESETN" VALUE="true"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" SIGIS="rst" SIGNAME="External_Ports_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axis_cartesian_tvalid" SIGIS="undef" SIGNAME="External_Ports_rx_iq_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rx_iq_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axis_cartesian_tready" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="79" NAME="s_axis_cartesian_tdata" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_iq_pack_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_iq_pack" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axis_dout_tvalid" SIGIS="undef" SIGNAME="fm_demod_cordic_rx_m_axis_dout_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_phase_z1" PORT="CE"/>
+            <CONNECTION INSTANCE="fm_demod_mag_reg" PORT="CE"/>
+            <CONNECTION INSTANCE="fm_demod_phase_diff" PORT="CE"/>
+            <CONNECTION INSTANCE="fm_demod_disc_vld" PORT="D"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="79" NAME="m_axis_dout_tdata" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_cordic_rx_m_axis_dout_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_mag_sel" PORT="Din"/>
+            <CONNECTION INSTANCE="fm_demod_phase_sel" PORT="Din"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="S_AXIS_CARTESIAN" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="10"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.000"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="FM_Demod_aclk"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_cartesian_tdata"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="s_axis_cartesian_tready"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_cartesian_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="M_AXIS_DOUT" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="10"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="0"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.000"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="FM_Demod_aclk"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 78} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_real {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value real} enabled {attribs {resolve_type generated dependency polar_mag_enabled format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency polar_mag_width format long minimum {} maximum {}} value 38} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency polar_mag_fractwidth format long minimum {} maximum {}} value 36} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}} field_phase {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value phase} enabled {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency polar_phase_width format long minimum {} maximum {}} value 38} bitoffset {attribs {resolve_type generated dependency polar_phase_offset format long minimum {} maximum {}} value 40} real {fixed {fractwidth {attribs {resolve_type generated dependency polar_phase_fractwidth format long minimum {} maximum {}} value 35} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}}}} TDATA_WIDTH 80 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_cartesian_tuser {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value cartesian_tuser} enabled {attribs {resolve_type generated dependency cart_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency cart_width format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} field_phase_tuser {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value phase_tuser} enabled {attribs {resolve_type generated dependency phase_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency phase_width format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency phase_offset format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}}} TUSER_WIDTH 0}"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_dout_tdata"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_dout_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="13" FULLNAME="/fm_demod/de_acc" HWVERSION="12.0" INSTANCE="fm_demod_de_acc" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="c_accum" VLNV="xilinx.com:ip:c_accum:12.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=c_accum;v=v12_0;d=pg119-c-accum.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="kintex7l"/>
+        <PARAMETER NAME="C_IMPLEMENTATION" VALUE="0"/>
+        <PARAMETER NAME="C_VERBOSITY" VALUE="0"/>
+        <PARAMETER NAME="C_B_WIDTH" VALUE="28"/>
+        <PARAMETER NAME="C_OUT_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_B_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_CE_OVERRIDES_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_ADD_MODE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_C_IN" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_CE" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_BYPASS" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SCLR" VALUE="1"/>
+        <PARAMETER NAME="C_LATENCY" VALUE="1"/>
+        <PARAMETER NAME="C_SCALE" VALUE="0"/>
+        <PARAMETER NAME="C_AINIT_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_SINIT_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_BYPASS_LOW" VALUE="0"/>
+        <PARAMETER NAME="C_SCLR_OVERRIDES_SSET" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_SSET" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SINIT" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_de_acc_3"/>
+        <PARAMETER NAME="Implementation" VALUE="Fabric"/>
+        <PARAMETER NAME="Input_Type" VALUE="Signed"/>
+        <PARAMETER NAME="Input_Width" VALUE="28"/>
+        <PARAMETER NAME="Output_Width" VALUE="32"/>
+        <PARAMETER NAME="Accum_Mode" VALUE="Add"/>
+        <PARAMETER NAME="Latency_Configuration" VALUE="Manual"/>
+        <PARAMETER NAME="Latency" VALUE="1"/>
+        <PARAMETER NAME="Scale" VALUE="0"/>
+        <PARAMETER NAME="CE" VALUE="true"/>
+        <PARAMETER NAME="C_In" VALUE="false"/>
+        <PARAMETER NAME="SCLR" VALUE="true"/>
+        <PARAMETER NAME="SSET" VALUE="false"/>
+        <PARAMETER NAME="SINIT" VALUE="false"/>
+        <PARAMETER NAME="SINIT_Value" VALUE="0"/>
+        <PARAMETER NAME="Bypass" VALUE="false"/>
+        <PARAMETER NAME="Bypass_Sense" VALUE="Active_High"/>
+        <PARAMETER NAME="SyncCtrlPriority" VALUE="Reset_Overrides_Set"/>
+        <PARAMETER NAME="Sync_CE_Priority" VALUE="Sync_Overrides_CE"/>
+        <PARAMETER NAME="AINIT_Value" VALUE="0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="27" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_de_mul_P">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_de_mul" PORT="P"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="CE" SIGIS="ce" SIGNAME="fm_demod_de_ce_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_de_ce" PORT="Q"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="SCLR" SIGIS="rst" SIGNAME="fm_demod_rst_inv_Res">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_rst_inv" PORT="Res"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="Q" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_de_acc_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_de_fb" PORT="Din"/>
+            <CONNECTION INSTANCE="fm_demod_de_out" PORT="Din"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="13" FULLNAME="/fm_demod/de_ce" HWVERSION="12.0" INSTANCE="fm_demod_de_ce" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="c_shift_ram" VLNV="xilinx.com:ip:c_shift_ram:12.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=c_shift_ram;v=v12_0;d=pg122-c-shift-ram.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="kintex7l"/>
+        <PARAMETER NAME="C_VERBOSITY" VALUE="0"/>
+        <PARAMETER NAME="C_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_DEPTH" VALUE="4"/>
+        <PARAMETER NAME="C_ADDR_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="C_SHIFT_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_OPT_GOAL" VALUE="0"/>
+        <PARAMETER NAME="C_AINIT_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_SINIT_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_DEFAULT_DATA" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_A" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_CE" VALUE="0"/>
+        <PARAMETER NAME="C_REG_LAST_BIT" VALUE="1"/>
+        <PARAMETER NAME="C_SYNC_PRIORITY" VALUE="1"/>
+        <PARAMETER NAME="C_SYNC_ENABLE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SSET" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SINIT" VALUE="0"/>
+        <PARAMETER NAME="C_MEM_INIT_FILE" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="C_ELABORATION_DIR" VALUE="./"/>
+        <PARAMETER NAME="C_READ_MIF" VALUE="0"/>
+        <PARAMETER NAME="C_PARSER_TYPE" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_de_ce_3"/>
+        <PARAMETER NAME="ShiftRegType" VALUE="Fixed_Length"/>
+        <PARAMETER NAME="OptGoal" VALUE="Resources"/>
+        <PARAMETER NAME="RegLastBit" VALUE="true"/>
+        <PARAMETER NAME="CE" VALUE="false"/>
+        <PARAMETER NAME="Width" VALUE="1"/>
+        <PARAMETER NAME="Depth" VALUE="4"/>
+        <PARAMETER NAME="DefaultDataRadix" VALUE="2"/>
+        <PARAMETER NAME="DefaultData" VALUE="0"/>
+        <PARAMETER NAME="ReadMifFile" VALUE="false"/>
+        <PARAMETER NAME="MemInitFile" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="AsyncInitRadix" VALUE="2"/>
+        <PARAMETER NAME="AsyncInitVal" VALUE="0"/>
+        <PARAMETER NAME="SSET" VALUE="false"/>
+        <PARAMETER NAME="SCLR" VALUE="false"/>
+        <PARAMETER NAME="SINIT" VALUE="false"/>
+        <PARAMETER NAME="SyncInitRadix" VALUE="2"/>
+        <PARAMETER NAME="SyncInitVal" VALUE="0"/>
+        <PARAMETER NAME="SyncCtrlPriority" VALUE="Reset_Overrides_Set"/>
+        <PARAMETER NAME="CEPriority" VALUE="Sync_Overrides_CE"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="0" NAME="D" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_squelch_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_squelch" PORT="out_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="Q" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_de_ce_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_de_acc" PORT="CE"/>
+            <CONNECTION INSTANCE="fm_demod_de_vld" PORT="D"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="2" FULLNAME="/fm_demod/de_fb" HWVERSION="1.0" INSTANCE="fm_demod_de_fb" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlslice" VLNV="xilinx.com:ip:xlslice:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DIN_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="DIN_FROM" VALUE="31"/>
+        <PARAMETER NAME="DIN_TO" VALUE="16"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_de_fb_3"/>
+        <PARAMETER NAME="DOUT_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="31" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_de_acc_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_de_acc" PORT="Q"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_de_fb_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_de_sub" PORT="B"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="15" FULLNAME="/fm_demod/de_mul" HWVERSION="12.0" INSTANCE="fm_demod_de_mul" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="mult_gen" VLNV="xilinx.com:ip:mult_gen:12.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=mult_gen;v=v12_0;d=pg108-mult-gen.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_VERBOSITY" VALUE="0"/>
+        <PARAMETER NAME="C_MODEL_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_OPTIMIZE_GOAL" VALUE="1"/>
+        <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="kintex7l"/>
+        <PARAMETER NAME="C_HAS_CE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_LATENCY" VALUE="1"/>
+        <PARAMETER NAME="C_A_WIDTH" VALUE="17"/>
+        <PARAMETER NAME="C_A_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_B_WIDTH" VALUE="11"/>
+        <PARAMETER NAME="C_B_TYPE" VALUE="1"/>
+        <PARAMETER NAME="C_OUT_HIGH" VALUE="27"/>
+        <PARAMETER NAME="C_OUT_LOW" VALUE="0"/>
+        <PARAMETER NAME="C_MULT_TYPE" VALUE="2"/>
+        <PARAMETER NAME="C_CE_OVERRIDES_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_CCM_IMP" VALUE="0"/>
+        <PARAMETER NAME="C_B_VALUE" VALUE="11100000011"/>
+        <PARAMETER NAME="C_HAS_ZERO_DETECT" VALUE="0"/>
+        <PARAMETER NAME="C_ROUND_OUTPUT" VALUE="0"/>
+        <PARAMETER NAME="C_ROUND_PT" VALUE="0"/>
+        <PARAMETER NAME="InternalUser" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_de_mul_3"/>
+        <PARAMETER NAME="MultType" VALUE="Constant_Coefficient_Multiplier"/>
+        <PARAMETER NAME="PortAType" VALUE="Signed"/>
+        <PARAMETER NAME="PortAWidth" VALUE="17"/>
+        <PARAMETER NAME="PortBType" VALUE="Signed"/>
+        <PARAMETER NAME="PortBWidth" VALUE="18"/>
+        <PARAMETER NAME="ConstValue" VALUE="1795"/>
+        <PARAMETER NAME="CcmImp" VALUE="Distributed_Memory"/>
+        <PARAMETER NAME="Multiplier_Construction" VALUE="Use_LUTs"/>
+        <PARAMETER NAME="OptGoal" VALUE="Speed"/>
+        <PARAMETER NAME="Use_Custom_Output_Width" VALUE="false"/>
+        <PARAMETER NAME="OutputWidthHigh" VALUE="27"/>
+        <PARAMETER NAME="OutputWidthLow" VALUE="0"/>
+        <PARAMETER NAME="UseRounding" VALUE="false"/>
+        <PARAMETER NAME="RoundPoint" VALUE="0"/>
+        <PARAMETER NAME="PipeStages" VALUE="1"/>
+        <PARAMETER NAME="ClockEnable" VALUE="false"/>
+        <PARAMETER NAME="SyncClear" VALUE="false"/>
+        <PARAMETER NAME="SclrCePriority" VALUE="SCLR_Overrides_CE"/>
+        <PARAMETER NAME="ZeroDetect" VALUE="false"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="16" NAME="A" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_de_sub_S">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_de_sub" PORT="S"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="27" NAME="P" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_de_mul_P">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_de_acc" PORT="B"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="2" FULLNAME="/fm_demod/de_out" HWVERSION="1.0" INSTANCE="fm_demod_de_out" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlslice" VLNV="xilinx.com:ip:xlslice:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DIN_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="DIN_FROM" VALUE="31"/>
+        <PARAMETER NAME="DIN_TO" VALUE="14"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_de_out_3"/>
+        <PARAMETER NAME="DOUT_WIDTH" VALUE="18"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="31" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_de_acc_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_de_acc" PORT="Q"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="17" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_de_out_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq_guard" PORT="In1"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="13" FULLNAME="/fm_demod/de_sub" HWVERSION="12.0" INSTANCE="fm_demod_de_sub" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="c_addsub" VLNV="xilinx.com:ip:c_addsub:12.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=c_addsub;v=v12_0;d=pg120-c-addsub.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_VERBOSITY" VALUE="0"/>
+        <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="kintex7l"/>
+        <PARAMETER NAME="C_IMPLEMENTATION" VALUE="0"/>
+        <PARAMETER NAME="C_A_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="C_B_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="C_OUT_WIDTH" VALUE="17"/>
+        <PARAMETER NAME="C_CE_OVERRIDES_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_A_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_B_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_LATENCY" VALUE="1"/>
+        <PARAMETER NAME="C_ADD_MODE" VALUE="1"/>
+        <PARAMETER NAME="C_B_CONSTANT" VALUE="0"/>
+        <PARAMETER NAME="C_B_VALUE" VALUE="0000000000000000"/>
+        <PARAMETER NAME="C_AINIT_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_SINIT_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_CE_OVERRIDES_BYPASS" VALUE="1"/>
+        <PARAMETER NAME="C_BYPASS_LOW" VALUE="0"/>
+        <PARAMETER NAME="C_SCLR_OVERRIDES_SSET" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_C_IN" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_C_OUT" VALUE="0"/>
+        <PARAMETER NAME="C_BORROW_LOW" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_CE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_BYPASS" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SSET" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SINIT" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_de_sub_3"/>
+        <PARAMETER NAME="Implementation" VALUE="Fabric"/>
+        <PARAMETER NAME="A_Type" VALUE="Signed"/>
+        <PARAMETER NAME="B_Type" VALUE="Signed"/>
+        <PARAMETER NAME="A_Width" VALUE="16"/>
+        <PARAMETER NAME="B_Width" VALUE="16"/>
+        <PARAMETER NAME="Add_Mode" VALUE="Subtract"/>
+        <PARAMETER NAME="Out_Width" VALUE="17"/>
+        <PARAMETER NAME="Latency_Configuration" VALUE="Manual"/>
+        <PARAMETER NAME="Latency" VALUE="1"/>
+        <PARAMETER NAME="B_Constant" VALUE="false"/>
+        <PARAMETER NAME="B_Value" VALUE="0000000000000000"/>
+        <PARAMETER NAME="CE" VALUE="false"/>
+        <PARAMETER NAME="C_In" VALUE="false"/>
+        <PARAMETER NAME="C_Out" VALUE="false"/>
+        <PARAMETER NAME="Borrow_Sense" VALUE="Active_Low"/>
+        <PARAMETER NAME="SCLR" VALUE="false"/>
+        <PARAMETER NAME="SSET" VALUE="false"/>
+        <PARAMETER NAME="SINIT" VALUE="false"/>
+        <PARAMETER NAME="SINIT_Value" VALUE="0"/>
+        <PARAMETER NAME="Bypass" VALUE="false"/>
+        <PARAMETER NAME="Bypass_Sense" VALUE="Active_High"/>
+        <PARAMETER NAME="Sync_Ctrl_Priority" VALUE="Reset_Overrides_Set"/>
+        <PARAMETER NAME="Sync_CE_Priority" VALUE="Sync_Overrides_CE"/>
+        <PARAMETER NAME="Bypass_CE_Priority" VALUE="CE_Overrides_Bypass"/>
+        <PARAMETER NAME="AINIT_Value" VALUE="0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="15" NAME="A" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_squelch_audio">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_squelch" PORT="audio"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_de_fb_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_de_fb" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="16" NAME="S" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_de_sub_S">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_de_mul" PORT="A"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="13" FULLNAME="/fm_demod/de_vld" HWVERSION="12.0" INSTANCE="fm_demod_de_vld" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="c_shift_ram" VLNV="xilinx.com:ip:c_shift_ram:12.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=c_shift_ram;v=v12_0;d=pg122-c-shift-ram.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="kintex7l"/>
+        <PARAMETER NAME="C_VERBOSITY" VALUE="0"/>
+        <PARAMETER NAME="C_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_DEPTH" VALUE="1"/>
+        <PARAMETER NAME="C_ADDR_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="C_SHIFT_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_OPT_GOAL" VALUE="0"/>
+        <PARAMETER NAME="C_AINIT_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_SINIT_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_DEFAULT_DATA" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_A" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_CE" VALUE="0"/>
+        <PARAMETER NAME="C_REG_LAST_BIT" VALUE="1"/>
+        <PARAMETER NAME="C_SYNC_PRIORITY" VALUE="1"/>
+        <PARAMETER NAME="C_SYNC_ENABLE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SSET" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SINIT" VALUE="0"/>
+        <PARAMETER NAME="C_MEM_INIT_FILE" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="C_ELABORATION_DIR" VALUE="./"/>
+        <PARAMETER NAME="C_READ_MIF" VALUE="0"/>
+        <PARAMETER NAME="C_PARSER_TYPE" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_de_vld_3"/>
+        <PARAMETER NAME="ShiftRegType" VALUE="Fixed_Length"/>
+        <PARAMETER NAME="OptGoal" VALUE="Resources"/>
+        <PARAMETER NAME="RegLastBit" VALUE="true"/>
+        <PARAMETER NAME="CE" VALUE="false"/>
+        <PARAMETER NAME="Width" VALUE="1"/>
+        <PARAMETER NAME="Depth" VALUE="1"/>
+        <PARAMETER NAME="DefaultDataRadix" VALUE="2"/>
+        <PARAMETER NAME="DefaultData" VALUE="0"/>
+        <PARAMETER NAME="ReadMifFile" VALUE="false"/>
+        <PARAMETER NAME="MemInitFile" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="AsyncInitRadix" VALUE="2"/>
+        <PARAMETER NAME="AsyncInitVal" VALUE="0"/>
+        <PARAMETER NAME="SSET" VALUE="false"/>
+        <PARAMETER NAME="SCLR" VALUE="false"/>
+        <PARAMETER NAME="SINIT" VALUE="false"/>
+        <PARAMETER NAME="SyncInitRadix" VALUE="2"/>
+        <PARAMETER NAME="SyncInitVal" VALUE="0"/>
+        <PARAMETER NAME="SyncCtrlPriority" VALUE="Reset_Overrides_Set"/>
+        <PARAMETER NAME="CEPriority" VALUE="Sync_Overrides_CE"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="0" NAME="D" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_de_ce_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_de_ce" PORT="Q"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="Q" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_de_vld_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq0" PORT="in_valid"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/fm_demod/disc_sat" HWVERSION="1.0" INSTANCE="fm_demod_disc_sat" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="round_sat" VLNV="xilinx.com:module_ref:round_sat:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="IN_W" VALUE="20"/>
+        <PARAMETER NAME="SHIFT" VALUE="2"/>
+        <PARAMETER NAME="ROUND" VALUE="0"/>
+        <PARAMETER NAME="OUT_W" VALUE="16"/>
+        <PARAMETER NAME="LIMIT" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_disc_sat_3"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" SIGIS="rst" SIGNAME="External_Ports_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="in_valid" SIGIS="undef" SIGNAME="fm_demod_disc_vld_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_disc_vld" PORT="Q"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="19" NAME="in_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_phase_diff_S">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_phase_diff" PORT="S"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="out_valid" SIGIS="undef" SIGNAME="fm_demod_disc_sat_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_squelch" PORT="in_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="out_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_disc_sat_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_squelch" PORT="disc"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="13" FULLNAME="/fm_demod/disc_vld" HWVERSION="12.0" INSTANCE="fm_demod_disc_vld" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="c_shift_ram" VLNV="xilinx.com:ip:c_shift_ram:12.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=c_shift_ram;v=v12_0;d=pg122-c-shift-ram.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="kintex7l"/>
+        <PARAMETER NAME="C_VERBOSITY" VALUE="0"/>
+        <PARAMETER NAME="C_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_DEPTH" VALUE="1"/>
+        <PARAMETER NAME="C_ADDR_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="C_SHIFT_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_OPT_GOAL" VALUE="0"/>
+        <PARAMETER NAME="C_AINIT_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_SINIT_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_DEFAULT_DATA" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_A" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_CE" VALUE="0"/>
+        <PARAMETER NAME="C_REG_LAST_BIT" VALUE="1"/>
+        <PARAMETER NAME="C_SYNC_PRIORITY" VALUE="1"/>
+        <PARAMETER NAME="C_SYNC_ENABLE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SSET" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SINIT" VALUE="0"/>
+        <PARAMETER NAME="C_MEM_INIT_FILE" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="C_ELABORATION_DIR" VALUE="./"/>
+        <PARAMETER NAME="C_READ_MIF" VALUE="0"/>
+        <PARAMETER NAME="C_PARSER_TYPE" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_disc_vld_3"/>
+        <PARAMETER NAME="ShiftRegType" VALUE="Fixed_Length"/>
+        <PARAMETER NAME="OptGoal" VALUE="Resources"/>
+        <PARAMETER NAME="RegLastBit" VALUE="true"/>
+        <PARAMETER NAME="CE" VALUE="false"/>
+        <PARAMETER NAME="Width" VALUE="1"/>
+        <PARAMETER NAME="Depth" VALUE="1"/>
+        <PARAMETER NAME="DefaultDataRadix" VALUE="2"/>
+        <PARAMETER NAME="DefaultData" VALUE="0"/>
+        <PARAMETER NAME="ReadMifFile" VALUE="false"/>
+        <PARAMETER NAME="MemInitFile" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="AsyncInitRadix" VALUE="2"/>
+        <PARAMETER NAME="AsyncInitVal" VALUE="0"/>
+        <PARAMETER NAME="SSET" VALUE="false"/>
+        <PARAMETER NAME="SCLR" VALUE="false"/>
+        <PARAMETER NAME="SINIT" VALUE="false"/>
+        <PARAMETER NAME="SyncInitRadix" VALUE="2"/>
+        <PARAMETER NAME="SyncInitVal" VALUE="0"/>
+        <PARAMETER NAME="SyncCtrlPriority" VALUE="Reset_Overrides_Set"/>
+        <PARAMETER NAME="CEPriority" VALUE="Sync_Overrides_CE"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="0" NAME="D" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_cordic_rx_m_axis_dout_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_cordic_rx" PORT="m_axis_dout_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="Q" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_disc_vld_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_disc_sat" PORT="in_valid"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="2" FULLNAME="/fm_demod/iq_i" HWVERSION="1.0" INSTANCE="fm_demod_iq_i" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlslice" VLNV="xilinx.com:ip:xlslice:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DIN_WIDTH" VALUE="64"/>
+        <PARAMETER NAME="DIN_FROM" VALUE="31"/>
+        <PARAMETER NAME="DIN_TO" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_iq_i_3"/>
+        <PARAMETER NAME="DOUT_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="63" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_rx_iq_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rx_iq_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_iq_i_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_iq_pack" PORT="In0"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="2" FULLNAME="/fm_demod/iq_i_sign" HWVERSION="1.0" INSTANCE="fm_demod_iq_i_sign" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlslice" VLNV="xilinx.com:ip:xlslice:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DIN_WIDTH" VALUE="64"/>
+        <PARAMETER NAME="DIN_FROM" VALUE="31"/>
+        <PARAMETER NAME="DIN_TO" VALUE="31"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_iq_i_sign_3"/>
+        <PARAMETER NAME="DOUT_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="63" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_rx_iq_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rx_iq_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_iq_i_sign_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_iq_pack" PORT="In1"/>
+            <CONNECTION INSTANCE="fm_demod_iq_pack" PORT="In2"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="3" FULLNAME="/fm_demod/iq_pack" HWVERSION="2.1" INSTANCE="fm_demod_iq_pack" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconcat" VLNV="xilinx.com:ip:xlconcat:2.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="IN0_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="IN1_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN2_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN3_WIDTH" VALUE="6"/>
+        <PARAMETER NAME="IN4_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="IN5_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN6_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN7_WIDTH" VALUE="6"/>
+        <PARAMETER NAME="IN8_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN9_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN10_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN11_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN12_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN13_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN14_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN15_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN16_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN17_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN18_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN19_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN20_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN21_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN22_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN23_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN24_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN25_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN26_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN27_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN28_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN29_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN30_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN31_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="dout_width" VALUE="80"/>
+        <PARAMETER NAME="NUM_PORTS" VALUE="8"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_iq_pack_3"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="31" NAME="In0" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_iq_i_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_iq_i" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="In1" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_iq_i_sign_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_iq_i_sign" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="In2" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_iq_i_sign_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_iq_i_sign" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="In3" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_iq_pad_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_iq_pad" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="31" NAME="In4" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_iq_q_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_iq_q" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="In5" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_iq_q_sign_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_iq_q_sign" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="In6" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_iq_q_sign_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_iq_q_sign" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="5" NAME="In7" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_iq_pad_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_iq_pad" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="79" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_iq_pack_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_cordic_rx" PORT="s_axis_cartesian_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="6" FULLNAME="/fm_demod/iq_pad" HWVERSION="1.1" INSTANCE="fm_demod_iq_pad" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="6"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x00"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_iq_pad_3"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="5" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_iq_pad_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_iq_pack" PORT="In3"/>
+            <CONNECTION INSTANCE="fm_demod_iq_pack" PORT="In7"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="2" FULLNAME="/fm_demod/iq_q" HWVERSION="1.0" INSTANCE="fm_demod_iq_q" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlslice" VLNV="xilinx.com:ip:xlslice:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DIN_WIDTH" VALUE="64"/>
+        <PARAMETER NAME="DIN_FROM" VALUE="63"/>
+        <PARAMETER NAME="DIN_TO" VALUE="32"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_iq_q_3"/>
+        <PARAMETER NAME="DOUT_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="63" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_rx_iq_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rx_iq_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_iq_q_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_iq_pack" PORT="In4"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="2" FULLNAME="/fm_demod/iq_q_sign" HWVERSION="1.0" INSTANCE="fm_demod_iq_q_sign" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlslice" VLNV="xilinx.com:ip:xlslice:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DIN_WIDTH" VALUE="64"/>
+        <PARAMETER NAME="DIN_FROM" VALUE="63"/>
+        <PARAMETER NAME="DIN_TO" VALUE="63"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_iq_q_sign_3"/>
+        <PARAMETER NAME="DOUT_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="63" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_rx_iq_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rx_iq_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_iq_q_sign_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_iq_pack" PORT="In5"/>
+            <CONNECTION INSTANCE="fm_demod_iq_pack" PORT="In6"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="13" FULLNAME="/fm_demod/mag_reg" HWVERSION="12.0" INSTANCE="fm_demod_mag_reg" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="c_shift_ram" VLNV="xilinx.com:ip:c_shift_ram:12.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=c_shift_ram;v=v12_0;d=pg122-c-shift-ram.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="kintex7l"/>
+        <PARAMETER NAME="C_VERBOSITY" VALUE="0"/>
+        <PARAMETER NAME="C_WIDTH" VALUE="34"/>
+        <PARAMETER NAME="C_DEPTH" VALUE="1"/>
+        <PARAMETER NAME="C_ADDR_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="C_SHIFT_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_OPT_GOAL" VALUE="0"/>
+        <PARAMETER NAME="C_AINIT_VAL" VALUE="0000000000000000000000000000000000"/>
+        <PARAMETER NAME="C_SINIT_VAL" VALUE="0000000000000000000000000000000000"/>
+        <PARAMETER NAME="C_DEFAULT_DATA" VALUE="0000000000000000000000000000000000"/>
+        <PARAMETER NAME="C_HAS_A" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_CE" VALUE="1"/>
+        <PARAMETER NAME="C_REG_LAST_BIT" VALUE="1"/>
+        <PARAMETER NAME="C_SYNC_PRIORITY" VALUE="1"/>
+        <PARAMETER NAME="C_SYNC_ENABLE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SSET" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SINIT" VALUE="0"/>
+        <PARAMETER NAME="C_MEM_INIT_FILE" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="C_ELABORATION_DIR" VALUE="./"/>
+        <PARAMETER NAME="C_READ_MIF" VALUE="0"/>
+        <PARAMETER NAME="C_PARSER_TYPE" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_mag_reg_3"/>
+        <PARAMETER NAME="ShiftRegType" VALUE="Fixed_Length"/>
+        <PARAMETER NAME="OptGoal" VALUE="Resources"/>
+        <PARAMETER NAME="RegLastBit" VALUE="true"/>
+        <PARAMETER NAME="CE" VALUE="true"/>
+        <PARAMETER NAME="Width" VALUE="34"/>
+        <PARAMETER NAME="Depth" VALUE="1"/>
+        <PARAMETER NAME="DefaultDataRadix" VALUE="2"/>
+        <PARAMETER NAME="DefaultData" VALUE="0000000000000000000000000000000000"/>
+        <PARAMETER NAME="ReadMifFile" VALUE="false"/>
+        <PARAMETER NAME="MemInitFile" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="AsyncInitRadix" VALUE="2"/>
+        <PARAMETER NAME="AsyncInitVal" VALUE="0000000000000000000000000000000000"/>
+        <PARAMETER NAME="SSET" VALUE="false"/>
+        <PARAMETER NAME="SCLR" VALUE="false"/>
+        <PARAMETER NAME="SINIT" VALUE="false"/>
+        <PARAMETER NAME="SyncInitRadix" VALUE="2"/>
+        <PARAMETER NAME="SyncInitVal" VALUE="0000000000000000000000000000000000"/>
+        <PARAMETER NAME="SyncCtrlPriority" VALUE="Reset_Overrides_Set"/>
+        <PARAMETER NAME="CEPriority" VALUE="Sync_Overrides_CE"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="33" NAME="D" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_mag_sel_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_mag_sel" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="CE" SIGIS="ce" SIGNAME="fm_demod_cordic_rx_m_axis_dout_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_cordic_rx" PORT="m_axis_dout_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="33" NAME="Q" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_mag_reg_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_squelch" PORT="mag"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="2" FULLNAME="/fm_demod/mag_sel" HWVERSION="1.0" INSTANCE="fm_demod_mag_sel" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlslice" VLNV="xilinx.com:ip:xlslice:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DIN_WIDTH" VALUE="80"/>
+        <PARAMETER NAME="DIN_FROM" VALUE="37"/>
+        <PARAMETER NAME="DIN_TO" VALUE="4"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_mag_sel_3"/>
+        <PARAMETER NAME="DOUT_WIDTH" VALUE="34"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="79" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_cordic_rx_m_axis_dout_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_cordic_rx" PORT="m_axis_dout_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="33" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_mag_sel_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_mag_reg" PORT="D"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/fm_demod/out_round" HWVERSION="1.0" INSTANCE="fm_demod_out_round" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="round_sat" VLNV="xilinx.com:module_ref:round_sat:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="IN_W" VALUE="26"/>
+        <PARAMETER NAME="SHIFT" VALUE="8"/>
+        <PARAMETER NAME="ROUND" VALUE="1"/>
+        <PARAMETER NAME="OUT_W" VALUE="16"/>
+        <PARAMETER NAME="LIMIT" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_out_round_3"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" SIGIS="rst" SIGNAME="External_Ports_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="in_valid" SIGIS="undef" SIGNAME="fm_demod_bq3_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq3" PORT="out_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="25" NAME="in_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_bq3_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_bq3" PORT="out_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="out_valid" SIGIS="undef" SIGNAME="fm_demod_out_round_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rx_audio_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="out_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_out_round_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rx_audio_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="13" FULLNAME="/fm_demod/phase_diff" HWVERSION="12.0" INSTANCE="fm_demod_phase_diff" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="c_addsub" VLNV="xilinx.com:ip:c_addsub:12.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=c_addsub;v=v12_0;d=pg120-c-addsub.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_VERBOSITY" VALUE="0"/>
+        <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="kintex7l"/>
+        <PARAMETER NAME="C_IMPLEMENTATION" VALUE="0"/>
+        <PARAMETER NAME="C_A_WIDTH" VALUE="20"/>
+        <PARAMETER NAME="C_B_WIDTH" VALUE="20"/>
+        <PARAMETER NAME="C_OUT_WIDTH" VALUE="20"/>
+        <PARAMETER NAME="C_CE_OVERRIDES_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_A_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_B_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_LATENCY" VALUE="1"/>
+        <PARAMETER NAME="C_ADD_MODE" VALUE="1"/>
+        <PARAMETER NAME="C_B_CONSTANT" VALUE="0"/>
+        <PARAMETER NAME="C_B_VALUE" VALUE="00000000000000000000"/>
+        <PARAMETER NAME="C_AINIT_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_SINIT_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_CE_OVERRIDES_BYPASS" VALUE="1"/>
+        <PARAMETER NAME="C_BYPASS_LOW" VALUE="0"/>
+        <PARAMETER NAME="C_SCLR_OVERRIDES_SSET" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_C_IN" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_C_OUT" VALUE="0"/>
+        <PARAMETER NAME="C_BORROW_LOW" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_CE" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_BYPASS" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SSET" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SINIT" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_phase_diff_3"/>
+        <PARAMETER NAME="Implementation" VALUE="Fabric"/>
+        <PARAMETER NAME="A_Type" VALUE="Signed"/>
+        <PARAMETER NAME="B_Type" VALUE="Signed"/>
+        <PARAMETER NAME="A_Width" VALUE="20"/>
+        <PARAMETER NAME="B_Width" VALUE="20"/>
+        <PARAMETER NAME="Add_Mode" VALUE="Subtract"/>
+        <PARAMETER NAME="Out_Width" VALUE="20"/>
+        <PARAMETER NAME="Latency_Configuration" VALUE="Manual"/>
+        <PARAMETER NAME="Latency" VALUE="1"/>
+        <PARAMETER NAME="B_Constant" VALUE="false"/>
+        <PARAMETER NAME="B_Value" VALUE="00000000000000000000"/>
+        <PARAMETER NAME="CE" VALUE="true"/>
+        <PARAMETER NAME="C_In" VALUE="false"/>
+        <PARAMETER NAME="C_Out" VALUE="false"/>
+        <PARAMETER NAME="Borrow_Sense" VALUE="Active_Low"/>
+        <PARAMETER NAME="SCLR" VALUE="false"/>
+        <PARAMETER NAME="SSET" VALUE="false"/>
+        <PARAMETER NAME="SINIT" VALUE="false"/>
+        <PARAMETER NAME="SINIT_Value" VALUE="0"/>
+        <PARAMETER NAME="Bypass" VALUE="false"/>
+        <PARAMETER NAME="Bypass_Sense" VALUE="Active_High"/>
+        <PARAMETER NAME="Sync_Ctrl_Priority" VALUE="Reset_Overrides_Set"/>
+        <PARAMETER NAME="Sync_CE_Priority" VALUE="Sync_Overrides_CE"/>
+        <PARAMETER NAME="Bypass_CE_Priority" VALUE="CE_Overrides_Bypass"/>
+        <PARAMETER NAME="AINIT_Value" VALUE="0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="19" NAME="A" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_phase_sel_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_phase_sel" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="19" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_phase_z1_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_phase_z1" PORT="Q"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="CE" SIGIS="ce" SIGNAME="fm_demod_cordic_rx_m_axis_dout_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_cordic_rx" PORT="m_axis_dout_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="19" NAME="S" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_phase_diff_S">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_disc_sat" PORT="in_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="2" FULLNAME="/fm_demod/phase_sel" HWVERSION="1.0" INSTANCE="fm_demod_phase_sel" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlslice" VLNV="xilinx.com:ip:xlslice:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DIN_WIDTH" VALUE="80"/>
+        <PARAMETER NAME="DIN_FROM" VALUE="75"/>
+        <PARAMETER NAME="DIN_TO" VALUE="56"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_phase_sel_3"/>
+        <PARAMETER NAME="DOUT_WIDTH" VALUE="20"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="79" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_cordic_rx_m_axis_dout_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_cordic_rx" PORT="m_axis_dout_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="19" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_phase_sel_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_phase_z1" PORT="D"/>
+            <CONNECTION INSTANCE="fm_demod_phase_diff" PORT="A"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="13" FULLNAME="/fm_demod/phase_z1" HWVERSION="12.0" INSTANCE="fm_demod_phase_z1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="c_shift_ram" VLNV="xilinx.com:ip:c_shift_ram:12.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=c_shift_ram;v=v12_0;d=pg122-c-shift-ram.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="kintex7l"/>
+        <PARAMETER NAME="C_VERBOSITY" VALUE="0"/>
+        <PARAMETER NAME="C_WIDTH" VALUE="20"/>
+        <PARAMETER NAME="C_DEPTH" VALUE="1"/>
+        <PARAMETER NAME="C_ADDR_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="C_SHIFT_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_OPT_GOAL" VALUE="0"/>
+        <PARAMETER NAME="C_AINIT_VAL" VALUE="00000000000000000000"/>
+        <PARAMETER NAME="C_SINIT_VAL" VALUE="00000000000000000000"/>
+        <PARAMETER NAME="C_DEFAULT_DATA" VALUE="00000000000000000000"/>
+        <PARAMETER NAME="C_HAS_A" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_CE" VALUE="1"/>
+        <PARAMETER NAME="C_REG_LAST_BIT" VALUE="1"/>
+        <PARAMETER NAME="C_SYNC_PRIORITY" VALUE="1"/>
+        <PARAMETER NAME="C_SYNC_ENABLE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SSET" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SINIT" VALUE="0"/>
+        <PARAMETER NAME="C_MEM_INIT_FILE" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="C_ELABORATION_DIR" VALUE="./"/>
+        <PARAMETER NAME="C_READ_MIF" VALUE="0"/>
+        <PARAMETER NAME="C_PARSER_TYPE" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_phase_z1_3"/>
+        <PARAMETER NAME="ShiftRegType" VALUE="Fixed_Length"/>
+        <PARAMETER NAME="OptGoal" VALUE="Resources"/>
+        <PARAMETER NAME="RegLastBit" VALUE="true"/>
+        <PARAMETER NAME="CE" VALUE="true"/>
+        <PARAMETER NAME="Width" VALUE="20"/>
+        <PARAMETER NAME="Depth" VALUE="1"/>
+        <PARAMETER NAME="DefaultDataRadix" VALUE="2"/>
+        <PARAMETER NAME="DefaultData" VALUE="00000000000000000000"/>
+        <PARAMETER NAME="ReadMifFile" VALUE="false"/>
+        <PARAMETER NAME="MemInitFile" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="AsyncInitRadix" VALUE="2"/>
+        <PARAMETER NAME="AsyncInitVal" VALUE="00000000000000000000"/>
+        <PARAMETER NAME="SSET" VALUE="false"/>
+        <PARAMETER NAME="SCLR" VALUE="false"/>
+        <PARAMETER NAME="SINIT" VALUE="false"/>
+        <PARAMETER NAME="SyncInitRadix" VALUE="2"/>
+        <PARAMETER NAME="SyncInitVal" VALUE="00000000000000000000"/>
+        <PARAMETER NAME="SyncCtrlPriority" VALUE="Reset_Overrides_Set"/>
+        <PARAMETER NAME="CEPriority" VALUE="Sync_Overrides_CE"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="19" NAME="D" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_phase_sel_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_phase_sel" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="CE" SIGIS="ce" SIGNAME="fm_demod_cordic_rx_m_axis_dout_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_cordic_rx" PORT="m_axis_dout_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="19" NAME="Q" RIGHT="0" SIGIS="data" SIGNAME="fm_demod_phase_z1_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_phase_diff" PORT="B"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/fm_demod/rst_inv" HWVERSION="2.0" INSTANCE="fm_demod_rst_inv" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="util_vector_logic" VLNV="xilinx.com:ip:util_vector_logic:2.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="C_OPERATION" VALUE="not"/>
+        <PARAMETER NAME="C_SIZE" VALUE="1"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_rst_inv_6"/>
+        <PARAMETER NAME="LOGO_FILE" VALUE="data/sym_notgate.png"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="0" NAME="Op1" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="Res" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_rst_inv_Res">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_de_acc" PORT="SCLR"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="6" FULLNAME="/fm_demod/sq_th_close" HWVERSION="1.1" INSTANCE="fm_demod_sq_th_close" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="34"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x00950C37A"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_sq_th_close_3"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="33" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_sq_th_close_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_squelch" PORT="th_close"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="6" FULLNAME="/fm_demod/sq_th_open" HWVERSION="1.1" INSTANCE="fm_demod_sq_th_open" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="34"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x012A186F5"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_sq_th_open_3"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="33" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_sq_th_open_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_squelch" PORT="th_open"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/fm_demod/squelch" HWVERSION="1.0" INSTANCE="fm_demod_squelch" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fm_squelch" VLNV="xilinx.com:module_ref:fm_squelch:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="MAG_W" VALUE="34"/>
+        <PARAMETER NAME="AUDIO_W" VALUE="16"/>
+        <PARAMETER NAME="AVG_LOG2" VALUE="8"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_squelch_3"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" SIGIS="rst" SIGNAME="External_Ports_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="in_valid" SIGIS="undef" SIGNAME="fm_demod_disc_sat_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_disc_sat" PORT="out_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="33" NAME="mag" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_mag_reg_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_mag_reg" PORT="Q"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="disc" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_disc_sat_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_disc_sat" PORT="out_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="33" NAME="th_open" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_sq_th_open_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_sq_th_open" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="33" NAME="th_close" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_sq_th_close_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_sq_th_close" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="out_valid" SIGIS="undef" SIGNAME="fm_demod_squelch_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_de_ce" PORT="D"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="audio" RIGHT="0" SIGIS="undef" SIGNAME="fm_demod_squelch_audio">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_demod_de_sub" PORT="A"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="gate" SIGIS="undef" SIGNAME="fm_demod_squelch_gate">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="rx_squelch_open"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="33" NAME="level" RIGHT="0" SIGIS="undef"/>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/fm_mod/bq0" HWVERSION="1.0" INSTANCE="fm_mod_bq0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="iir_biquad" VLNV="xilinx.com:module_ref:iir_biquad:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DATA_W" VALUE="24"/>
+        <PARAMETER NAME="COEF_W" VALUE="18"/>
+        <PARAMETER NAME="FRAC" VALUE="16"/>
+        <PARAMETER NAME="B0" VALUE="63218"/>
+        <PARAMETER NAME="B1" VALUE="-126436"/>
+        <PARAMETER NAME="B2" VALUE="63218"/>
+        <PARAMETER NAME="A1" VALUE="-126387"/>
+        <PARAMETER NAME="A2" VALUE="60948"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_bq0_7"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" SIGIS="rst" SIGNAME="External_Ports_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="in_valid" SIGIS="undef" SIGNAME="External_Ports_tx_audio_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="tx_audio_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="23" NAME="in_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_bq_guard_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq_guard" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="out_valid" SIGIS="undef" SIGNAME="fm_mod_bq0_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq1" PORT="in_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="23" NAME="out_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_bq0_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq1" PORT="in_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/fm_mod/bq1" HWVERSION="1.0" INSTANCE="fm_mod_bq1" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="iir_biquad" VLNV="xilinx.com:module_ref:iir_biquad:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DATA_W" VALUE="24"/>
+        <PARAMETER NAME="COEF_W" VALUE="18"/>
+        <PARAMETER NAME="FRAC" VALUE="16"/>
+        <PARAMETER NAME="B0" VALUE="64541"/>
+        <PARAMETER NAME="B1" VALUE="-129082"/>
+        <PARAMETER NAME="B2" VALUE="64541"/>
+        <PARAMETER NAME="A1" VALUE="-129032"/>
+        <PARAMETER NAME="A2" VALUE="63596"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_bq1_7"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" SIGIS="rst" SIGNAME="External_Ports_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="in_valid" SIGIS="undef" SIGNAME="fm_mod_bq0_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq0" PORT="out_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="23" NAME="in_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_bq0_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq0" PORT="out_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="out_valid" SIGIS="undef" SIGNAME="fm_mod_bq1_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq2" PORT="in_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="23" NAME="out_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_bq1_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq2" PORT="in_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/fm_mod/bq2" HWVERSION="1.0" INSTANCE="fm_mod_bq2" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="iir_biquad" VLNV="xilinx.com:module_ref:iir_biquad:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DATA_W" VALUE="24"/>
+        <PARAMETER NAME="COEF_W" VALUE="18"/>
+        <PARAMETER NAME="FRAC" VALUE="16"/>
+        <PARAMETER NAME="B0" VALUE="1843"/>
+        <PARAMETER NAME="B1" VALUE="3686"/>
+        <PARAMETER NAME="B2" VALUE="1843"/>
+        <PARAMETER NAME="A1" VALUE="-89464"/>
+        <PARAMETER NAME="A2" VALUE="31299"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_bq2_7"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" SIGIS="rst" SIGNAME="External_Ports_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="in_valid" SIGIS="undef" SIGNAME="fm_mod_bq1_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq1" PORT="out_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="23" NAME="in_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_bq1_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq1" PORT="out_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="out_valid" SIGIS="undef" SIGNAME="fm_mod_bq2_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq3" PORT="in_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="23" NAME="out_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_bq2_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq3" PORT="in_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/fm_mod/bq3" HWVERSION="1.0" INSTANCE="fm_mod_bq3" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="iir_biquad" VLNV="xilinx.com:module_ref:iir_biquad:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DATA_W" VALUE="24"/>
+        <PARAMETER NAME="COEF_W" VALUE="18"/>
+        <PARAMETER NAME="FRAC" VALUE="16"/>
+        <PARAMETER NAME="B0" VALUE="2176"/>
+        <PARAMETER NAME="B1" VALUE="4352"/>
+        <PARAMETER NAME="B2" VALUE="2176"/>
+        <PARAMETER NAME="A1" VALUE="-105626"/>
+        <PARAMETER NAME="A2" VALUE="48793"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_bq3_7"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" SIGIS="rst" SIGNAME="External_Ports_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="in_valid" SIGIS="undef" SIGNAME="fm_mod_bq2_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq2" PORT="out_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="23" NAME="in_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_bq2_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq2" PORT="out_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="out_valid" SIGIS="undef" SIGNAME="fm_mod_bq3_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq_round" PORT="in_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="23" NAME="out_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_bq3_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq_round" PORT="in_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="3" FULLNAME="/fm_mod/bq_guard" HWVERSION="2.1" INSTANCE="fm_mod_bq_guard" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconcat" VLNV="xilinx.com:ip:xlconcat:2.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="IN0_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="IN1_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="IN2_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN3_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN4_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN5_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN6_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN7_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN8_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN9_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN10_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN11_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN12_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN13_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN14_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN15_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN16_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN17_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN18_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN19_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN20_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN21_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN22_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN23_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN24_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN25_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN26_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN27_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN28_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN29_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN30_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN31_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="dout_width" VALUE="24"/>
+        <PARAMETER NAME="NUM_PORTS" VALUE="2"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_bq_guard_7"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="7" NAME="In0" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_bq_zero_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq_zero" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="15" NAME="In1" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_tx_audio_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="tx_audio_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="23" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_bq_guard_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq0" PORT="in_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/fm_mod/bq_round" HWVERSION="1.0" INSTANCE="fm_mod_bq_round" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="round_sat" VLNV="xilinx.com:module_ref:round_sat:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="IN_W" VALUE="24"/>
+        <PARAMETER NAME="SHIFT" VALUE="8"/>
+        <PARAMETER NAME="ROUND" VALUE="1"/>
+        <PARAMETER NAME="OUT_W" VALUE="16"/>
+        <PARAMETER NAME="LIMIT" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_bq_round_3"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" SIGIS="rst" SIGNAME="External_Ports_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="in_valid" SIGIS="undef" SIGNAME="fm_mod_bq3_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq3" PORT="out_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="23" NAME="in_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_bq3_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq3" PORT="out_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="out_valid" SIGIS="undef" SIGNAME="fm_mod_bq_round_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_pre_emph" PORT="s_axis_data_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="15" NAME="out_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_bq_round_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_pre_emph" PORT="s_axis_data_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="6" FULLNAME="/fm_mod/bq_zero" HWVERSION="1.1" INSTANCE="fm_mod_bq_zero" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="8"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x00"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_bq_zero_7"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="7" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_bq_zero_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq_guard" PORT="In0"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="15" FULLNAME="/fm_mod/cordic_tx" HWVERSION="6.0" INSTANCE="fm_mod_cordic_tx" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="cordic" VLNV="xilinx.com:ip:cordic:6.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=cordic;v=v6_0;d=pg105-cordic.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_ARCHITECTURE" VALUE="1"/>
+        <PARAMETER NAME="C_CORDIC_FUNCTION" VALUE="2"/>
+        <PARAMETER NAME="C_COARSE_ROTATE" VALUE="1"/>
+        <PARAMETER NAME="C_DATA_FORMAT" VALUE="0"/>
+        <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="kintex7l"/>
+        <PARAMETER NAME="C_HAS_ACLKEN" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_ACLK" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_S_AXIS_CARTESIAN" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_S_AXIS_PHASE" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_ARESETN" VALUE="1"/>
+        <PARAMETER NAME="C_INPUT_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_ITERATIONS" VALUE="0"/>
+        <PARAMETER NAME="C_OUTPUT_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_PHASE_FORMAT" VALUE="1"/>
+        <PARAMETER NAME="C_PIPELINE_MODE" VALUE="-2"/>
+        <PARAMETER NAME="C_PRECISION" VALUE="0"/>
+        <PARAMETER NAME="C_ROUND_MODE" VALUE="3"/>
+        <PARAMETER NAME="C_SCALE_COMP" VALUE="0"/>
+        <PARAMETER NAME="C_THROTTLE_SCHEME" VALUE="3"/>
+        <PARAMETER NAME="C_TLAST_RESOLUTION" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_S_AXIS_PHASE_TUSER" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_S_AXIS_PHASE_TLAST" VALUE="0"/>
+        <PARAMETER NAME="C_S_AXIS_PHASE_TDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_S_AXIS_PHASE_TUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_S_AXIS_CARTESIAN_TUSER" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_S_AXIS_CARTESIAN_TLAST" VALUE="0"/>
+        <PARAMETER NAME="C_S_AXIS_CARTESIAN_TDATA_WIDTH" VALUE="64"/>
+        <PARAMETER NAME="C_S_AXIS_CARTESIAN_TUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_M_AXIS_DOUT_TDATA_WIDTH" VALUE="64"/>
+        <PARAMETER NAME="C_M_AXIS_DOUT_TUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_cordic_tx_3"/>
+        <PARAMETER NAME="Functional_Selection" VALUE="Sin_and_Cos"/>
+        <PARAMETER NAME="Architectural_Configuration" VALUE="Word_Serial"/>
+        <PARAMETER NAME="Pipelining_Mode" VALUE="Maximum"/>
+        <PARAMETER NAME="Data_Format" VALUE="SignedFraction"/>
+        <PARAMETER NAME="Phase_Format" VALUE="Scaled_Radians"/>
+        <PARAMETER NAME="Input_Width" VALUE="32"/>
+        <PARAMETER NAME="Output_Width" VALUE="32"/>
+        <PARAMETER NAME="Round_Mode" VALUE="Nearest_Even"/>
+        <PARAMETER NAME="Iterations" VALUE="0"/>
+        <PARAMETER NAME="Precision" VALUE="0"/>
+        <PARAMETER NAME="Coarse_Rotation" VALUE="true"/>
+        <PARAMETER NAME="Compensation_Scaling" VALUE="No_Scale_Compensation"/>
+        <PARAMETER NAME="cartesian_has_tuser" VALUE="false"/>
+        <PARAMETER NAME="cartesian_tuser_width" VALUE="1"/>
+        <PARAMETER NAME="cartesian_has_tlast" VALUE="false"/>
+        <PARAMETER NAME="phase_has_tuser" VALUE="false"/>
+        <PARAMETER NAME="phase_tuser_width" VALUE="1"/>
+        <PARAMETER NAME="phase_has_tlast" VALUE="false"/>
+        <PARAMETER NAME="flow_control" VALUE="NonBlocking"/>
+        <PARAMETER NAME="optimize_goal" VALUE="Performance"/>
+        <PARAMETER NAME="out_tready" VALUE="false"/>
+        <PARAMETER NAME="out_tlast_behv" VALUE="Null"/>
+        <PARAMETER NAME="ACLKEN" VALUE="false"/>
+        <PARAMETER NAME="ARESETN" VALUE="true"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" SIGIS="rst" SIGNAME="External_Ports_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axis_phase_tvalid" SIGIS="undef" SIGNAME="fm_mod_phase_vld_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_phase_vld" PORT="Q"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axis_phase_tready" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="31" NAME="s_axis_phase_tdata" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_phase_pack_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_phase_pack" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axis_dout_tvalid" SIGIS="undef" SIGNAME="fm_mod_cordic_tx_m_axis_dout_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="tx_iq_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="63" NAME="m_axis_dout_tdata" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_cordic_tx_m_axis_dout_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="tx_iq_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="S_AXIS_PHASE" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.000"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="FM_Demod_aclk"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_phase_tdata"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="s_axis_phase_tready"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_phase_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="M_AXIS_DOUT" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="8"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="0"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.000"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="FM_Demod_aclk"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 64} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} complex {bitwidth {attribs {resolve_type generated dependency complex_width format long minimum {} maximum {}} value 32} stride {attribs {resolve_type generated dependency complex_stride format long minimum {} maximum {}} value 32} realfirst {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true} real {fixed {fractwidth {attribs {resolve_type generated dependency complex_fractwidth format long minimum {} maximum {}} value 30} signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value true}}}}}} TDATA_WIDTH 64 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_cartesian_tuser {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value cartesian_tuser} enabled {attribs {resolve_type generated dependency cart_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency cart_width format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} field_phase_tuser {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value phase_tuser} enabled {attribs {resolve_type generated dependency phase_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency phase_width format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency phase_offset format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}}}}} TUSER_WIDTH 0}"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_dout_tdata"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_dout_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/fm_mod/dev_limit" HWVERSION="1.0" INSTANCE="fm_mod_dev_limit" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="round_sat" VLNV="xilinx.com:module_ref:round_sat:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="IN_W" VALUE="31"/>
+        <PARAMETER NAME="SHIFT" VALUE="0"/>
+        <PARAMETER NAME="ROUND" VALUE="0"/>
+        <PARAMETER NAME="OUT_W" VALUE="25"/>
+        <PARAMETER NAME="LIMIT" VALUE="13981013"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_dev_limit_3"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="aresetn" SIGIS="rst" SIGNAME="External_Ports_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="in_valid" SIGIS="undef" SIGNAME="fm_mod_pre_emph_m_axis_data_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_pre_emph" PORT="m_axis_data_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="30" NAME="in_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_pre_sel_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_pre_sel" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="out_valid" SIGIS="undef" SIGNAME="fm_mod_dev_limit_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_phase_acc" PORT="CE"/>
+            <CONNECTION INSTANCE="fm_mod_phase_vld" PORT="D"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="24" NAME="out_data" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_dev_limit_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_phase_acc" PORT="B"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="13" FULLNAME="/fm_mod/phase_acc" HWVERSION="12.0" INSTANCE="fm_mod_phase_acc" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="c_accum" VLNV="xilinx.com:ip:c_accum:12.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=c_accum;v=v12_0;d=pg119-c-accum.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="kintex7l"/>
+        <PARAMETER NAME="C_IMPLEMENTATION" VALUE="0"/>
+        <PARAMETER NAME="C_VERBOSITY" VALUE="0"/>
+        <PARAMETER NAME="C_B_WIDTH" VALUE="25"/>
+        <PARAMETER NAME="C_OUT_WIDTH" VALUE="28"/>
+        <PARAMETER NAME="C_B_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_CE_OVERRIDES_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_ADD_MODE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_C_IN" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_CE" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_BYPASS" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SCLR" VALUE="1"/>
+        <PARAMETER NAME="C_LATENCY" VALUE="1"/>
+        <PARAMETER NAME="C_SCALE" VALUE="0"/>
+        <PARAMETER NAME="C_AINIT_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_SINIT_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_BYPASS_LOW" VALUE="0"/>
+        <PARAMETER NAME="C_SCLR_OVERRIDES_SSET" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_SSET" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SINIT" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_phase_acc_3"/>
+        <PARAMETER NAME="Implementation" VALUE="Fabric"/>
+        <PARAMETER NAME="Input_Type" VALUE="Signed"/>
+        <PARAMETER NAME="Input_Width" VALUE="25"/>
+        <PARAMETER NAME="Output_Width" VALUE="28"/>
+        <PARAMETER NAME="Accum_Mode" VALUE="Add"/>
+        <PARAMETER NAME="Latency_Configuration" VALUE="Manual"/>
+        <PARAMETER NAME="Latency" VALUE="1"/>
+        <PARAMETER NAME="Scale" VALUE="0"/>
+        <PARAMETER NAME="CE" VALUE="true"/>
+        <PARAMETER NAME="C_In" VALUE="false"/>
+        <PARAMETER NAME="SCLR" VALUE="true"/>
+        <PARAMETER NAME="SSET" VALUE="false"/>
+        <PARAMETER NAME="SINIT" VALUE="false"/>
+        <PARAMETER NAME="SINIT_Value" VALUE="0"/>
+        <PARAMETER NAME="Bypass" VALUE="false"/>
+        <PARAMETER NAME="Bypass_Sense" VALUE="Active_High"/>
+        <PARAMETER NAME="SyncCtrlPriority" VALUE="Reset_Overrides_Set"/>
+        <PARAMETER NAME="Sync_CE_Priority" VALUE="Sync_Overrides_CE"/>
+        <PARAMETER NAME="AINIT_Value" VALUE="0"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="24" NAME="B" RIGHT="0" SIGIS="data" SIGNAME="fm_mod_dev_limit_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_dev_limit" PORT="out_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="CE" SIGIS="ce" SIGNAME="fm_mod_dev_limit_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_dev_limit" PORT="out_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="SCLR" SIGIS="rst" SIGNAME="fm_mod_rst_inv_Res">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_rst_inv" PORT="Res"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="27" NAME="Q" RIGHT="0" SIGIS="data" SIGNAME="fm_mod_phase_acc_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_phase_sign" PORT="Din"/>
+            <CONNECTION INSTANCE="fm_mod_phase_pack" PORT="In1"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="6" FULLNAME="/fm_mod/phase_lsb" HWVERSION="1.1" INSTANCE="fm_mod_phase_lsb" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconstant" VLNV="xilinx.com:ip:xlconstant:1.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="CONST_WIDTH" VALUE="2"/>
+        <PARAMETER NAME="CONST_VAL" VALUE="0x0"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_phase_lsb_3"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="O" LEFT="1" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_phase_lsb_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_phase_pack" PORT="In0"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="3" FULLNAME="/fm_mod/phase_pack" HWVERSION="2.1" INSTANCE="fm_mod_phase_pack" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlconcat" VLNV="xilinx.com:ip:xlconcat:2.1">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="IN0_WIDTH" VALUE="2"/>
+        <PARAMETER NAME="IN1_WIDTH" VALUE="28"/>
+        <PARAMETER NAME="IN2_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN3_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN4_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN5_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN6_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN7_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN8_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN9_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN10_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN11_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN12_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN13_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN14_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN15_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN16_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN17_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN18_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN19_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN20_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN21_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN22_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN23_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN24_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN25_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN26_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN27_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN28_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN29_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN30_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="IN31_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="dout_width" VALUE="32"/>
+        <PARAMETER NAME="NUM_PORTS" VALUE="4"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_phase_pack_3"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="1" NAME="In0" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_phase_lsb_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_phase_lsb" PORT="dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="27" NAME="In1" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_phase_acc_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_phase_acc" PORT="Q"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="In2" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_phase_sign_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_phase_sign" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" LEFT="0" NAME="In3" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_phase_sign_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_phase_sign" PORT="Dout"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_phase_pack_dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_cordic_tx" PORT="s_axis_phase_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="2" FULLNAME="/fm_mod/phase_sign" HWVERSION="1.0" INSTANCE="fm_mod_phase_sign" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlslice" VLNV="xilinx.com:ip:xlslice:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DIN_WIDTH" VALUE="28"/>
+        <PARAMETER NAME="DIN_FROM" VALUE="27"/>
+        <PARAMETER NAME="DIN_TO" VALUE="27"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_phase_sign_3"/>
+        <PARAMETER NAME="DOUT_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="27" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_phase_acc_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_phase_acc" PORT="Q"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_phase_sign_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_phase_pack" PORT="In2"/>
+            <CONNECTION INSTANCE="fm_mod_phase_pack" PORT="In3"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="13" FULLNAME="/fm_mod/phase_vld" HWVERSION="12.0" INSTANCE="fm_mod_phase_vld" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="c_shift_ram" VLNV="xilinx.com:ip:c_shift_ram:12.0">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=c_shift_ram;v=v12_0;d=pg122-c-shift-ram.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="kintex7l"/>
+        <PARAMETER NAME="C_VERBOSITY" VALUE="0"/>
+        <PARAMETER NAME="C_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_DEPTH" VALUE="1"/>
+        <PARAMETER NAME="C_ADDR_WIDTH" VALUE="4"/>
+        <PARAMETER NAME="C_SHIFT_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_OPT_GOAL" VALUE="0"/>
+        <PARAMETER NAME="C_AINIT_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_SINIT_VAL" VALUE="0"/>
+        <PARAMETER NAME="C_DEFAULT_DATA" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_A" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_CE" VALUE="0"/>
+        <PARAMETER NAME="C_REG_LAST_BIT" VALUE="1"/>
+        <PARAMETER NAME="C_SYNC_PRIORITY" VALUE="1"/>
+        <PARAMETER NAME="C_SYNC_ENABLE" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SCLR" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SSET" VALUE="0"/>
+        <PARAMETER NAME="C_HAS_SINIT" VALUE="0"/>
+        <PARAMETER NAME="C_MEM_INIT_FILE" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="C_ELABORATION_DIR" VALUE="./"/>
+        <PARAMETER NAME="C_READ_MIF" VALUE="0"/>
+        <PARAMETER NAME="C_PARSER_TYPE" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_phase_vld_3"/>
+        <PARAMETER NAME="ShiftRegType" VALUE="Fixed_Length"/>
+        <PARAMETER NAME="OptGoal" VALUE="Resources"/>
+        <PARAMETER NAME="RegLastBit" VALUE="true"/>
+        <PARAMETER NAME="CE" VALUE="false"/>
+        <PARAMETER NAME="Width" VALUE="1"/>
+        <PARAMETER NAME="Depth" VALUE="1"/>
+        <PARAMETER NAME="DefaultDataRadix" VALUE="2"/>
+        <PARAMETER NAME="DefaultData" VALUE="0"/>
+        <PARAMETER NAME="ReadMifFile" VALUE="false"/>
+        <PARAMETER NAME="MemInitFile" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="AsyncInitRadix" VALUE="2"/>
+        <PARAMETER NAME="AsyncInitVal" VALUE="0"/>
+        <PARAMETER NAME="SSET" VALUE="false"/>
+        <PARAMETER NAME="SCLR" VALUE="false"/>
+        <PARAMETER NAME="SINIT" VALUE="false"/>
+        <PARAMETER NAME="SyncInitRadix" VALUE="2"/>
+        <PARAMETER NAME="SyncInitVal" VALUE="0"/>
+        <PARAMETER NAME="SyncCtrlPriority" VALUE="Reset_Overrides_Set"/>
+        <PARAMETER NAME="CEPriority" VALUE="Sync_Overrides_CE"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="0" NAME="D" RIGHT="0" SIGIS="data" SIGNAME="fm_mod_dev_limit_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_dev_limit" PORT="out_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="CLK" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="Q" RIGHT="0" SIGIS="data" SIGNAME="fm_mod_phase_vld_Q">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_cordic_tx" PORT="s_axis_phase_tvalid"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="12" FULLNAME="/fm_mod/pre_emph" HWVERSION="7.2" INSTANCE="fm_mod_pre_emph" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="fir_compiler" VLNV="xilinx.com:ip:fir_compiler:7.2">
+      <DOCUMENTS>
+        <DOCUMENT SOURCE="http://www.xilinx.com/cgi-bin/docs/ipdoc?c=fir_compiler;v=v7_2;d=pg149-fir-compiler.pdf"/>
+      </DOCUMENTS>
+      <PARAMETERS>
+        <PARAMETER NAME="C_XDEVICEFAMILY" VALUE="kintex7l"/>
+        <PARAMETER NAME="C_ELABORATION_DIR" VALUE="./"/>
+        <PARAMETER NAME="C_COMPONENT_NAME" VALUE="FM_Demod_pre_emph_3"/>
+        <PARAMETER NAME="C_COEF_FILE" VALUE="FM_Demod_pre_emph_3.mif"/>
+        <PARAMETER NAME="C_COEF_FILE_LINES" VALUE="2"/>
+        <PARAMETER NAME="C_FILTER_TYPE" VALUE="0"/>
+        <PARAMETER NAME="C_INTERP_RATE" VALUE="1"/>
+        <PARAMETER NAME="C_DECIM_RATE" VALUE="1"/>
+        <PARAMETER NAME="C_ZERO_PACKING_FACTOR" VALUE="1"/>
+        <PARAMETER NAME="C_SYMMETRY" VALUE="0"/>
+        <PARAMETER NAME="C_NUM_FILTS" VALUE="1"/>
+        <PARAMETER NAME="C_NUM_TAPS" VALUE="2"/>
+        <PARAMETER NAME="C_NUM_CHANNELS" VALUE="1"/>
+        <PARAMETER NAME="C_CHANNEL_PATTERN" VALUE="fixed"/>
+        <PARAMETER NAME="C_ROUND_MODE" VALUE="0"/>
+        <PARAMETER NAME="C_COEF_RELOAD" VALUE="0"/>
+        <PARAMETER NAME="C_NUM_RELOAD_SLOTS" VALUE="1"/>
+        <PARAMETER NAME="C_COL_MODE" VALUE="1"/>
+        <PARAMETER NAME="C_COL_PIPE_LEN" VALUE="4"/>
+        <PARAMETER NAME="C_COL_CONFIG" VALUE="1"/>
+        <PARAMETER NAME="C_OPTIMIZATION" VALUE="0"/>
+        <PARAMETER NAME="C_DATA_PATH_WIDTHS" VALUE="16"/>
+        <PARAMETER NAME="C_DATA_IP_PATH_WIDTHS" VALUE="16"/>
+        <PARAMETER NAME="C_DATA_PX_PATH_WIDTHS" VALUE="16"/>
+        <PARAMETER NAME="C_DATA_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="C_COEF_PATH_WIDTHS" VALUE="15"/>
+        <PARAMETER NAME="C_COEF_WIDTH" VALUE="15"/>
+        <PARAMETER NAME="C_DATA_PATH_SRC" VALUE="0"/>
+        <PARAMETER NAME="C_COEF_PATH_SRC" VALUE="0"/>
+        <PARAMETER NAME="C_PX_PATH_SRC" VALUE="0"/>
+        <PARAMETER NAME="C_DATA_PATH_SIGN" VALUE="0"/>
+        <PARAMETER NAME="C_COEF_PATH_SIGN" VALUE="0"/>
+        <PARAMETER NAME="C_ACCUM_PATH_WIDTHS" VALUE="31"/>
+        <PARAMETER NAME="C_OUTPUT_WIDTH" VALUE="31"/>
+        <PARAMETER NAME="C_OUTPUT_PATH_WIDTHS" VALUE="31"/>
+        <PARAMETER NAME="C_ACCUM_OP_PATH_WIDTHS" VALUE="31"/>
+        <PARAMETER NAME="C_EXT_MULT_CNFG" VALUE="none"/>
+        <PARAMETER NAME="C_DATA_PATH_PSAMP_SRC" VALUE="0"/>
+        <PARAMETER NAME="C_OP_PATH_PSAMP_SRC" VALUE="0"/>
+        <PARAMETER NAME="C_NUM_MADDS" VALUE="1"/>
+        <PARAMETER NAME="C_OPT_MADDS" VALUE="none"/>
+        <PARAMETER NAME="C_OVERSAMPLING_RATE" VALUE="2"/>
+        <PARAMETER NAME="C_INPUT_RATE" VALUE="2083"/>
+        <PARAMETER NAME="C_OUTPUT_RATE" VALUE="2083"/>
+        <PARAMETER NAME="C_DATA_MEMTYPE" VALUE="0"/>
+        <PARAMETER NAME="C_COEF_MEMTYPE" VALUE="2"/>
+        <PARAMETER NAME="C_IPBUFF_MEMTYPE" VALUE="0"/>
+        <PARAMETER NAME="C_OPBUFF_MEMTYPE" VALUE="0"/>
+        <PARAMETER NAME="C_DATAPATH_MEMTYPE" VALUE="0"/>
+        <PARAMETER NAME="C_MEM_ARRANGEMENT" VALUE="0"/>
+        <PARAMETER NAME="C_DATA_MEM_PACKING" VALUE="0"/>
+        <PARAMETER NAME="C_COEF_MEM_PACKING" VALUE="0"/>
+        <PARAMETER NAME="C_FILTS_PACKED" VALUE="0"/>
+        <PARAMETER NAME="C_LATENCY" VALUE="9"/>
+        <PARAMETER NAME="C_HAS_ARESETn" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_ACLKEN" VALUE="0"/>
+        <PARAMETER NAME="C_DATA_HAS_TLAST" VALUE="0"/>
+        <PARAMETER NAME="C_S_DATA_HAS_FIFO" VALUE="0"/>
+        <PARAMETER NAME="C_S_DATA_HAS_TUSER" VALUE="0"/>
+        <PARAMETER NAME="C_S_DATA_TDATA_WIDTH" VALUE="16"/>
+        <PARAMETER NAME="C_S_DATA_TUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_M_DATA_HAS_TREADY" VALUE="0"/>
+        <PARAMETER NAME="C_M_DATA_HAS_TUSER" VALUE="0"/>
+        <PARAMETER NAME="C_M_DATA_TDATA_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="C_M_DATA_TUSER_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_HAS_CONFIG_CHANNEL" VALUE="0"/>
+        <PARAMETER NAME="C_CONFIG_SYNC_MODE" VALUE="0"/>
+        <PARAMETER NAME="C_CONFIG_PACKET_SIZE" VALUE="0"/>
+        <PARAMETER NAME="C_CONFIG_TDATA_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="C_RELOAD_TDATA_WIDTH" VALUE="1"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_pre_emph_3"/>
+        <PARAMETER NAME="GUI_Behaviour" VALUE="Coregen"/>
+        <PARAMETER NAME="CoefficientSource" VALUE="Vector"/>
+        <PARAMETER NAME="CoefficientVector" VALUE="9347,-9091"/>
+        <PARAMETER NAME="Coefficient_File" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="Coefficient_Sets" VALUE="1"/>
+        <PARAMETER NAME="Coefficient_Reload" VALUE="false"/>
+        <PARAMETER NAME="Filter_Type" VALUE="Single_Rate"/>
+        <PARAMETER NAME="Rate_Change_Type" VALUE="Integer"/>
+        <PARAMETER NAME="Interpolation_Rate" VALUE="1"/>
+        <PARAMETER NAME="Decimation_Rate" VALUE="1"/>
+        <PARAMETER NAME="Zero_Pack_Factor" VALUE="1"/>
+        <PARAMETER NAME="Channel_Sequence" VALUE="Basic"/>
+        <PARAMETER NAME="Number_Channels" VALUE="1"/>
+        <PARAMETER NAME="Select_Pattern" VALUE="All"/>
+        <PARAMETER NAME="Pattern_List" VALUE="P4-0,P4-1,P4-2,P4-3,P4-4"/>
+        <PARAMETER NAME="Number_Paths" VALUE="1"/>
+        <PARAMETER NAME="RateSpecification" VALUE="Frequency_Specification"/>
+        <PARAMETER NAME="HardwareOversamplingRate" VALUE="1"/>
+        <PARAMETER NAME="SamplePeriod" VALUE="1"/>
+        <PARAMETER NAME="Sample_Frequency" VALUE="0.048"/>
+        <PARAMETER NAME="Clock_Frequency" VALUE="100.0"/>
+        <PARAMETER NAME="Coefficient_Sign" VALUE="Signed"/>
+        <PARAMETER NAME="Quantization" VALUE="Integer_Coefficients"/>
+        <PARAMETER NAME="Coefficient_Width" VALUE="15"/>
+        <PARAMETER NAME="BestPrecision" VALUE="false"/>
+        <PARAMETER NAME="Coefficient_Fractional_Bits" VALUE="0"/>
+        <PARAMETER NAME="Coefficient_Structure" VALUE="Non_Symmetric"/>
+        <PARAMETER NAME="Data_Sign" VALUE="Signed"/>
+        <PARAMETER NAME="Data_Width" VALUE="16"/>
+        <PARAMETER NAME="Data_Fractional_Bits" VALUE="0"/>
+        <PARAMETER NAME="Output_Rounding_Mode" VALUE="Full_Precision"/>
+        <PARAMETER NAME="Output_Width" VALUE="31"/>
+        <PARAMETER NAME="Filter_Architecture" VALUE="Systolic_Multiply_Accumulate"/>
+        <PARAMETER NAME="Optimization_Goal" VALUE="Area"/>
+        <PARAMETER NAME="Optimization_Selection" VALUE="None"/>
+        <PARAMETER NAME="Optimization_List" VALUE="None"/>
+        <PARAMETER NAME="Data_Buffer_Type" VALUE="Automatic"/>
+        <PARAMETER NAME="Coefficient_Buffer_Type" VALUE="Automatic"/>
+        <PARAMETER NAME="Input_Buffer_Type" VALUE="Automatic"/>
+        <PARAMETER NAME="Output_Buffer_Type" VALUE="Automatic"/>
+        <PARAMETER NAME="Preference_For_Other_Storage" VALUE="Automatic"/>
+        <PARAMETER NAME="Multi_Column_Support" VALUE="Automatic"/>
+        <PARAMETER NAME="Inter_Column_Pipe_Length" VALUE="4"/>
+        <PARAMETER NAME="ColumnConfig" VALUE="1"/>
+        <PARAMETER NAME="DATA_Has_TLAST" VALUE="Not_Required"/>
+        <PARAMETER NAME="M_DATA_Has_TREADY" VALUE="false"/>
+        <PARAMETER NAME="S_DATA_Has_FIFO" VALUE="false"/>
+        <PARAMETER NAME="S_DATA_Has_TUSER" VALUE="Not_Required"/>
+        <PARAMETER NAME="M_DATA_Has_TUSER" VALUE="Not_Required"/>
+        <PARAMETER NAME="DATA_TUSER_Width" VALUE="1"/>
+        <PARAMETER NAME="S_CONFIG_Sync_Mode" VALUE="On_Vector"/>
+        <PARAMETER NAME="S_CONFIG_Method" VALUE="Single"/>
+        <PARAMETER NAME="Num_Reload_Slots" VALUE="1"/>
+        <PARAMETER NAME="Has_ACLKEN" VALUE="false"/>
+        <PARAMETER NAME="Has_ARESETn" VALUE="true"/>
+        <PARAMETER NAME="Reset_Data_Vector" VALUE="true"/>
+        <PARAMETER NAME="Blank_Output" VALUE="false"/>
+        <PARAMETER NAME="Gen_MIF_from_Spec" VALUE="false"/>
+        <PARAMETER NAME="Gen_MIF_from_COE" VALUE="false"/>
+        <PARAMETER NAME="Reload_File" VALUE="no_coe_file_loaded"/>
+        <PARAMETER NAME="Gen_MIF_Files" VALUE="false"/>
+        <PARAMETER NAME="DisplayReloadOrder" VALUE="false"/>
+        <PARAMETER NAME="Passband_Min" VALUE="0.0"/>
+        <PARAMETER NAME="Passband_Max" VALUE="0.5"/>
+        <PARAMETER NAME="Stopband_Min" VALUE="0.5"/>
+        <PARAMETER NAME="Stopband_Max" VALUE="1.0"/>
+        <PARAMETER NAME="Filter_Selection" VALUE="1"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" NAME="aresetn" SIGIS="rst" SIGNAME="External_Ports_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="aclk" SIGIS="clk" SIGNAME="External_Ports_aclk">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aclk"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="I" NAME="s_axis_data_tvalid" SIGIS="undef" SIGNAME="fm_mod_bq_round_out_valid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq_round" PORT="out_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="s_axis_data_tready" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="15" NAME="s_axis_data_tdata" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_bq_round_out_data">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_bq_round" PORT="out_data"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" NAME="m_axis_data_tvalid" SIGIS="undef" SIGNAME="fm_mod_pre_emph_m_axis_data_tvalid">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_dev_limit" PORT="in_valid"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="31" NAME="m_axis_data_tdata" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_pre_emph_m_axis_data_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_pre_sel" PORT="Din"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="S_AXIS_DATA" TYPE="TARGET" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="2"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="1"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.000"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="FM_Demod_aclk"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="undef"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="s_axis_data_tdata"/>
+            <PORTMAP LOGICAL="TREADY" PHYSICAL="s_axis_data_tready"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="s_axis_data_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+        <BUSINTERFACE BUSNAME="__NOC__" NAME="M_AXIS_DATA" TYPE="INITIATOR" VLNV="xilinx.com:interface:axis:1.0">
+          <PARAMETER NAME="TDATA_NUM_BYTES" VALUE="4"/>
+          <PARAMETER NAME="TDEST_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TID_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="TUSER_WIDTH" VALUE="0"/>
+          <PARAMETER NAME="HAS_TREADY" VALUE="0"/>
+          <PARAMETER NAME="HAS_TSTRB" VALUE="0"/>
+          <PARAMETER NAME="HAS_TKEEP" VALUE="0"/>
+          <PARAMETER NAME="HAS_TLAST" VALUE="0"/>
+          <PARAMETER NAME="FREQ_HZ" VALUE="100000000"/>
+          <PARAMETER NAME="PHASE" VALUE="0.000"/>
+          <PARAMETER NAME="CLK_DOMAIN" VALUE="FM_Demod_aclk"/>
+          <PARAMETER NAME="LAYERED_METADATA" VALUE="xilinx.com:interface:datatypes:1.0 {TDATA {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 31} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value chan} size {attribs {resolve_type generated dependency chan_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency chan_stride format long minimum {} maximum {}} value 32} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 31} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} array_type {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value path} size {attribs {resolve_type generated dependency path_size format long minimum {} maximum {}} value 1} stride {attribs {resolve_type generated dependency path_stride format long minimum {} maximum {}} value 32} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency out_width format long minimum {} maximum {}} value 31} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} real {fixed {fractwidth {attribs {resolve_type generated dependency out_fractwidth format long minimum {} maximum {}} value 0} signed {attribs {resolve_type generated dependency out_signed format bool minimum {} maximum {}} value true}}}}}}}}} TDATA_WIDTH 32 TUSER {datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type automatic dependency {} format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0} struct {field_data_valid {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value data_valid} enabled {attribs {resolve_type generated dependency data_valid_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency data_valid_bitwidth format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type immediate dependency {} format long minimum {} maximum {}} value 0}}} field_chanid {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value chanid} enabled {attribs {resolve_type generated dependency chanid_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency chanid_bitwidth format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency chanid_bitoffset format long minimum {} maximum {}} value 0} integer {signed {attribs {resolve_type immediate dependency {} format bool minimum {} maximum {}} value false}}}} field_user {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value user} enabled {attribs {resolve_type generated dependency user_enabled format bool minimum {} maximum {}} value false} datatype {name {attribs {resolve_type immediate dependency {} format string minimum {} maximum {}} value {}} bitwidth {attribs {resolve_type generated dependency user_bitwidth format long minimum {} maximum {}} value 0} bitoffset {attribs {resolve_type generated dependency user_bitoffset format long minimum {} maximum {}} value 0}}}}}} TUSER_WIDTH 0}"/>
+          <PARAMETER NAME="INSERT_VIP" VALUE="0"/>
+          <PORTMAPS>
+            <PORTMAP LOGICAL="TDATA" PHYSICAL="m_axis_data_tdata"/>
+            <PORTMAP LOGICAL="TVALID" PHYSICAL="m_axis_data_tvalid"/>
+          </PORTMAPS>
+        </BUSINTERFACE>
+      </BUSINTERFACES>
+    </MODULE>
+    <MODULE COREREVISION="2" FULLNAME="/fm_mod/pre_sel" HWVERSION="1.0" INSTANCE="fm_mod_pre_sel" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="xlslice" VLNV="xilinx.com:ip:xlslice:1.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="DIN_WIDTH" VALUE="32"/>
+        <PARAMETER NAME="DIN_FROM" VALUE="30"/>
+        <PARAMETER NAME="DIN_TO" VALUE="0"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_pre_sel_3"/>
+        <PARAMETER NAME="DOUT_WIDTH" VALUE="31"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="31" NAME="Din" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_pre_emph_m_axis_data_tdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_pre_emph" PORT="m_axis_data_tdata"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="30" NAME="Dout" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_pre_sel_Dout">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_dev_limit" PORT="in_data"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+    <MODULE COREREVISION="1" FULLNAME="/fm_mod/rst_inv" HWVERSION="2.0" INSTANCE="fm_mod_rst_inv" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="util_vector_logic" VLNV="xilinx.com:ip:util_vector_logic:2.0">
+      <DOCUMENTS/>
+      <PARAMETERS>
+        <PARAMETER NAME="C_OPERATION" VALUE="not"/>
+        <PARAMETER NAME="C_SIZE" VALUE="1"/>
+        <PARAMETER NAME="Component_Name" VALUE="FM_Demod_rst_inv_7"/>
+        <PARAMETER NAME="LOGO_FILE" VALUE="data/sym_notgate.png"/>
+        <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
+      </PARAMETERS>
+      <PORTS>
+        <PORT DIR="I" LEFT="0" NAME="Op1" RIGHT="0" SIGIS="undef" SIGNAME="External_Ports_aresetn">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="External_Ports" PORT="aresetn"/>
+          </CONNECTIONS>
+        </PORT>
+        <PORT DIR="O" LEFT="0" NAME="Res" RIGHT="0" SIGIS="undef" SIGNAME="fm_mod_rst_inv_Res">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="fm_mod_phase_acc" PORT="SCLR"/>
+          </CONNECTIONS>
+        </PORT>
+      </PORTS>
+      <BUSINTERFACES/>
+    </MODULE>
+  </MODULES>
+
+</EDKSYSTEM>

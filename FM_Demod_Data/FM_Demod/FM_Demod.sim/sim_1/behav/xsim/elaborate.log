@@ -1,0 +1,300 @@
+Vivado Simulator 2019.1
+Copyright 1986-1999, 2001-2019 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2019.1/bin/unwrapped/win64.o/xelab.exe --debug off --relax --mt 2 -generic_top IN_W=32 -L xil_defaultlib -L util_vector_logic_v2_0_1 -L xlslice_v1_0_2 -L xlconstant_v1_1_6 -L xlconcat_v2_1_3 -L xbip_utils_v3_0_10 -L c_reg_fd_v12_0_6 -L xbip_dsp48_wrapper_v3_0_4 -L xbip_pipe_v3_0_6 -L xbip_dsp48_addsub_v3_0_6 -L xbip_addsub_v3_0_6 -L c_addsub_v12_0_13 -L xbip_bram18k_v3_0_6 -L mult_gen_v12_0_15 -L axi_utils_v2_0_6 -L cordic_v6_0_15 -L c_mux_bit_v12_0_6 -L c_shift_ram_v12_0_13 -L xbip_dsp48_acc_v3_0_6 -L xbip_accum_v3_0_6 -L c_accum_v12_0_13 -L fir_compiler_v7_2_12 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_fm_fast xil_defaultlib.tb_fm xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+WARNING: [VRFC 10-3532] module 'glbl' does not have a parameter named 'IN_W' to override [C:/Users/ubaid/Desktop/Data/HT_Data/FM_Demod/FM_Demod.sim/sim_1/behav/xsim/glbl.v:6]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/wrk/2019.1/continuous/2019_05_24_2552052/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:2056]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/wrk/2019.1/continuous/2019_05_24_2552052/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:2058]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/wrk/2019.1/continuous/2019_05_24_2552052/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:2059]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/wrk/2019.1/continuous/2019_05_24_2552052/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:2060]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/wrk/2019.1/continuous/2019_05_24_2552052/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:2046]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/wrk/2019.1/continuous/2019_05_24_2552052/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:2047]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/wrk/2019.1/continuous/2019_05_24_2552052/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:2049]
+WARNING: [VRFC 10-516] comparison between unequal length arrays always returns FALSE [/wrk/2019.1/continuous/2019_05_24_2552052/packages/customer/vivado/data/ip/xilinx/xbip_utils_v3_0/hdl/xbip_utils_v3_0_vh_rfs.vhd:2050]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package cordic_v6_0_15.cordic_v6_0_15_viv_comp
+Compiling package xbip_utils_v3_0_10.xbip_utils_v3_0_10_pkg
+Compiling package xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv_comp
+Compiling package axi_utils_v2_0_6.axi_utils_v2_0_6_pkg
+Compiling package ieee.math_real
+Compiling package axi_utils_v2_0_6.global_util_pkg
+Compiling package axi_utils_v2_0_6.axi_utils_comps
+Compiling package mult_gen_v12_0_15.mult_gen_v12_0_15_pkg
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_signed
+Compiling package cordic_v6_0_15.cordic_pack
+Compiling package cordic_v6_0_15.cordic_hdl_comps
+Compiling package c_addsub_v12_0_13.c_addsub_v12_0_13_viv_comp
+Compiling package xbip_addsub_v3_0_6.xbip_addsub_v3_0_6_viv_comp
+Compiling package c_addsub_v12_0_13.c_addsub_v12_0_13_pkg
+Compiling package c_addsub_v12_0_13.c_addsub_v12_0_13_pkg_legacy
+Compiling package c_reg_fd_v12_0_6.c_reg_fd_v12_0_6_viv_comp
+Compiling package unisim.vcomponents
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling package c_accum_v12_0_13.c_accum_v12_0_13_viv_comp
+Compiling package xbip_accum_v3_0_6.xbip_accum_v3_0_6_viv_comp
+Compiling package ieee.std_logic_unsigned
+Compiling package xbip_accum_v3_0_6.xbip_accum_v3_0_6_pkg
+Compiling package c_accum_v12_0_13.c_accum_v12_0_13_pkg
+Compiling package c_shift_ram_v12_0_13.c_shift_ram_v12_0_13_viv_comp
+Compiling package c_shift_ram_v12_0_13.c_shift_ram_v12_0_13_pkg
+Compiling package c_mux_bit_v12_0_6.c_mux_bit_v12_0_6_viv_comp
+Compiling package mult_gen_v12_0_15.mult_gen_v12_0_15_viv_comp
+Compiling package fir_compiler_v7_2_12.fir_compiler_v7_2_12_viv_comp
+Compiling package ieee.std_logic_textio
+Compiling package fir_compiler_v7_2_12.globals_pkg
+Compiling package fir_compiler_v7_2_12.components
+Compiling module xil_defaultlib.iir_biquad(B0=63218,B1=-126436,B...
+Compiling module xil_defaultlib.FM_Demod_bq0_6
+Compiling module xil_defaultlib.iir_biquad(B0=64541,B1=-129082,B...
+Compiling module xil_defaultlib.FM_Demod_bq1_6
+Compiling module xil_defaultlib.iir_biquad(B0=1843,B1=3686,B2=18...
+Compiling module xil_defaultlib.FM_Demod_bq2_6
+Compiling module xil_defaultlib.iir_biquad(B0=2176,B1=4352,B2=21...
+Compiling module xil_defaultlib.FM_Demod_bq3_6
+Compiling module xlconcat_v2_1_3.xlconcat_v2_1_3_xlconcat(IN0_WID...
+Compiling module xil_defaultlib.FM_Demod_bq_guard_6
+Compiling module xlconstant_v1_1_6.xlconstant_v1_1_6_xlconstant(CON...
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture structural of entity c_reg_fd_v12_0_6.c_reg_fd_v12_0_6_viv [\c_reg_fd_v12_0_6_viv(c_width=46...]
+Compiling architecture muxcy_v of entity unisim.MUXCY [muxcy_default]
+Compiling architecture xorcy_v of entity unisim.XORCY [xorcy_default]
+Compiling architecture rtl of entity c_addsub_v12_0_13.c_addsub_v12_0_13_lut6_legacy [\c_addsub_v12_0_13_lut6_legacy(c...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_fabric_legacy [\c_addsub_v12_0_13_fabric_legacy...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_legacy [\c_addsub_v12_0_13_legacy(c_fami...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_viv [\c_addsub_v12_0_13_viv(c_xdevice...]
+Compiling architecture synth of entity cordic_v6_0_15.addsub [\addsub(family="kintex7l",add_mo...]
+Compiling architecture rtl of entity c_addsub_v12_0_13.c_addsub_v12_0_13_lut6_legacy [\c_addsub_v12_0_13_lut6_legacy(c...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_fabric_legacy [\c_addsub_v12_0_13_fabric_legacy...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_legacy [\c_addsub_v12_0_13_legacy(c_fami...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_viv [\c_addsub_v12_0_13_viv(c_xdevice...]
+Compiling architecture synth of entity cordic_v6_0_15.addsub [\addsub(family="kintex7l",add_mo...]
+Compiling architecture struct_all of entity cordic_v6_0_15.delay [\delay(delay_len=1,family="kinte...]
+Compiling architecture structural of entity c_reg_fd_v12_0_6.c_reg_fd_v12_0_6_viv [\c_reg_fd_v12_0_6_viv(c_width=45...]
+Compiling architecture rtl of entity c_addsub_v12_0_13.c_addsub_v12_0_13_lut6_legacy [\c_addsub_v12_0_13_lut6_legacy(c...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_fabric_legacy [\c_addsub_v12_0_13_fabric_legacy...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_legacy [\c_addsub_v12_0_13_legacy(c_fami...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_viv [\c_addsub_v12_0_13_viv(c_xdevice...]
+Compiling architecture synth of entity cordic_v6_0_15.addsub [\addsub(family="kintex7l",add_mo...]
+Compiling architecture struct_all of entity cordic_v6_0_15.delay [\delay(delay_len=1,family="kinte...]
+Compiling architecture struct_all of entity cordic_v6_0_15.delay_bit [\delay_bit(delay_len=0,family="k...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_inp_config [\cordic_inp_config(p_xdevicefami...]
+Compiling architecture struct_all of entity cordic_v6_0_15.delay [\delay(delay_len=1,family="kinte...]
+Compiling architecture struct_all of entity cordic_v6_0_15.delay_bit [\delay_bit(delay_len=2,family="k...]
+Compiling architecture struct_all of entity cordic_v6_0_15.delay_bit [\delay_bit(delay_len=1,family="k...]
+Compiling architecture struct_all of entity cordic_v6_0_15.delay_bit [\delay_bit(delay_len=1,family="k...]
+Compiling architecture structural of entity c_reg_fd_v12_0_6.c_reg_fd_v12_0_6_viv [\c_reg_fd_v12_0_6_viv(c_width=8,...]
+Compiling architecture rtl of entity c_addsub_v12_0_13.c_addsub_v12_0_13_lut6_legacy [\c_addsub_v12_0_13_lut6_legacy(c...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_fabric_legacy [\c_addsub_v12_0_13_fabric_legacy...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_legacy [\c_addsub_v12_0_13_legacy(c_fami...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_viv [\c_addsub_v12_0_13_viv(c_xdevice...]
+Compiling architecture synth of entity cordic_v6_0_15.addsub [\addsub(family="kintex7l",add_mo...]
+Compiling architecture struct_all of entity cordic_v6_0_15.delay [\delay(delay_len=1,family="kinte...]
+Compiling architecture muxcy_d_v of entity unisim.MUXCY_D [muxcy_d_default]
+Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
+Compiling architecture arch1 of entity cordic_v6_0_15.compare [\compare(value=33,family="kintex...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_cntr [\cordic_cntr(p_xdevicefamily="ki...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_ctrl_slice_wser [\cordic_ctrl_slice_wser(p_xdevic...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_shift [\cordic_shift(p_xdevicefamily="k...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_dat_acc_slice_wser [\cordic_dat_acc_slice_wser(p_xde...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_atan_rom [\cordic_atan_rom(cordic_funct=1,...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_pha_acc_slice_wser [\cordic_pha_acc_slice_wser(p_xde...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_eng_slice_wser [\cordic_eng_slice_wser(p_xdevice...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_eng [\cordic_eng(p_xdevicefamily="kin...]
+Compiling architecture struct_all of entity cordic_v6_0_15.delay [\delay(delay_len=2,family="kinte...]
+Compiling architecture struct_all of entity cordic_v6_0_15.delay [\delay(delay_len=1,family="kinte...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_round [\cordic_round(p_xdevicefamily="k...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_out_config [\cordic_out_config(p_xdevicefami...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_v6_0_15_synth [\cordic_v6_0_15_synth(c_cordic_f...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_v6_0_15_viv [\cordic_v6_0_15_viv(c_cordic_fun...]
+Compiling architecture xilinx of entity cordic_v6_0_15.cordic_v6_0_15 [\cordic_v6_0_15(c_cordic_functio...]
+Compiling architecture fm_demod_cordic_rx_3_arch of entity xil_defaultlib.FM_Demod_cordic_rx_3 [fm_demod_cordic_rx_3_default]
+Compiling architecture structural of entity c_reg_fd_v12_0_6.c_reg_fd_v12_0_6_viv [\c_reg_fd_v12_0_6_viv(c_width=32...]
+Compiling architecture rtl of entity c_addsub_v12_0_13.c_addsub_v12_0_13_lut6_legacy [\c_addsub_v12_0_13_lut6_legacy(c...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_fabric_legacy [\c_addsub_v12_0_13_fabric_legacy...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_legacy [\c_addsub_v12_0_13_legacy(c_fami...]
+Compiling architecture struct of entity c_accum_v12_0_13.c_accum_v12_0_13_fabric_legacy [\c_accum_v12_0_13_fabric_legacy(...]
+Compiling architecture rtl of entity c_accum_v12_0_13.c_accum_v12_0_13_legacy [\c_accum_v12_0_13_legacy(c_famil...]
+Compiling architecture synth of entity c_accum_v12_0_13.c_accum_v12_0_13_viv [\c_accum_v12_0_13_viv(c_xdevicef...]
+Compiling architecture xilinx of entity c_accum_v12_0_13.c_accum_v12_0_13 [\c_accum_v12_0_13(c_xdevicefamil...]
+Compiling architecture fm_demod_de_acc_3_arch of entity xil_defaultlib.FM_Demod_de_acc_3 [fm_demod_de_acc_3_default]
+Compiling architecture struct of entity c_shift_ram_v12_0_13.c_shift_ram_v12_0_13_legacy [\c_shift_ram_v12_0_13_legacy(c_x...]
+Compiling architecture synth of entity c_shift_ram_v12_0_13.c_shift_ram_v12_0_13_viv [\c_shift_ram_v12_0_13_viv(c_xdev...]
+Compiling architecture xilinx of entity c_shift_ram_v12_0_13.c_shift_ram_v12_0_13 [\c_shift_ram_v12_0_13(c_xdevicef...]
+Compiling architecture fm_demod_de_ce_3_arch of entity xil_defaultlib.FM_Demod_de_ce_3 [fm_demod_de_ce_3_default]
+Compiling module xlslice_v1_0_2.xlslice_v1_0_2_xlslice(DIN_FROM=...
+Compiling architecture xilinx of entity mult_gen_v12_0_15.ccm_dist_mem [\ccm_dist_mem(c_addr_width=6,c_d...]
+Compiling architecture xilinx of entity mult_gen_v12_0_15.ccm_syncmem [\ccm_syncmem(c_xdevicefamily="ki...]
+Compiling architecture xilinx of entity mult_gen_v12_0_15.ccm_scaled_adder [\ccm_scaled_adder(a_width=17,b_w...]
+Compiling architecture xilinx of entity mult_gen_v12_0_15.ccm_dist_mem [\ccm_dist_mem(c_addr_width=6,c_d...]
+Compiling architecture xilinx of entity mult_gen_v12_0_15.ccm_syncmem [\ccm_syncmem(c_xdevicefamily="ki...]
+Compiling architecture xilinx of entity mult_gen_v12_0_15.delay_line [\delay_line(c_xdevicefamily="kin...]
+Compiling architecture xilinx of entity mult_gen_v12_0_15.ccm_scaled_adder [\ccm_scaled_adder(a_width=24,b_w...]
+Compiling architecture xilinx of entity mult_gen_v12_0_15.delay_line [\delay_line(c_xdevicefamily="kin...]
+Compiling architecture xilinx of entity mult_gen_v12_0_15.ccm_operation [\ccm_operation(c_xdevicefamily="...]
+Compiling architecture xilinx of entity mult_gen_v12_0_15.ccm [\ccm(c_xdevicefamily="kintex7l",...]
+Compiling architecture xilinx of entity mult_gen_v12_0_15.mult_gen_v12_0_15_viv [\mult_gen_v12_0_15_viv(c_verbosi...]
+Compiling architecture xilinx of entity mult_gen_v12_0_15.mult_gen_v12_0_15 [\mult_gen_v12_0_15(c_xdevicefami...]
+Compiling architecture fm_demod_de_mul_3_arch of entity xil_defaultlib.FM_Demod_de_mul_3 [fm_demod_de_mul_3_default]
+Compiling module xlslice_v1_0_2.xlslice_v1_0_2_xlslice(DIN_FROM=...
+Compiling architecture structural of entity c_reg_fd_v12_0_6.c_reg_fd_v12_0_6_viv [\c_reg_fd_v12_0_6_viv(c_width=17...]
+Compiling architecture rtl of entity c_addsub_v12_0_13.c_addsub_v12_0_13_lut6_legacy [\c_addsub_v12_0_13_lut6_legacy(c...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_fabric_legacy [\c_addsub_v12_0_13_fabric_legacy...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_legacy [\c_addsub_v12_0_13_legacy(c_fami...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_viv [\c_addsub_v12_0_13_viv(c_xdevice...]
+Compiling architecture xilinx of entity c_addsub_v12_0_13.c_addsub_v12_0_13 [\c_addsub_v12_0_13(c_xdevicefami...]
+Compiling architecture fm_demod_de_sub_3_arch of entity xil_defaultlib.FM_Demod_de_sub_3 [fm_demod_de_sub_3_default]
+Compiling architecture structural of entity c_reg_fd_v12_0_6.c_reg_fd_v12_0_6_viv [\c_reg_fd_v12_0_6_viv(c_sync_pri...]
+Compiling architecture struct of entity c_shift_ram_v12_0_13.c_shift_ram_v12_0_13_legacy [\c_shift_ram_v12_0_13_legacy(c_x...]
+Compiling architecture synth of entity c_shift_ram_v12_0_13.c_shift_ram_v12_0_13_viv [\c_shift_ram_v12_0_13_viv(c_xdev...]
+Compiling architecture xilinx of entity c_shift_ram_v12_0_13.c_shift_ram_v12_0_13 [\c_shift_ram_v12_0_13(c_xdevicef...]
+Compiling architecture fm_demod_de_vld_3_arch of entity xil_defaultlib.FM_Demod_de_vld_3 [fm_demod_de_vld_3_default]
+Compiling module xil_defaultlib.round_sat(IN_W=20,SHIFT=2,ROUND=...
+Compiling module xil_defaultlib.FM_Demod_disc_sat_3
+Compiling architecture fm_demod_disc_vld_3_arch of entity xil_defaultlib.FM_Demod_disc_vld_3 [fm_demod_disc_vld_3_default]
+Compiling module xlslice_v1_0_2.xlslice_v1_0_2_xlslice(DIN_WIDTH...
+Compiling module xlslice_v1_0_2.xlslice_v1_0_2_xlslice(DIN_WIDTH...
+Compiling module xlconcat_v2_1_3.xlconcat_v2_1_3_xlconcat(IN0_WID...
+Compiling module xil_defaultlib.FM_Demod_iq_pack_3
+Compiling module xlconstant_v1_1_6.xlconstant_v1_1_6_xlconstant(CON...
+Compiling module xlslice_v1_0_2.xlslice_v1_0_2_xlslice(DIN_WIDTH...
+Compiling module xlslice_v1_0_2.xlslice_v1_0_2_xlslice(DIN_WIDTH...
+Compiling architecture structural of entity c_reg_fd_v12_0_6.c_reg_fd_v12_0_6_viv [\c_reg_fd_v12_0_6_viv(c_width=34...]
+Compiling architecture struct of entity c_shift_ram_v12_0_13.c_shift_ram_v12_0_13_legacy [\c_shift_ram_v12_0_13_legacy(c_x...]
+Compiling architecture synth of entity c_shift_ram_v12_0_13.c_shift_ram_v12_0_13_viv [\c_shift_ram_v12_0_13_viv(c_xdev...]
+Compiling architecture xilinx of entity c_shift_ram_v12_0_13.c_shift_ram_v12_0_13 [\c_shift_ram_v12_0_13(c_xdevicef...]
+Compiling architecture fm_demod_mag_reg_3_arch of entity xil_defaultlib.FM_Demod_mag_reg_3 [fm_demod_mag_reg_3_default]
+Compiling module xlslice_v1_0_2.xlslice_v1_0_2_xlslice(DIN_WIDTH...
+Compiling module xil_defaultlib.round_sat
+Compiling module xil_defaultlib.FM_Demod_out_round_3
+Compiling architecture structural of entity c_reg_fd_v12_0_6.c_reg_fd_v12_0_6_viv [\c_reg_fd_v12_0_6_viv(c_width=20...]
+Compiling architecture rtl of entity c_addsub_v12_0_13.c_addsub_v12_0_13_lut6_legacy [\c_addsub_v12_0_13_lut6_legacy(c...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_fabric_legacy [\c_addsub_v12_0_13_fabric_legacy...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_legacy [\c_addsub_v12_0_13_legacy(c_fami...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_viv [\c_addsub_v12_0_13_viv(c_xdevice...]
+Compiling architecture xilinx of entity c_addsub_v12_0_13.c_addsub_v12_0_13 [\c_addsub_v12_0_13(c_xdevicefami...]
+Compiling architecture fm_demod_phase_diff_3_arch of entity xil_defaultlib.FM_Demod_phase_diff_3 [fm_demod_phase_diff_3_default]
+Compiling module xlslice_v1_0_2.xlslice_v1_0_2_xlslice(DIN_WIDTH...
+Compiling architecture structural of entity c_reg_fd_v12_0_6.c_reg_fd_v12_0_6_viv [\c_reg_fd_v12_0_6_viv(c_width=20...]
+Compiling architecture struct of entity c_shift_ram_v12_0_13.c_shift_ram_v12_0_13_legacy [\c_shift_ram_v12_0_13_legacy(c_x...]
+Compiling architecture synth of entity c_shift_ram_v12_0_13.c_shift_ram_v12_0_13_viv [\c_shift_ram_v12_0_13_viv(c_xdev...]
+Compiling architecture xilinx of entity c_shift_ram_v12_0_13.c_shift_ram_v12_0_13 [\c_shift_ram_v12_0_13(c_xdevicef...]
+Compiling architecture fm_demod_phase_z1_3_arch of entity xil_defaultlib.FM_Demod_phase_z1_3 [fm_demod_phase_z1_3_default]
+Compiling module util_vector_logic_v2_0_1.util_vector_logic_v2_0_1_util_ve...
+Compiling module xil_defaultlib.FM_Demod_rst_inv_6
+Compiling module xlconstant_v1_1_6.xlconstant_v1_1_6_xlconstant(CON...
+Compiling module xlconstant_v1_1_6.xlconstant_v1_1_6_xlconstant(CON...
+Compiling module xil_defaultlib.fm_squelch(MAG_W=34)
+Compiling module xil_defaultlib.FM_Demod_squelch_3
+Compiling module xil_defaultlib.fm_demod_imp_HG3VFG
+Compiling module xil_defaultlib.iir_biquad(DATA_W=24,B0=63218,B1...
+Compiling module xil_defaultlib.FM_Demod_bq0_7
+Compiling module xil_defaultlib.iir_biquad(DATA_W=24,B0=64541,B1...
+Compiling module xil_defaultlib.FM_Demod_bq1_7
+Compiling module xil_defaultlib.iir_biquad(DATA_W=24,B0=1843,B1=...
+Compiling module xil_defaultlib.FM_Demod_bq2_7
+Compiling module xil_defaultlib.iir_biquad(DATA_W=24,B0=2176,B1=...
+Compiling module xil_defaultlib.FM_Demod_bq3_7
+Compiling module xlconcat_v2_1_3.xlconcat_v2_1_3_xlconcat(IN0_WID...
+Compiling module xil_defaultlib.FM_Demod_bq_guard_7
+Compiling module xil_defaultlib.round_sat(IN_W=24)
+Compiling module xil_defaultlib.FM_Demod_bq_round_3
+Compiling architecture synth of entity xbip_pipe_v3_0_6.xbip_pipe_v3_0_6_viv [\xbip_pipe_v3_0_6_viv(c_latency=...]
+Compiling architecture structural of entity c_reg_fd_v12_0_6.c_reg_fd_v12_0_6_viv [\c_reg_fd_v12_0_6_viv(c_width=38...]
+Compiling architecture rtl of entity c_addsub_v12_0_13.c_addsub_v12_0_13_lut6_legacy [\c_addsub_v12_0_13_lut6_legacy(c...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_fabric_legacy [\c_addsub_v12_0_13_fabric_legacy...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_legacy [\c_addsub_v12_0_13_legacy(c_fami...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_viv [\c_addsub_v12_0_13_viv(c_xdevice...]
+Compiling architecture synth of entity cordic_v6_0_15.addsub [\addsub(family="kintex7l",add_mo...]
+Compiling architecture struct_all of entity cordic_v6_0_15.delay [\delay(delay_len=1,family="kinte...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_inp_config [\cordic_inp_config(p_xdevicefami...]
+Compiling architecture structural of entity c_reg_fd_v12_0_6.c_reg_fd_v12_0_6_viv [\c_reg_fd_v12_0_6_viv(c_width=7,...]
+Compiling architecture rtl of entity c_addsub_v12_0_13.c_addsub_v12_0_13_lut6_legacy [\c_addsub_v12_0_13_lut6_legacy(c...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_fabric_legacy [\c_addsub_v12_0_13_fabric_legacy...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_legacy [\c_addsub_v12_0_13_legacy(c_fami...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_viv [\c_addsub_v12_0_13_viv(c_xdevice...]
+Compiling architecture synth of entity cordic_v6_0_15.addsub [\addsub(family="kintex7l",add_mo...]
+Compiling architecture struct_all of entity cordic_v6_0_15.delay [\delay(delay_len=1,family="kinte...]
+Compiling architecture arch1 of entity cordic_v6_0_15.compare [\compare(value=27,family="kintex...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_cntr [\cordic_cntr(p_xdevicefamily="ki...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_ctrl_slice_wser [\cordic_ctrl_slice_wser(p_xdevic...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_shift [\cordic_shift(p_xdevicefamily="k...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_dat_acc_slice_wser [\cordic_dat_acc_slice_wser(p_xde...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_atan_rom [\cordic_atan_rom(cordic_funct=2,...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_pha_acc_slice_wser [\cordic_pha_acc_slice_wser(p_xde...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_eng_slice_wser [\cordic_eng_slice_wser(p_xdevice...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_eng [\cordic_eng(p_xdevicefamily="kin...]
+Compiling architecture struct_all of entity cordic_v6_0_15.delay [\delay(delay_len=0,family="kinte...]
+Compiling architecture structural of entity c_reg_fd_v12_0_6.c_reg_fd_v12_0_6_viv [\c_reg_fd_v12_0_6_viv(c_width=38...]
+Compiling architecture rtl of entity c_addsub_v12_0_13.c_addsub_v12_0_13_lut6_legacy [\c_addsub_v12_0_13_lut6_legacy(c...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_fabric_legacy [\c_addsub_v12_0_13_fabric_legacy...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_legacy [\c_addsub_v12_0_13_legacy(c_fami...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_viv [\c_addsub_v12_0_13_viv(c_xdevice...]
+Compiling architecture synth of entity cordic_v6_0_15.addsub [\addsub(family="kintex7l",add_mo...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_round [\cordic_round(p_xdevicefamily="k...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_out_config [\cordic_out_config(p_xdevicefami...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_v6_0_15_synth [\cordic_v6_0_15_synth(c_cordic_f...]
+Compiling architecture synth of entity cordic_v6_0_15.cordic_v6_0_15_viv [\cordic_v6_0_15_viv(c_cordic_fun...]
+Compiling architecture xilinx of entity cordic_v6_0_15.cordic_v6_0_15 [\cordic_v6_0_15(c_cordic_functio...]
+Compiling architecture fm_demod_cordic_tx_3_arch of entity xil_defaultlib.FM_Demod_cordic_tx_3 [fm_demod_cordic_tx_3_default]
+Compiling module xil_defaultlib.round_sat(IN_W=31,SHIFT=0,ROUND=...
+Compiling module xil_defaultlib.FM_Demod_dev_limit_3
+Compiling architecture structural of entity c_reg_fd_v12_0_6.c_reg_fd_v12_0_6_viv [\c_reg_fd_v12_0_6_viv(c_width=28...]
+Compiling architecture rtl of entity c_addsub_v12_0_13.c_addsub_v12_0_13_lut6_legacy [\c_addsub_v12_0_13_lut6_legacy(c...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_fabric_legacy [\c_addsub_v12_0_13_fabric_legacy...]
+Compiling architecture synth of entity c_addsub_v12_0_13.c_addsub_v12_0_13_legacy [\c_addsub_v12_0_13_legacy(c_fami...]
+Compiling architecture struct of entity c_accum_v12_0_13.c_accum_v12_0_13_fabric_legacy [\c_accum_v12_0_13_fabric_legacy(...]
+Compiling architecture rtl of entity c_accum_v12_0_13.c_accum_v12_0_13_legacy [\c_accum_v12_0_13_legacy(c_famil...]
+Compiling architecture synth of entity c_accum_v12_0_13.c_accum_v12_0_13_viv [\c_accum_v12_0_13_viv(c_xdevicef...]
+Compiling architecture xilinx of entity c_accum_v12_0_13.c_accum_v12_0_13 [\c_accum_v12_0_13(c_xdevicefamil...]
+Compiling architecture fm_demod_phase_acc_3_arch of entity xil_defaultlib.FM_Demod_phase_acc_3 [fm_demod_phase_acc_3_default]
+Compiling module xlconstant_v1_1_6.xlconstant_v1_1_6_xlconstant(CON...
+Compiling module xlconcat_v2_1_3.xlconcat_v2_1_3_xlconcat(IN0_WID...
+Compiling module xil_defaultlib.FM_Demod_phase_pack_3
+Compiling module xlslice_v1_0_2.xlslice_v1_0_2_xlslice(DIN_WIDTH...
+Compiling architecture fm_demod_phase_vld_3_arch of entity xil_defaultlib.FM_Demod_phase_vld_3 [fm_demod_phase_vld_3_default]
+Compiling architecture synth of entity fir_compiler_v7_2_12.delay [\delay(c_delay_len=1,c_xdevicefa...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.delay [\delay(c_delay_len=2,c_xdevicefa...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.delay [\delay(c_delay_len=1,c_xdevicefa...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.sp_mem [\sp_mem(c_xdevicefamily="kintex7...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.sp_mem [\sp_mem(c_xdevicefamily="kintex7...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.filt_mem [\filt_mem(c_xdevicefamily="kinte...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.cntrl_delay [\cntrl_delay(c_delay_len=0,c_mem...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.delay [\delay(c_delay_len=0,c_xdevicefa...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.delay [\delay(c_delay_len=0,c_xdevicefa...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.delay [\delay(c_delay_len=0,c_xdevicefa...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.delay [\delay(c_delay_len=0,c_xdevicefa...]
+Compiling architecture dsp48e1_v of entity unisim.DSP48E1 [\DSP48E1(inmodereg=0,mask="11111...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.calc [\calc(c_xdevicefamily="kintex7l"...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.addsub_mult_accum [\addsub_mult_accum(c_xdevicefami...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.delay [\delay(c_delay_len=1,c_xdevicefa...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.delay [\delay(c_delay_len=0,c_xdevicefa...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.delay [\delay(c_delay_len=1,c_xdevicefa...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.delay [\delay(c_delay_len=2,c_xdevicefa...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.delay [\delay(c_delay_len=0,c_xdevicefa...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.delay [\delay(c_delay_len=3,c_xdevicefa...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.delay [\delay(c_delay_len=6,c_xdevicefa...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.single_rate [\single_rate(c_xdevicefamily="ki...]
+Compiling architecture synth of entity fir_compiler_v7_2_12.fir_compiler_v7_2_12_viv [\fir_compiler_v7_2_12_viv(c_xdev...]
+Compiling architecture xilinx of entity fir_compiler_v7_2_12.fir_compiler_v7_2_12 [\fir_compiler_v7_2_12(c_xdevicef...]
+Compiling architecture fm_demod_pre_emph_3_arch of entity xil_defaultlib.FM_Demod_pre_emph_3 [fm_demod_pre_emph_3_default]
+Compiling module xlslice_v1_0_2.xlslice_v1_0_2_xlslice(DIN_FROM=...
+Compiling module xil_defaultlib.FM_Demod_rst_inv_7
+Compiling module xil_defaultlib.fm_mod_imp_1G9E4IN
+Compiling module xil_defaultlib.FM_Demod
+Compiling module xil_defaultlib.FM_Demod_wrapper
+Compiling module xil_defaultlib.tb_fm(IN_W=32)
+WARNING: [XSIM 43-3373] "C:/Users/ubaid/Desktop/Data/HT_Data/FM_Demod/FM_Demod.srcs/sim_1/new/tb_fm.sv" Line 52. System function $value$plusargs is used as system task. This system function should have a LHS e.g. x=$value$plusargs().
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_fm_fast
